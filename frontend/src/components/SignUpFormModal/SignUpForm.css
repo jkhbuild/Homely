@@ -1,0 +1,11 @@
+#signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#users-name {
+    display: flex;
+    flex-direction: row;
+    color: #4c4c4c
+}
