@@ -70,7 +70,7 @@ function LoginForm() {
           );
         }}
       >
-        {" "}
+        Demo User
       </button>
     </div>
   );
