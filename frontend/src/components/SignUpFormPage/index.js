@@ -11,7 +11,7 @@ function SignupFormPage() {
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [isProfessional, setIsProfessional] = useState("");
+  const [isProfessional, setIsProfessional] = useState(false);
   const [role, setRole] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -56,6 +56,8 @@ function SignupFormPage() {
           <li key={error}>{error}</li>
         ))}
       </ul>
+      <h1>Create an Account</h1>
+
       <label>
         Email
         <input
@@ -106,8 +108,7 @@ function SignupFormPage() {
         <input
           type="checkbox"
           value={isProfessional}
-          onChange={(e) => setIsProfessional(e.target.value)}
-          required
+          onChange={(e) => setIsProfessional(!isProfessional)}
         />
       </label>
       <button type="submit">Sign Up</button>
