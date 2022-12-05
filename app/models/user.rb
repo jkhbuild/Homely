@@ -4,7 +4,17 @@ class User < ApplicationRecord
 
     validates :email, uniqueness: true, length: {in: 3..30 }, format: { with: URI::MailTo::EMAIL_REGEXP }
     validates :session_token, presence: true, uniqueness: true
-    validates :password, length: { minimum: 10 }, allow_nil: true
+    validates :password, length: { minimum: 6 }, allow_nil: true
+
+    def self.find_by_credentials(email, password)
+        user = User.find_by(email: email)
+        
+        if user&.authenticate(password) 
+            return user
+        else
+            nil 
+        end
+    end
 
     def ensure_session_token
         self.session_token ||= generate_unique_session_token
