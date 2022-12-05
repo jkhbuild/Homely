@@ -50,80 +50,90 @@ function SignUpForm() {
   };
 
   return (
-    <form id="signup" onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error) => (
-          <li key={error}>{error}</li>
-        ))}
-      </ul>
+    <>
+      <form id="signup" onSubmit={handleSubmit}>
+        <ul>
+          {errors.map((error) => (
+            <li key={error}>{error}</li>
+          ))}
+        </ul>
 
-      <div class="modal-header">
-        <h1>Create an Account</h1>
-        <button class="modal-close-button">
-          <i class="fa-solid fa-circle-info fa-2xl"></i>
-        </button>
-      </div>
+        <div class="modal-header">
+          <p> Create an Account</p>
+          <button class="modal-close-button">
+            <i class="fa-solid fa-xmark fa-2xl"></i>
+          </button>
+          <p id="sign-in-instead">
+            Or, &nbsp;
+            <a id="signup-signin" href="/">
+              sign into your account
+            </a>
+          </p>
+        </div>
 
-      <div id="users-name">
+        <div class="form-half-size">
+          <label class="user-input">
+            First Name
+            <input
+              type="text"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+            />
+          </label>
+        </div>
+        <div class="form-half-size">
+          <label class="user-input">
+            Last Name
+            <input
+              type="text"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              required
+            />
+          </label>
+        </div>
+
         <label class="user-input">
-          First Name
+          Email Address
           <input
             type="text"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </label>
+
+        <label>
+          I am an industry professional
+          <input
+            type="checkbox"
+            checked={isProfessional}
+            onChange={(e) => setIsProfessional(e.target.checked)}
+          />
+        </label>
+        <label class="user-input">
+          Password
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             required
           />
         </label>
         <label class="user-input">
-          Last Name
+          Confirm Password
           <input
-            type="text"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            type="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
         </label>
-      </div>
 
-      <label class="user-input">
-        Email Address
-        <input
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </label>
-
-      <label>
-        I am an industry professional
-        <input
-          type="checkbox"
-          checked={isProfessional}
-          onChange={(e) => setIsProfessional(e.target.checked)}
-        />
-      </label>
-      <label class="user-input">
-        Password
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <label class="user-input">
-        Confirm Password
-        <input
-          type="password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-        />
-      </label>
-
-      <button type="submit">Sign Up</button>
-    </form>
+        <button type="submit">Sign Up</button>
+      </form>
+    </>
   );
 }
 

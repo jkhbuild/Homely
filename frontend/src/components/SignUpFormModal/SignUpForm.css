@@ -1,11 +1,87 @@
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+div {
+    display: block;
+}
+
+.form-half-size {
+    transition: all .2s ease-in-out;
+    position: relative;
+    min-height: 0.0625;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    float: left;
+    overflow: visible;
+    box-sizing: border-box;
+}
+
+#modal-content {
+    padding-bottom: 1rem;
+    position: relative;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.2);
+    background-clip: padding-box;
+    outline: none;
+    font-size: 1rem;
+    color: #4c4c4c;
+}
+
+.modal-header {
+    width: 100%;
+    transition: all .2s ease-in-out;
+    position: relative;
+    min-height: .0625rem;
+    float: left;
+    overflow: visible;
+    box-sizing: border-box;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    text-align: center;
+}
+
+.modal-header p {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin: 1.5rem, 0;
+}
+
+#sign-in-instead {
+    font-size: .875rem;
+    line-height: 1.125rem
+}
+
 #signup {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    padding: 5%
 }
-#users-name {
+
+.modal-close-button {
+    position: absolute;
+    right: 0;
+    top: 5%;
+    background-color: Transparent;
+    border: none;
+}
+
+.user-input {
+    font-size: 1rem;
+    line-height: 1.375;
+    margin-bottom: .125rem;
+}
+
+.users-input input{
     display: flex;
     flex-direction: row;
-    color: #4c4c4c
+    color: #4c4c4c;
+    padding: 5%;
 }
