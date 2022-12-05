@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: homely_production
-  username: homely
-  password: <%= ENV["HOMELY_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
