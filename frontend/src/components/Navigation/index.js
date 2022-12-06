@@ -34,7 +34,7 @@ function Navigation() {
     sessionLinks = (
       <>
         <SignUpFormModal />
-        /
+        &nbsp; /
         <LoginFormModal />
       </>
     );
@@ -44,24 +44,29 @@ function Navigation() {
     <div class="header" id="nav-bar-header">
       <ul id="header-container">
         <div id="left-nav">
-          <button className="menu-button" onClick={toggleMenu}>
+          <button id="menu-button" onClick={toggleMenu}>
             <i class="fa-regular fa-bars"></i>
+            Menu
           </button>
           {menu && (
-            <ul class="menu" id="main-menu-dropdown">
-              <li>Renter Tools</li>
-              <li>Apartments For Rent</li>
-              <li>Homes For Rent</li>
-              <li>Condos For Rent</li>
-              <li>Townhomes For Rent</li>
-            </ul>
+            <div id="open-menu-wrapper">
+              <ul class="menu" id="main-menu-dropdown">
+                <li>Renter Tools</li>
+                <li>Apartments For Rent</li>
+                <li>Homes For Rent</li>
+                <li>Condos For Rent</li>
+                <li>Townhomes For Rent</li>
+              </ul>
+            </div>
           )}
         </div>
         <div id="mid-nav">
           <NavLink exact to="/">
-            Homely.com
+            <img
+              src={require("../../assets/apartmentslogo2.png")}
+              alt="logo"
+            ></img>
           </NavLink>
-          <img src="../../assets/apartmentslogo.png" alt="logo"></img>
         </div>
         <div id="right-nav">
           <li>{sessionLinks}</li>

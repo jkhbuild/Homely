@@ -65,7 +65,7 @@ function SignUpForm() {
           </button>
           <p id="sign-in-instead">
             Or, &nbsp;
-            <a id="signup-signin" href="/">
+            <a id="signup-signin" href="">
               sign into your account
             </a>
           </p>

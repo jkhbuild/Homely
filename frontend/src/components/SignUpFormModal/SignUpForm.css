@@ -169,3 +169,10 @@ div {
     border: 1px solid transparent;
 
 }
+
+.auth-buttons {
+    cursor: pointer;
+}
+.auth-buttons:hover {
+    color: #427b01;
+}

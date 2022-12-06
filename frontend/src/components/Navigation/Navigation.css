@@ -8,13 +8,28 @@
 }
 
 #header-container{
+    height: 100%;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
 }
 
 button {
     border: none;
-    background-color: #fff
+    background-color: #fff;
+    margin-left: .5rem;
+}
+
+#menu-button i {
+    margin-right: .5rem;
+}
+
+img {
+    height: 2rem;
+    width: 2rem;
+}
+
+#auth-buttons:focus {
+    color: #427b01
 }
