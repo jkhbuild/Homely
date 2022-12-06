@@ -10,18 +10,7 @@ div {
     display: block;
 }
 
-#modal-content {
-    padding-bottom: 1rem;
-    position: relative;
-    background-color: #fff;
-    border: 1px solid rgba(0,0,0,.2);
-    background-clip: padding-box;
-    outline: none;
-    font-size: 1rem;
-    color: #4c4c4c;
-}
-
-#signup {
+#sign-up {
     padding: 0 0.5rem;
     overflow: auto;
     font-family: 'Roboto', sans-serif;
@@ -153,13 +142,13 @@ div {
     min-inline-size: min-content;
 }
 
-.login-button-container {
+.sign-up-button-container{
     box-sizing: border-box;
     font-weight: 300;
     line-height: 1.4;
 }
 
-.login-button {
+.sign-up-button {
     margin-top: 15px;
     width: 100%;
     padding: 8px 12px;

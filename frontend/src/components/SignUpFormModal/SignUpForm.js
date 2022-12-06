@@ -51,7 +51,7 @@ function SignUpForm() {
 
   return (
     <>
-      <form id="signup" onSubmit={handleSubmit}>
+      <form id="sign-up" onSubmit={handleSubmit}>
         <ul>
           {errors.map((error) => (
             <li key={error}>{error}</li>
@@ -151,8 +151,8 @@ function SignUpForm() {
           </fieldset>
         </div>
 
-        <div class="login-button-container">
-          <button class="login-button" type="submit">
+        <div class="sign-un-button-container">
+          <button class="sign-up-button" type="submit">
             Sign Up
           </button>
         </div>
