@@ -72,66 +72,90 @@ function SignUpForm() {
         </div>
 
         <div class="form-half-size">
-          <label class="user-input">
-            First Name
-            <input
-              type="text"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              required
-            />
-          </label>
+          <fieldset class="form-text">
+            <label class="user-input">
+              First Name
+              <input
+                type="text"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                required
+              />
+            </label>
+          </fieldset>
         </div>
         <div class="form-half-size">
-          <label class="user-input">
-            Last Name
-            <input
-              type="text"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              required
-            />
-          </label>
+          <fieldset class="form-text">
+            <label class="user-input">
+              Last Name
+              <input
+                type="text"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                required
+              />
+            </label>
+          </fieldset>
         </div>
 
-        <label class="user-input">
-          Email Address
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
+        <div class="form-full-size">
+          <fieldset class="form-text">
+            <label class="user-input">
+              Email Address
+              <input
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </label>
+          </fieldset>
+        </div>
+        <div class="form-full-size">
+          <fieldset class="form-checkbox">
+            <label>
+              I am an industry professional
+              <input
+                type="checkbox"
+                checked={isProfessional}
+                onChange={(e) => setIsProfessional(e.target.checked)}
+              />
+            </label>
+          </fieldset>
+        </div>
 
-        <label>
-          I am an industry professional
-          <input
-            type="checkbox"
-            checked={isProfessional}
-            onChange={(e) => setIsProfessional(e.target.checked)}
-          />
-        </label>
-        <label class="user-input">
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <label class="user-input">
-          Confirm Password
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </label>
+        <div class="form-full-size">
+          <fieldset class="form-text">
+            <label class="user-input">
+              Password
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </label>
+          </fieldset>
+        </div>
+        <div class="form-full-size">
+          <fieldset class="form-text">
+            <label class="user-input">
+              Confirm Password
+              <input
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              />
+            </label>
+          </fieldset>
+        </div>
 
-        <button type="submit">Sign Up</button>
+        <div class="login-button-container">
+          <button class="login-button" type="submit">
+            Sign Up
+          </button>
+        </div>
       </form>
     </>
   );

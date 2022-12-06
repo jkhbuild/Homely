@@ -4,9 +4,20 @@
     right: 0;
     left: 0;
     bottom: 0;
+    z-index: 1060;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#modal-container {
+    width: 31.875rem;
+    position: absolute;
+    top: 14%;
+    height: calc(100% - 8.875rem);
+    margin-top: -8.875;
+    left:50%;
+    margin-left: -20.1875rem;
 }
 
 #modal-background {
@@ -21,4 +32,8 @@
 #modal-content {
     position: relative;
     background-color: white;
+    border: 1px solid rgba(0,0,0,.2);
+    background-clip: padding-box;
+    outline: none;
+    padding-bottom: 1rem;
 }
