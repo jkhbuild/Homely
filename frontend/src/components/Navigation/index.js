@@ -33,15 +33,16 @@ function Navigation() {
   } else {
     sessionLinks = (
       <>
-        <LoginFormModal />
         <SignUpFormModal />
+        /
+        <LoginFormModal />
       </>
     );
   }
 
   return (
     <div class="header" id="nav-bar-header">
-      <ul>
+      <ul id="header-container">
         <div id="left-nav">
           <button className="menu-button" onClick={toggleMenu}>
             <i class="fa-regular fa-bars"></i>
