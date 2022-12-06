@@ -14,8 +14,6 @@ div {
     padding: 0 0.5rem;
     overflow: auto;
     font-family: 'Roboto', sans-serif;
-    box-sizing: inherit;
-
 }
 
 .modal-header {
@@ -116,6 +114,16 @@ div {
     box-sizing: border-box;
     font-weight: 300;
     line-height: 1.4;
+    transition: all .2s ease-in-out;
+    position: relative;
+    min-height: 0.0625rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    width: 100%;
+    float: left;
+    overflow: visible;
+    box-sizing: border-box;
+    margin-top: 1.55rem;
 }
 
 .login-button {
@@ -128,13 +136,10 @@ div {
     color: #fff;
     font-size: 18px;
     font-weight: 300;
-    font-style: normal;
-    font-stretch: normal;
     border-width: 0;
     display: inline-block;
     margin-bottom: 0;
     vertical-align: middle;
-    touch-action: manipulation;
     cursor: pointer;
     border: 1px solid transparent;
 }
@@ -143,10 +148,16 @@ div {
     box-sizing: border-box;
     font-weight: 300;
     line-height: 1.4;
-    padding: 0 0.5rem;
-    overflow: auto;
-    font-family: 'Roboto', sans-serif;
-    box-sizing: inherit;
+    transition: all .2s ease-in-out;
+    position: relative;
+    min-height: 0.0625rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    width: 100%;
+    float: left;
+    overflow: visible;
+    box-sizing: border-box;
+    margin-top: .1rem;
 }
 
 .demo-button {
@@ -155,7 +166,6 @@ div {
     padding: 8px 12px;
     border-radius: 0.25rem;
     background: #427B01;
-    text-align: center;
     color: #fff;
     font-size: 18px;
     font-weight: 300;

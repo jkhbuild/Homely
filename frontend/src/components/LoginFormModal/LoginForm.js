@@ -85,22 +85,23 @@ function LoginForm() {
             Log In
           </button>
         </div>
+
+        <div class="demo-button-container">
+          <button
+            class="demo-button"
+            onClick={() => {
+              dispatch(
+                sessionActions.login({
+                  email: "demo@user.io",
+                  password: "password",
+                })
+              );
+            }}
+          >
+            Demo User
+          </button>
+        </div>
       </form>
-      <div class="demo-button-container">
-        <button
-          class="demo-button"
-          onClick={() => {
-            dispatch(
-              sessionActions.login({
-                email: "demo@user.io",
-                password: "password",
-              })
-            );
-          }}
-        >
-          Demo User
-        </button>
-      </div>
     </div>
   );
 }

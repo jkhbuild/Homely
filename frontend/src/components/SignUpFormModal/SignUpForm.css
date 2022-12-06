@@ -47,7 +47,6 @@ div {
     top: 5%;
     background-color: Transparent;
     border: none;
-    -webkit-appearance: button;
     text-transform: none;
     overflow: visible;
     font-size: 100%;
@@ -65,7 +64,6 @@ div {
     float: left;
     overflow: visible;
     box-sizing: border-box;
-    -webkit-text-size-adjust: 100%
 }
 
 .user-input {
@@ -87,7 +85,6 @@ div {
     font-size: 1rem;
     margin-top: 0.25rem;
     border: 0.0625rem solid #bfbfbf;
-    -webkit-appearance: none;
     line-height: 1.25;
     margin: 0;
     writing-mode: horizontal-tb !important;
@@ -99,19 +96,6 @@ div {
     display: inline-block;
     text-align: start;
     cursor: text;
-}
-
-.form-full-size {
-    transition: all .2s ease-in-out;
-    position: relative;
-    min-height: 0.0625rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    width: 100%;
-    float: left;
-    overflow: visible;
-    box-sizing: border-box;
-    margin-top: 1.55rem;
 }
 
 .form-text {
@@ -146,33 +130,32 @@ div {
     box-sizing: border-box;
     font-weight: 300;
     line-height: 1.4;
+    transition: all .2s ease-in-out;
+    position: relative;
+    min-height: 0.0625rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    width: 100%;
+    float: left;
+    overflow: visible;
+    box-sizing: border-box;
+    margin-top: 1.55rem;
 }
 
 .sign-up-button {
     margin-top: 15px;
     width: 100%;
-    padding: 8px 12px;
+    padding: 8px;
     border-radius: 0.25rem;
     background: #427B01;
     text-align: center;
     color: #fff;
     font-size: 18px;
     font-weight: 300;
-    font-style: normal;
-    font-stretch: normal;
     border-width: 0;
     display: inline-block;
     margin-bottom: 0;
     vertical-align: middle;
-    touch-action: manipulation;
     cursor: pointer;
     border: 1px solid transparent;
-
-}
-
-.auth-buttons {
-    cursor: pointer;
-}
-.auth-buttons:hover {
-    color: #427b01;
 }

@@ -151,7 +151,7 @@ function SignUpForm() {
           </fieldset>
         </div>
 
-        <div class="sign-un-button-container">
+        <div class="sign-up-button-container">
           <button class="sign-up-button" type="submit">
             Sign Up
           </button>

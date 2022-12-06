@@ -34,31 +34,43 @@ function Navigation() {
     sessionLinks = (
       <>
         <SignUpFormModal />
-        &nbsp; /
+        <span> / </span>
         <LoginFormModal />
       </>
     );
   }
 
   return (
-    <div class="header" id="nav-bar-header">
+    <div className="header" id="nav-bar-header">
       <ul id="header-container">
-        <div id="left-nav">
-          <button id="menu-button" onClick={toggleMenu}>
-            <i class="fa-regular fa-bars"></i>
-            Menu
-          </button>
-          {menu && (
-            <div id="open-menu-wrapper">
-              <ul class="menu" id="main-menu-dropdown">
-                <li>Renter Tools</li>
-                <li>Apartments For Rent</li>
-                <li>Homes For Rent</li>
-                <li>Condos For Rent</li>
-                <li>Townhomes For Rent</li>
-              </ul>
-            </div>
-          )}
+        <div className="left-nav">
+          <div className="menu">
+            <button className="menu-button" onClick={toggleMenu}>
+              <i id="hamburger_icon" className="fa-solid fa-bars fa-2xl"></i>
+              Menu
+            </button>
+            {menu && (
+              <div className="open-menu-wrapper">
+                <ul className="main-menu-list">
+                  <li>
+                    <button className="menu-content">Renter Tools</button>
+                  </li>
+                  <li>
+                    <button className="menu-content">Apartments</button>
+                  </li>
+                  <li>
+                    <button className="menu-content">Homes For Rent</button>
+                  </li>
+                  <li>
+                    <button className="menu-content">Condos For Rent</button>
+                  </li>
+                  <li>
+                    <button className="menu-content">Townhomes For Rent</button>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
         </div>
         <div id="mid-nav">
           <NavLink exact to="/">
@@ -68,8 +80,13 @@ function Navigation() {
             ></img>
           </NavLink>
         </div>
-        <div id="right-nav">
-          <li>{sessionLinks}</li>
+        <div className="right-nav">
+          <div className="signin-signup">
+            <li>{sessionLinks}</li>
+          </div>
+          <button className="listing-button">
+            <span>Add a Property</span>
+          </button>
         </div>
       </ul>
     </div>
