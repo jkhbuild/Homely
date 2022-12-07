@@ -1,10 +1,12 @@
 class User < ApplicationRecord
     has_secure_password
     before_validation :ensure_session_token
-
-    validates :email, uniqueness: true, length: {in: 3..30 }, format: { with: URI::MailTo::EMAIL_REGEXP }
+    validates :first_name, presence: { message: "*Please enter a first name" }
+    validates :last_name, presence: { message: "*Please enter a last name" }
+    validates :email, uniqueness: true, length: { in: 3..30, message: "*Please enter a valid email address" }, 
+    format: { with: URI::MailTo::EMAIL_REGEXP, message: "*Please enter a valid email address" }
     validates :session_token, presence: true, uniqueness: true
-    validates :password, length: { minimum: 6 }, allow_nil: true
+    validates :password, length: { minimum: 10, message: "*This value is too short. It should have 10 characters or more." }, allow_nil: true
 
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
