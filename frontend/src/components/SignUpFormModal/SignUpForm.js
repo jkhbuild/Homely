@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import "./SignUpForm.css";
 
-function SignUpForm(props) {
+function SignUpForm({ onClose, showSignin }) {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
@@ -15,8 +15,6 @@ function SignUpForm(props) {
   const [role, setRole] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
-  const [showModal, setShowModal] = useState(true);
-  const { onClose } = props;
   const [displayErrors, setDisplayErrors] = useState({
     firstName: "",
     lastName: "",
@@ -119,6 +117,12 @@ function SignUpForm(props) {
     }
   };
 
+  const handleSwitch = (e) => {
+    e.preventDefault();
+    onClose();
+    showSignin(true);
+  };
+
   return (
     <>
       <form id="sign-up" onSubmit={handleSubmit}>
@@ -129,7 +133,7 @@ function SignUpForm(props) {
           </button>
           <p id="sign-in-instead">
             Or, &nbsp;
-            <a id="signup-signin" href="">
+            <a id="signup-signin" href="" onClick={handleSwitch}>
               sign into your account
             </a>
           </p>

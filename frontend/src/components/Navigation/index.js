@@ -9,7 +9,8 @@ import "./Navigation.css";
 function Navigation() {
   const sessionUser = useSelector((state) => state.session.user);
   const [menu, setMenu] = useState(false);
-  const [modalType, setModalType] = useState("");
+  const [signupModal, setSignupModal] = useState(false);
+  const [signinModal, setSigninModal] = useState(false);
 
   // Burger Menu - move to seperate file later.
   function toggleMenu() {
@@ -34,9 +35,17 @@ function Navigation() {
   } else {
     sessionLinks = (
       <>
-        <SignUpFormModal />
+        <SignUpFormModal
+          showSignin={(shown) => setSigninModal(shown)}
+          showSignup={(shown) => setSignupModal(shown)}
+          signupModal={signupModal}
+        />
         <span> / </span>
-        <LoginFormModal />
+        <LoginFormModal
+          showSignup={(shown) => setSignupModal(shown)}
+          showSignin={(shown) => setSigninModal(shown)}
+          signinModal={signinModal}
+        />
       </>
     );
   }

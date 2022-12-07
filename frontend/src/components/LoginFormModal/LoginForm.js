@@ -4,13 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import "./LoginForm.css";
 
-function LoginForm(props) {
+function LoginForm({ onClose, showSignup }) {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
-  const { onClose } = props;
   const [displayErrors, setDisplayErrors] = useState({
     email: "",
     password: "",
@@ -73,6 +72,12 @@ function LoginForm(props) {
     );
   };
 
+  const handleSwitch = (e) => {
+    e.preventDefault();
+    onClose();
+    showSignup(true);
+  };
+
   return (
     <div>
       <form id="sign-in" onSubmit={handleSubmit}>
@@ -88,7 +93,7 @@ function LoginForm(props) {
           </button>
           <p id="sign-up-instead">
             Or, &nbsp;
-            <a id="signin-signup" href="/">
+            <a id="signin-signup" href="/" onClick={handleSwitch}>
               create an account
             </a>
           </p>
