@@ -9,6 +9,7 @@ import "./Navigation.css";
 function Navigation() {
   const sessionUser = useSelector((state) => state.session.user);
   const [menu, setMenu] = useState(false);
+  const [modalType, setModalType] = useState("");
 
   // Burger Menu - move to seperate file later.
   function toggleMenu() {

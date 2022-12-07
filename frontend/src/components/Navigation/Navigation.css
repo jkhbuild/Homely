@@ -105,6 +105,7 @@ img {
 
 .listing-button:hover {
     background-color: #4c4c4c;
+    text-decoration: underline
 }
 
 .profile-button-container {

@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import "./SignUpForm.css";
 
-function SignUpForm() {
+function SignUpForm(props) {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
@@ -15,7 +15,8 @@ function SignUpForm() {
   const [role, setRole] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
-
+  const [showModal, setShowModal] = useState(true);
+  const { onClose } = props;
   const [displayErrors, setDisplayErrors] = useState({
     firstName: "",
     lastName: "",
@@ -123,7 +124,7 @@ function SignUpForm() {
       <form id="sign-up" onSubmit={handleSubmit}>
         <div class="modal-header">
           <p> Create an Account</p>
-          <button class="modal-close-button">
+          <button class="modal-close-button" onClick={() => onClose()}>
             <i class="fa-solid fa-xmark fa-2xl"></i>
           </button>
           <p id="sign-in-instead">

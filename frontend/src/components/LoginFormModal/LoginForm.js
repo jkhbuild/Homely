@@ -4,12 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import "./LoginForm.css";
 
-function LoginForm() {
+function LoginForm(props) {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const { onClose } = props;
   const [displayErrors, setDisplayErrors] = useState({
     email: "",
     password: "",
@@ -82,7 +83,7 @@ function LoginForm() {
         </ul> */}
         <div class="modal-header">
           <p> Sign into your account </p>
-          <button class="modal-close-button">
+          <button class="modal-close-button" onClick={() => onClose()}>
             <i class="fa-solid fa-xmark fa-2xl"></i>
           </button>
           <p id="sign-up-instead">
