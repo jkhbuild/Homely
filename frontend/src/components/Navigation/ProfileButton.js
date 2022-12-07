@@ -9,7 +9,6 @@ function ProfileButton({ user }) {
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
-    console.log(user);
   };
 
   useEffect(() => {

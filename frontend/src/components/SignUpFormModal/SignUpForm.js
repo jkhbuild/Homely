@@ -18,11 +18,13 @@ function SignUpForm() {
 
   // if (sessionUser) return <Redirect to="/" />;
 
-  // const [displayErrors, setDisplayErrors] = useState({
-  //   firstName: "",
-  //   lastName: "",
-  //   email: "",
-  // });
+  const [displayErrors, setDisplayErrors] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    confirmEmail: "",
+  });
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -47,28 +49,30 @@ function SignUpForm() {
         if (data?.errors) setErrors(data.errors);
         else if (data) setErrors([data]);
         else setErrors([res.statusText]);
+
+        console.log("first", errors);
+        if (errorsArr.includes("*Please enter a first name"))
+          if (!firstName) {
+            setDisplayErrors((prev) => ({
+              ...prev,
+              firstName: "*Please enter a first name",
+            }));
+          }
       });
     }
-    return setErrors(["This value should be the same."]);
-  };
-
-  const displayErrors = (inputId) => {
+    const errorsArr = errors[0];
     console.log(errors);
-    errors.map((error) =>
-      error.includes(inputId) ? (
-        <span key={error}>{error.split(" ").slice(1).join(" ")}</span>
-      ) : null
-    );
+    console.log(errorsArr);
   };
 
   return (
     <>
       <form id="sign-up" onSubmit={handleSubmit}>
-        {/* <ul>
+        <ul>
           {errors.map((error) => (
             <li key={error}>{error}</li>
           ))}
-        </ul> */}
+        </ul>
         <div class="modal-header">
           <p> Create an Account</p>
           <button class="modal-close-button">
@@ -93,7 +97,7 @@ function SignUpForm() {
                 onChange={(e) => setFirstName(e.target.value)}
               />
             </label>
-            <div class="error-display">{displayErrors("First")}</div>
+            {displayErrors.firstName && <p>{displayErrors.firstName}</p>}
           </fieldset>
         </div>
         <div class="form-half-size">
@@ -107,7 +111,6 @@ function SignUpForm() {
                 onChange={(e) => setLastName(e.target.value)}
               />
             </label>
-            <div class="error-display">{displayErrors("Last")}</div>
           </fieldset>
         </div>
 
@@ -122,7 +125,6 @@ function SignUpForm() {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </label>
-            <div class="error-display">{displayErrors("Email")}</div>
           </fieldset>
         </div>
 
@@ -149,7 +151,6 @@ function SignUpForm() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </label>
-            <div class="error-display">{displayErrors("password")}</div>
           </fieldset>
         </div>
         <div class="form-full-size">
@@ -162,7 +163,6 @@ function SignUpForm() {
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </label>
-            <div class="error-display">{displayErrors("value")}</div>
           </fieldset>
         </div>
 
