@@ -18,8 +18,14 @@ function SignUpForm() {
 
   // if (sessionUser) return <Redirect to="/" />;
 
+  // const [displayErrors, setDisplayErrors] = useState({
+  //   firstName: "",
+  //   lastName: "",
+  //   email: "",
+  // });
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (password === confirmPassword) {
       setErrors([]);
       return dispatch(
@@ -34,30 +40,35 @@ function SignUpForm() {
       ).catch(async (res) => {
         let data;
         try {
-          // .clone() essentially allows you to read the response body twice
           data = await res.clone().json();
         } catch {
-          data = await res.text(); // Will hit this case if the server is down
+          data = await res.text();
         }
         if (data?.errors) setErrors(data.errors);
         else if (data) setErrors([data]);
         else setErrors([res.statusText]);
       });
     }
-    return setErrors([
-      "Confirm Password field must be the same as the Password field",
-    ]);
+    return setErrors(["This value should be the same."]);
+  };
+
+  const displayErrors = (inputId) => {
+    console.log(errors);
+    errors.map((error) =>
+      error.includes(inputId) ? (
+        <span key={error}>{error.split(" ").slice(1).join(" ")}</span>
+      ) : null
+    );
   };
 
   return (
     <>
       <form id="sign-up" onSubmit={handleSubmit}>
-        <ul>
+        {/* <ul>
           {errors.map((error) => (
             <li key={error}>{error}</li>
           ))}
-        </ul>
-
+        </ul> */}
         <div class="modal-header">
           <p> Create an Account</p>
           <button class="modal-close-button">
@@ -77,11 +88,12 @@ function SignUpForm() {
               First Name
               <input
                 type="text"
+                id="firstName"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                required
               />
             </label>
+            <div class="error-display">{displayErrors("First")}</div>
           </fieldset>
         </div>
         <div class="form-half-size">
@@ -90,11 +102,12 @@ function SignUpForm() {
               Last Name
               <input
                 type="text"
+                id="lastName"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                required
               />
             </label>
+            <div class="error-display">{displayErrors("Last")}</div>
           </fieldset>
         </div>
 
@@ -104,13 +117,15 @@ function SignUpForm() {
               Email Address
               <input
                 type="text"
+                id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required
               />
             </label>
+            <div class="error-display">{displayErrors("Email")}</div>
           </fieldset>
         </div>
+
         <div class="form-full-size">
           <fieldset class="form-checkbox">
             <label>
@@ -132,9 +147,9 @@ function SignUpForm() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                required
               />
             </label>
+            <div class="error-display">{displayErrors("password")}</div>
           </fieldset>
         </div>
         <div class="form-full-size">
@@ -145,9 +160,9 @@ function SignUpForm() {
                 type="password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                required
               />
             </label>
+            <div class="error-display">{displayErrors("value")}</div>
           </fieldset>
         </div>
 
