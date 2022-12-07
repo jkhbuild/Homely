@@ -100,10 +100,9 @@ div {
 .login-button-container {
     box-sizing: border-box;
     font-weight: 300;
-    line-height: 1.4;
+    line-height: 1.6;
     transition: all .2s ease-in-out;
     position: relative;
-    min-height: 0.0625rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     width: 100%;
@@ -134,10 +133,9 @@ div {
 .demo-button-container {
     box-sizing: border-box;
     font-weight: 300;
-    line-height: 1.4;
+    line-height: ;
     transition: all .2s ease-in-out;
     position: relative;
-    min-height: 0.0625rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     width: 100%;
@@ -153,19 +151,16 @@ div {
     padding: 8px 12px;
     border-radius: 0.25rem;
     background: #427B01;
+    text-align: center;
     color: #fff;
-    font-size: 18px;
+    font-size: 1rem;
     font-weight: 300;
-    font-style: normal;
-    font-stretch: normal;
     border-width: 0;
     display: inline-block;
     margin-bottom: 0;
     vertical-align: middle;
-    touch-action: manipulation;
     cursor: pointer;
     border: 1px solid transparent;
-
 }
 
 .auth-buttons {

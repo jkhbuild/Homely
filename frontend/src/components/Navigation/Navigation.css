@@ -209,6 +209,11 @@ span {
 }
 
 .error-display {
-    margin-top: .25rem;
+    margin-top: -.75rem;
     color: red;
+    font-size: 14px;
+    line-height: 1.71;
+    font-weight: 300;
+    box-sizing: border-box;
+    display: block;
 }

@@ -10,11 +10,51 @@ function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const [displayErrors, setDisplayErrors] = useState({
+    email: "",
+    password: "",
+    confirmCredentials: "",
+  });
 
   if (sessionUser) return <Redirect to="/" />;
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!sessionUser) {
+      setDisplayErrors((prev) => ({
+        ...prev,
+        confirmCredentials: "Invalid username/password combination",
+      }));
+    } else {
+      setDisplayErrors((prev) => ({
+        ...prev,
+        confirmCredentials: "",
+      }));
+    }
+
+    if (!email) {
+      setDisplayErrors((prev) => ({
+        ...prev,
+        email: "This value is required",
+      }));
+    } else {
+      setDisplayErrors((prev) => ({
+        ...prev,
+        email: "",
+      }));
+    }
+    if (!password) {
+      setDisplayErrors((prev) => ({
+        ...prev,
+        password: "This value is required",
+      }));
+    } else {
+      setDisplayErrors((prev) => ({
+        ...prev,
+        password: "",
+      }));
+    }
+
     setErrors([]);
     return dispatch(sessionActions.login({ email, password })).catch(
       async (res) => {
@@ -35,11 +75,11 @@ function LoginForm() {
   return (
     <div>
       <form id="sign-in" onSubmit={handleSubmit}>
-        <ul>
+        {/* <ul>
           {errors.map((error) => (
             <li key={error}>{error}</li>
           ))}
-        </ul>
+        </ul> */}
         <div class="modal-header">
           <p> Sign into your account </p>
           <button class="modal-close-button">
@@ -60,9 +100,11 @@ function LoginForm() {
                 type="text"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required
               />
             </label>
+            <div className="error-display">
+              {displayErrors.email && <p>{displayErrors.email}</p>}
+            </div>
           </fieldset>
         </div>
 
@@ -74,9 +116,14 @@ function LoginForm() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                required
               />
             </label>
+            <div className="error-display">
+              {displayErrors.password && <p>{displayErrors.password}</p>}
+              {displayErrors.confirmCredentials && (
+                <p>{displayErrors.confirmCredentials}</p>
+              )}
+            </div>
           </fieldset>
         </div>
 

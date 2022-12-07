@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import "./SignUpForm.css";
 
@@ -16,20 +16,85 @@ function SignUpForm() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  // if (sessionUser) return <Redirect to="/" />;
-
   const [displayErrors, setDisplayErrors] = useState({
     firstName: "",
     lastName: "",
     email: "",
-    confirmEmail: "",
+    confirmPassword: "",
   });
+
+  if (sessionUser) return <Redirect to="/" />;
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (!firstName) {
+      setDisplayErrors((prev) => ({
+        ...prev,
+        firstName: "*Please enter a first name",
+      }));
+    } else {
+      setDisplayErrors((prev) => ({
+        ...prev,
+        firstName: "",
+      }));
+    }
+
+    if (!lastName) {
+      setDisplayErrors((prev) => ({
+        ...prev,
+        lastName: "*Please enter a last name",
+      }));
+    } else {
+      setDisplayErrors((prev) => ({
+        ...prev,
+        lastName: "",
+      }));
+    }
+
+    if (!email) {
+      setDisplayErrors((prev) => ({
+        ...prev,
+        email: "*Please enter a valid email address",
+      }));
+    } else {
+      setDisplayErrors((prev) => ({
+        ...prev,
+        email: "",
+      }));
+    }
+
+    if (password.length < 10) {
+      setDisplayErrors((prev) => ({
+        ...prev,
+        password:
+          "*This value is too short. It should have 10 characters or more.",
+      }));
+    } else {
+      setDisplayErrors((prev) => ({
+        ...prev,
+        password: "",
+      }));
+    }
+
+    if (password !== confirmPassword) {
+      setDisplayErrors((prev) => ({
+        ...prev,
+        confirmPassword: "*The value should be the same",
+      }));
+    } else {
+      setDisplayErrors((prev) => ({
+        ...prev,
+        confirmPassword: "",
+      }));
+    }
+
+    console.log(password);
+    console.log(confirmPassword);
     if (password === confirmPassword) {
       setErrors([]);
+      console.log(password);
+      console.log(confirmPassword);
       return dispatch(
         sessionActions.signup({
           email,
@@ -49,30 +114,13 @@ function SignUpForm() {
         if (data?.errors) setErrors(data.errors);
         else if (data) setErrors([data]);
         else setErrors([res.statusText]);
-
-        console.log("first", errors);
-        if (errorsArr.includes("*Please enter a first name"))
-          if (!firstName) {
-            setDisplayErrors((prev) => ({
-              ...prev,
-              firstName: "*Please enter a first name",
-            }));
-          }
       });
     }
-    const errorsArr = errors[0];
-    console.log(errors);
-    console.log(errorsArr);
   };
 
   return (
     <>
       <form id="sign-up" onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error) => (
-            <li key={error}>{error}</li>
-          ))}
-        </ul>
         <div class="modal-header">
           <p> Create an Account</p>
           <button class="modal-close-button">
@@ -97,7 +145,9 @@ function SignUpForm() {
                 onChange={(e) => setFirstName(e.target.value)}
               />
             </label>
-            {displayErrors.firstName && <p>{displayErrors.firstName}</p>}
+            <div className="error-display">
+              {displayErrors.firstName && <p>{displayErrors.firstName}</p>}
+            </div>
           </fieldset>
         </div>
         <div class="form-half-size">
@@ -111,6 +161,9 @@ function SignUpForm() {
                 onChange={(e) => setLastName(e.target.value)}
               />
             </label>
+            <div className="error-display">
+              {displayErrors.lastName && <p>{displayErrors.lastName}</p>}
+            </div>
           </fieldset>
         </div>
 
@@ -125,6 +178,9 @@ function SignUpForm() {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </label>
+            <div className="error-display">
+              {displayErrors.email && <p>{displayErrors.email}</p>}
+            </div>
           </fieldset>
         </div>
 
@@ -151,6 +207,9 @@ function SignUpForm() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </label>
+            <div className="error-display">
+              {displayErrors.password && <p>{displayErrors.password}</p>}
+            </div>
           </fieldset>
         </div>
         <div class="form-full-size">
@@ -163,6 +222,11 @@ function SignUpForm() {
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </label>
+            <div className="error-display">
+              {displayErrors.confirmPassword && (
+                <p>{displayErrors.confirmPassword}</p>
+              )}
+            </div>
           </fieldset>
         </div>
 
