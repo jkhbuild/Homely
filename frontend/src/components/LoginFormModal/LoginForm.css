@@ -103,8 +103,8 @@ div {
     line-height: 1.6;
     transition: all .2s ease-in-out;
     position: relative;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
     width: 100%;
     float: left;
     overflow: visible;
@@ -136,8 +136,8 @@ div {
     line-height: 1.6rem;
     transition: all .2s ease-in-out;
     position: relative;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
     width: 100%;
     float: left;
     overflow: visible;
