@@ -1,0 +1,161 @@
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+div {
+    display: block;
+}
+
+#sign-up {
+    padding: 0 0.5rem;
+    overflow: auto;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: inherit;
+
+}
+
+.modal-header {
+    width: 100%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    text-align: center;
+    float: left;
+    overflow: visible;
+    box-sizing: border-box;
+}
+
+.modal-header p {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin: 1.5rem, 0;
+    margin-bottom:.5rem;
+}
+
+#sign-in-instead {
+    margin: 0 0 0.5rem 0;
+    font-size: .875rem;
+    line-height: 1.125rem
+}
+
+.modal-close-button {
+    position: absolute;
+    right: 0;
+    top: 5%;
+    background-color: Transparent;
+    border: none;
+    text-transform: none;
+    overflow: visible;
+    font-size: 100%;
+    line-height: 1.25;
+    margin-right: 2%;
+}
+
+.form-half-size {
+    transition: all .2s ease-in-out;
+    position: relative;
+    min-height: 0.0625rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    width: 50%;
+    float: left;
+    overflow: visible;
+    box-sizing: border-box;
+}
+
+.user-input {
+    color: #4c4c4c;
+    font-size: 1rem;
+    line-height: 1.375;
+    margin-bottom: .125rem;
+}
+
+.user-input input{
+    transition: all .2s ease-in-out;
+    width: 100%;
+    height: 2.5rem;
+    box-sizing: border-box;
+    color: #4c4c4c;
+    background-color: #fff;
+    padding: .4375rem .4375rem .375rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    margin-top: 0.25rem;
+    border: 0.0625rem solid #bfbfbf;
+    line-height: 1.25;
+    margin: 0;
+    writing-mode: horizontal-tb !important;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    cursor: text;
+}
+
+.form-text {
+    display: block;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+}
+
+.form-checkbox {
+    border: none;
+    padding: 0;
+    min-width: 7.5rem;
+    margin-top: 1.5rem;
+    box-sizing:border-box;
+    margin: 0 2px;
+    display: block;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+}
+
+.sign-up-button-container{
+    box-sizing: border-box;
+    font-weight: 300;
+    line-height: 1.4;
+    transition: all .2s ease-in-out;
+    position: relative;
+    min-height: 0.0625rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    width: 100%;
+    float: left;
+    overflow: visible;
+    box-sizing: border-box;
+    margin-top: 1.55rem;
+}
+
+.sign-up-button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 8px;
+    border-radius: 0.25rem;
+    background: #427B01;
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 300;
+    border-width: 0;
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
