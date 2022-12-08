@@ -29,7 +29,7 @@ class Api::ListingsController < ApplicationController
             :unit,
             :description,
             :longitude,
-            :latitude
+            :latitude,
             :is_published
         )
     end
