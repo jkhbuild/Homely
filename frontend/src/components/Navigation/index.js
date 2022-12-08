@@ -31,7 +31,12 @@ function Navigation() {
   // Signin, Signup links
   let sessionLinks;
   if (sessionUser) {
-    sessionLinks = <ProfileButton user={sessionUser} />;
+    sessionLinks = (
+      <ProfileButton
+        user={sessionUser}
+        showSignin={(shown) => setSigninModal(shown)}
+      />
+    );
   } else {
     sessionLinks = (
       <>
