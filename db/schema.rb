@@ -16,7 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_08_141628) do
 
   create_table "listings", force: :cascade do |t|
     t.string "address", null: false
-    t.integer "zipcode", null: false
+    t.integer "zipcode"
     t.string "city"
     t.string "state"
     t.string "postal_code"

@@ -4,7 +4,7 @@
 #
 #  id             :bigint           not null, primary key
 #  address        :string           not null
-#  zipcode        :integer          not null
+#  zipcode        :integer
 #  city           :string
 #  state          :string
 #  postal_code    :string
@@ -26,7 +26,8 @@
 #  updated_at     :datetime         not null
 #
 class Listing < ApplicationRecord
-
+    validates :address, :multiple_units, :property_type, :beds, :baths, :available_on, :rent, :sf, presence: true
+    
     belongs_to :user,
     primary_key: :id,
     foreign_key: :owner_id,

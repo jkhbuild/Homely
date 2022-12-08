@@ -2,7 +2,7 @@ class CreateListings < ActiveRecord::Migration[7.0]
   def change
     create_table :listings do |t|
       t.string :address, null: false
-      t.integer :zipcode, null: false
+      t.integer :zipcode
       t.string :city
       t.string :state
       t.string :postal_code
