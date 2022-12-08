@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  email           :string           not null
+#  first_name      :string           not null
+#  last_name       :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  is_professional :boolean          not null
+#  role            :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
 class User < ApplicationRecord
     has_secure_password
     before_validation :ensure_session_token
@@ -8,7 +23,7 @@ class User < ApplicationRecord
     validates :session_token, presence: true, uniqueness: true
     validates :password, length: { minimum: 10, message: "*This value is too short. It should have 10 characters or more." }, allow_nil: true
 
-    has_many: :listings,
+    has_many :listings,
     primary_key: :id,
     foreign_key: :owner_id,
     class_name: :Listing
