@@ -16,27 +16,30 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_08_141628) do
 
   create_table "listings", force: :cascade do |t|
     t.string "address", null: false
-    t.integer "zipcode"
-    t.string "city"
-    t.string "state"
-    t.string "postal_code"
-    t.boolean "multiple_units", null: false
+    t.integer "zip_code", null: false
+    t.string "city", null: false
+    t.string "state", null: false
+    t.boolean "has_multiple_units", null: false
     t.string "property_type", null: false
     t.float "beds", null: false
     t.float "baths", null: false
-    t.date "available_on", null: false
-    t.integer "rent", null: false
+    t.date "available_on"
+    t.integer "rent"
     t.integer "deposit"
-    t.integer "sf", null: false
+    t.integer "sf"
     t.string "unit"
     t.string "description"
     t.float "longitude"
     t.float "latitude"
-    t.string "overview"
-    t.bigint "owner_id", null: false
+    t.boolean "is_published", default: false
+    t.bigint "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["address"], name: "index_listings_on_address"
+    t.index ["city"], name: "index_listings_on_city"
     t.index ["owner_id"], name: "index_listings_on_owner_id"
+    t.index ["state"], name: "index_listings_on_state"
+    t.index ["zip_code"], name: "index_listings_on_zip_code"
   end
 
   create_table "users", force: :cascade do |t|

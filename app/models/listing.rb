@@ -4,24 +4,23 @@
 #
 #  id             :bigint           not null, primary key
 #  address        :string           not null
-#  zipcode        :integer
-#  city           :string
-#  state          :string
-#  postal_code    :string
+#  zip_code       :integer          not null
+#  city           :string           not null
+#  state          :string           not null
 #  multiple_units :boolean          not null
 #  property_type  :string           not null
 #  beds           :float            not null
 #  baths          :float            not null
-#  available_on   :date             not null
-#  rent           :integer          not null
+#  available_on   :date
+#  rent           :integer
 #  deposit        :integer
-#  sf             :integer          not null
+#  sf             :integer
 #  unit           :string
 #  description    :string
 #  longitude      :float
 #  latitude       :float
-#  overview       :string
-#  owner_id       :bigint           not null
+#  published      :boolean          default(FALSE)
+#  owner_id       :bigint
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
