@@ -8,6 +8,11 @@ class User < ApplicationRecord
     validates :session_token, presence: true, uniqueness: true
     validates :password, length: { minimum: 10, message: "*This value is too short. It should have 10 characters or more." }, allow_nil: true
 
+    has_many: :listings,
+    primary_key: :id,
+    foreign_key: :owner_id,
+    class_name: :Listing
+
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
         

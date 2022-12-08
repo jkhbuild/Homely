@@ -45,7 +45,6 @@ div {
     top: 5%;
     background-color: Transparent;
     border: none;
-    -webkit-appearance: button;
     text-transform: none;
     overflow: visible;
     font-size: 100%;
@@ -72,7 +71,6 @@ div {
     font-size: 1rem;
     margin-top: 0.25rem;
     border: 0.0625rem solid #bfbfbf;
-    -webkit-appearance: none;
     line-height: 1.25;
     margin: 0;
     writing-mode: horizontal-tb !important;
