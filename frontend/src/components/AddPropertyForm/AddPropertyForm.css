@@ -1,20 +1,222 @@
 .main-container {
     width: calc(100% + 1rem);
-    height: 100%!important;
+    height: 100vh;
     display: block;
-    background-color: #f5f5f5
 }
 
+/* check why this wont center with equal margains */
 .add-property-container {
-    margin: 1.875rem;
-    max-width: 64rem;
-    padding: 1rem;
-    background-color: #fff;
-        display: flex;
+    background-color: rgb(249, 248, 255);
+    display: flex;
     justify-content: center;
+    padding: 0rem 7rem 0rem 5.5rem;
+    height: 100%
 }
 
 .add-property-center {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 .5rem;
+    width: 60%;
+    height: 95%;
+    box-shadow: 0 0 0.3125rem 0 rgb(0 0 0 / 20%);
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.add-property-center > * {
+    font-family: 'Roboto', sans-serif;
+}
+
+.add-property-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.property-form-header {
+    text-align: center;
+    margin: 1rem 0 0.5rem;
+    font-family: 'Roboto',sans-serif;
+    color: #4c4c4c;
+    font-size: 1.875rem;
+    line-height: 1.875rem;
+}
+
+.property-form-subheader {
+    text-align: center;
+    margin: 1.5rem 0 0.5rem;
+    font-family: 'Roboto', sans-serif;
+    color: #4c4c4c;
+    font-size: 1.25rem;
+    margin-bottom: 2.875rem;
+    font-weight: 300;
+
+}
+.units-radio-container {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.add-prop-form-half-size {
+    width: 25%;
+    height: 15%;
+    position: relative;
+    padding-left:.5rem;
+    padding-right: .5rem;
+    float: left;
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
 }
+
+.units-radio {
+    display:none;
+}
+
+.units-radio:checked + .radio-label{
+    border-color: #74b71b;
+    color: #427b01;
+    box-shadow: 0 0 4px 0 #427b01;
+}
+
+.radio-label{
+    position: relative;
+    font-size: 1rem;
+    height: 4rem;
+    width: 14rem;
+    border: 1px solid #4c4c4c;
+    border-radius: .25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:#4c4c4c;
+    border-color: #8f8c8c;
+    font-family: 'Roboto', sans-serif;
+}
+
+.radio-label i {
+    padding-right: .8rem;
+    font-size: 2rem;
+    color: #4c4c4c;
+}
+.add-prop-user-input {
+    color: #4c4c4c;
+    font-size: 1rem;
+    line-height: 1.375;
+    margin-bottom: 0.125rem;
+}
+
+.add-property-container input {
+    transition: all .2s ease-in-out;
+    width: 100%;
+    height: 2.5rem;
+    box-sizing: border-box;
+    color: #4c4c4c;
+    background-color: #fff;
+    padding: .4375rem .4375rem .375rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    margin-top: 0.25rem;
+    border: 0.0625rem solid #bfbfbf;
+    line-height: 1.25;
+    margin: 0;
+}
+
+.add-prop-form-full-size {
+    width: 60%;
+    position: relative;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    float: left;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+.add-prop-form-full-size label {
+    width: 80%;
+}
+
+.city-state-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 33%;
+    margin-top: .5rem;
+}
+
+.city-state-container .city-state-input{
+    width: 14.0rem;
+}
+
+.zipcode-container{
+    margin-top: .5rem;
+    margin-right: -28.8rem;
+    width: 60rem;
+    margin-bottom: .8rem;
+}
+
+.beds-baths-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 33%;
+    margin-top: 1.2rem;
+}
+
+#beds-baths-select {
+    width: 14.2rem;
+}
+
+.add-prop-user-input select {
+    transition: all .2s ease-in-out;
+    width: 100%;
+    height: 2.5rem;
+    box-sizing: border-box;
+    color: #4c4c4c;
+    background-color: #fff;
+    padding: .4375rem .4375rem .375rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    margin-top: 0.25rem;
+    border: 0.0625rem solid #bfbfbf;
+    margin: 0;
+}
+
+.add-property-button {
+    margin-top: 15px;
+    width: 81%;
+    padding: 12px;
+    border-radius: 0.25rem;
+    background: #427B01;
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+    margin-top: 2rem;
+}
+.terms-container{
+    justify-content: center;
+}
+.terms {
+    display: flex;
+    width: 80%;
+    text-align: center;
+    justify-content: center;
+    font-size: .8rem;
+    color: #4c4c4c;
+}
+

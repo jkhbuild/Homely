@@ -17,12 +17,6 @@ function ProfileButton({ user, showSignin }) {
     setShowMenu(false);
   };
 
-  const navigateAddProperty = {
-    if(sessionUser) {
-      history.push("/add-property");
-    },
-  };
-
   useEffect(() => {
     if (!showMenu) return;
 
