@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Navigation from "./components/Navigation";
+import AddPropertyForm from "./components/AddPropertyForm";
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
       <Navigation />
       <Switch>
         <Route path="/add-property">
-          <addPropertyForm />
+          <AddPropertyForm />
         </Route>
       </Switch>
     </>

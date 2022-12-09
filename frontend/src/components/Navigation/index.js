@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
@@ -11,6 +11,7 @@ function Navigation() {
   const [menu, setMenu] = useState(false);
   const [signupModal, setSignupModal] = useState(false);
   const [signinModal, setSigninModal] = useState(false);
+  const history = useHistory();
 
   // Burger Menu - move to seperate file later.
   function toggleMenu() {
@@ -55,6 +56,10 @@ function Navigation() {
     );
   }
 
+  const navigateAddProperty = () => {
+    history.push("/add-property");
+  };
+
   return (
     <div className="header" id="nav-bar-header">
       <ul id="header-container">
@@ -96,7 +101,7 @@ function Navigation() {
           <div className="signin-signup">
             <li>{sessionLinks}</li>
           </div>
-          <button className="listing-button">
+          <button className="listing-button" onClick={navigateAddProperty}>
             <span>Add a Property</span>
           </button>
         </div>
