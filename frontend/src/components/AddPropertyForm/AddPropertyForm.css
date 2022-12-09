@@ -157,6 +157,7 @@
     justify-content: space-between;
     width: 33%;
     margin-top: .5rem;
+    margin-bottom: .5rem;
 }
 
 .city-state-container .city-state-input{
@@ -164,10 +165,14 @@
 }
 
 .zipcode-container{
-    margin-top: .5rem;
-    margin-right: -28.8rem;
-    width: 60rem;
-    margin-bottom: .8rem;
+    display: flex;
+    justify-content: flex-start;
+    width: 21rem;
+    margin-bottom: 1.4rem;
+}
+
+.zipcode-container .zipcode-input {
+    width: 14rem;
 }
 
 .beds-baths-container {

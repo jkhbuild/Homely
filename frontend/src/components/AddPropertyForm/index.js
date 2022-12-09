@@ -71,7 +71,7 @@ function AddPropertyForm() {
               <div class="add-prop-form-half-size">
                 <label className="add-prop-user-input">
                   zip code
-                  <input type="text"></input>
+                  <input class="zipcode-input" type="text"></input>
                 </label>
               </div>
             </div>
