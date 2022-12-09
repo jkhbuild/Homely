@@ -89,10 +89,7 @@ function Navigation() {
         </div>
         <div id="mid-nav">
           <NavLink exact to="/">
-            <img
-              src={require("../../assets/apartmentslogo2.png")}
-              alt="logo"
-            ></img>
+            <img src={require("../../assets/Homely-Logo.png")} alt="logo"></img>
           </NavLink>
         </div>
         <div className="right-nav">
