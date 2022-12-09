@@ -88,9 +88,7 @@ function SignUpForm({ onClose, showSignin }) {
       }));
     }
 
-    console.log(password);
-    console.log(confirmPassword);
-    if (password === confirmPassword) {
+    if (password === confirmPassword && password.length > 10) {
       setErrors([]);
       console.log(password);
       console.log(confirmPassword);
