@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
+import "./AddPropertyForm.css";
 
 function AddPropertyForm() {
   return (

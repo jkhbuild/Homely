@@ -10,12 +10,11 @@
     max-width: 64rem;
     padding: 1rem;
     background-color: #fff;
-    display:flex;
+        display: flex;
     justify-content: center;
 }
 
 .add-property-center {
     display: flex;
     justify-content: center;
-    width: 60%
 }
