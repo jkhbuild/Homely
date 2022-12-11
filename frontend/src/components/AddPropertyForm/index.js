@@ -10,7 +10,7 @@ function AddPropertyForm() {
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
-  const [zipcode, setZipcode] = useState("");
+  const [zipCode, setZipCode] = useState("");
   const [propertyType, setPropertyType] = useState("");
   const [beds, setBeds] = useState("");
   const [baths, setBaths] = useState("");
@@ -21,7 +21,14 @@ function AddPropertyForm() {
     setErrors([]);
     return dispatch(
       addPropertyActions.createListing({
+        hasMultipleUnits,
         address,
+        city,
+        state,
+        zipCode,
+        propertyType,
+        beds,
+        baths,
       })
     ).catch(async (res) => {
       let data;
@@ -37,49 +44,56 @@ function AddPropertyForm() {
   };
 
   return (
-    <div class="main-container">
-      <div class="add-property-container">
-        <div class="add-property-center">
+    <div className="main-container">
+      <ul>
+        {errors.map((error) => (
+          <li key={error}>{error}</li>
+        ))}
+      </ul>
+      <div className="add-property-container">
+        <div className="add-property-center">
           <div className="top-form">
             <h2 className="property-form-header">Add Your Property</h2>
             <p className="property-form-subheader">
               Reach millions of renters. Screen applicants.
-              <br class="line-break"></br>
+              <br className="line-break"></br>
               Sign leases. Set up rent payments.
             </p>
           </div>
-          <form class="add-property-form" onSubmit={handleSubmit}>
-            <div class="units-radio-container">
-              <div class="add-prop-form-half-size">
+          <form className="add-property-form" onSubmit={handleSubmit}>
+            <div className="units-radio-container">
+              <div className="add-prop-form-half-size">
                 <input
                   type="radio"
                   name="radio"
                   className="units-radio"
                   value={false}
                   id="single-radio"
+                  onChange={(e) => setHasMultipleUnits(e.target.value)}
                 ></input>
 
-                <label class="radio-label" for="single-radio">
-                  <i class="fa-solid fa-person-shelter"></i>
+                <label className="radio-label" for="single-radio">
+                  <i className="fa-solid fa-person-shelter"></i>
                   Single Unit
                 </label>
               </div>
 
-              <div class="add-prop-form-half-size">
+              <div className="add-prop-form-half-size">
                 <input
                   type="radio"
                   name="radio"
                   className="units-radio"
                   value={true}
                   id="multi-radio"
+                  onChange={(e) => setHasMultipleUnits(e.target.value)}
                 ></input>
-                <label class="radio-label" for="multi-radio">
-                  <i class="fa-regular fa-building"></i>
+                <label className="radio-label" for="multi-radio">
+                  <i className="fa-regular fa-building"></i>
                   Multiple Units
                 </label>
               </div>
             </div>
-            <div class="add-prop-form-full-size">
+            <div className="add-prop-form-full-size">
               <label className="add-prop-user-input">
                 Address
                 <input
@@ -90,23 +104,23 @@ function AddPropertyForm() {
                 ></input>
               </label>
             </div>
-            <div class="city-state-container">
-              <div class="add-prop-form-half-size">
+            <div className="city-state-container">
+              <div className="add-prop-form-half-size">
                 <label className="add-prop-user-input">
                   City
                   <input
-                    class="city-state-input"
+                    className="city-state-input"
                     type="text"
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                   ></input>
                 </label>
               </div>
-              <div class="add-prop-form-half-size">
+              <div className="add-prop-form-half-size">
                 <label className="add-prop-user-input">
                   State
                   <input
-                    class="city-state-input"
+                    className="city-state-input"
                     type="text"
                     value={state}
                     onChange={(e) => setState(e.target.value)}
@@ -114,23 +128,23 @@ function AddPropertyForm() {
                 </label>
               </div>
             </div>
-            <div class="zipcode-container">
-              <div class="add-prop-form-half-size">
+            <div className="zipcode-container">
+              <div className="add-prop-form-half-size">
                 <label className="add-prop-user-input">
                   Zip code
                   <input
-                    class="zipcode-input"
+                    className="zipcode-input"
                     type="text"
-                    value={zipcode}
-                    onChange={(e) => setZipcode(e.target.value)}
+                    value={zipCode}
+                    onChange={(e) => setZipCode(e.target.value)}
                   ></input>
                 </label>
               </div>
             </div>
-            <div class="add-prop-form-full-size">
+            <div className="add-prop-form-full-size">
               <label className="add-prop-user-input">
                 Property Type
-                <select>
+                <select onChange={(e) => setPropertyType(e.target.value)}>
                   <option>Apartment</option>
                   <option>Single Family House</option>
                   <option>Condominum</option>
@@ -143,7 +157,10 @@ function AddPropertyForm() {
               <div className="add-prop-form-half-size">
                 <label className="add-prop-user-input">
                   Beds
-                  <select id="beds-baths-select">
+                  <select
+                    className="beds-select"
+                    onChange={(e) => setBeds(e.target.value)}
+                  >
                     <option>studio</option>
                     <option>1.0</option>
                     <option>2.0</option>
@@ -154,10 +171,13 @@ function AddPropertyForm() {
                   </select>
                 </label>
               </div>
-              <div class="add-prop-form-half-size">
+              <div className="add-prop-form-half-size">
                 <label className="add-prop-user-input">
                   Baths
-                  <select id="beds-baths-select">
+                  <select
+                    className="baths-select"
+                    onChange={(e) => setBaths(e.target.value)}
+                  >
                     <option>0.5</option>
                     <option>1.0</option>
                     <option>1.5</option>
@@ -188,7 +208,7 @@ function AddPropertyForm() {
           </form>
         </div>
       </div>
-      <div class="footer"></div>
+      <div className="footer"></div>
     </div>
   );
 }

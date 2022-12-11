@@ -1,8 +1,9 @@
 class Api::ListingsController < ApplicationController
+    wrap_parameters include: User.attribute_names + ['address'] + ['zipCode'] + ['city'] + ['state'] + ['hasMultipleUnits'] + ['propertyType'] + ['beds'] + ['baths'] + ['availableOn'] + ['rent'] + ['deposit'] + ['sf'] + ['unit'] + ['description'] + ['longitude'] + ['latitude'] + ['isPublished']
 
     def create
         @listing = Listing.new(listings_params)
-        @listing.owner_id = params[:user_id]
+        @listing.owner_id = current_user.id
 
         if @listing.save
             render :show
