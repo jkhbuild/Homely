@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as addPropertyActions from "../../store/listings";
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./AddPropertyForm.css";
 
 function AddPropertyForm() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [hasMultipleUnits, setHasMultipleUnits] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
@@ -30,17 +31,19 @@ function AddPropertyForm() {
         beds,
         baths,
       })
-    ).catch(async (res) => {
-      let data;
-      try {
-        data = await res.clone().json();
-      } catch {
-        data = await res.text();
-      }
-      if (data?.errors) setErrors(data.errors);
-      else if (data) setErrors([data]);
-      else setErrors([res.statusText]);
-    });
+    )
+      .then(history.push(`/listings/:listingId`))
+      .catch(async (res) => {
+        let data;
+        try {
+          data = await res.clone().json();
+        } catch {
+          data = await res.text();
+        }
+        if (data?.errors) setErrors(data.errors);
+        else if (data) setErrors([data]);
+        else setErrors([res.statusText]);
+      });
   };
 
   return (

@@ -11,6 +11,17 @@ class Api::ListingsController < ApplicationController
             render json: { errors: @listing.errors.full_messages }, status: :unprocessable_entity
         end
     end
+
+    def update
+        @listing = Listing.find(params[:id])
+        if @listing.update(listings_params)
+            @listing.save
+            render :show
+        else
+            render json: {errors.@listing.errors.full_messages }, status: unprocessable_entity
+        end
+    end
+
     
     private
     def listings_params
