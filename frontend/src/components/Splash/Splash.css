@@ -1,0 +1,19 @@
+.splash-container {
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+.search-bar-container {
+    display: flex;
+    background-image: url("../../assets/searchbar.jpeg");
+    background-size: 100% 100%;
+    height:60%;
+    opacity: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar-header1 {
+    color:#fff;
+    font-size: 5rem;
+}
