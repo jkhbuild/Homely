@@ -1,26 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import * as PropertyActions from "../../store/listings";
 import "./EditPropertyForm.css";
 
 function EditPropertyForm() {
-  const dispatch = useDispatch;
-  const { id } = useParams();
+  const dispatch = useDispatch();
+  const history = useHistory();
   const [beds, setBeds] = useState("");
   const [baths, setBaths] = useState("");
   const [sf, setSf] = useState("");
   const [rent, setRent] = useState("");
   const [deposit, setDeposit] = useState("");
   const [availableOn, setAvailableOn] = useState("");
-  const [isPublished, setisPublished] = useState("false");
+  const [isPublished, setisPublished] = useState(false);
+  const [errors, setErrors] = useState([]);
+  const { listingId } = useParams();
+  const listing = useSelector(PropertyActions.getListing(listingId));
+  useEffect(() => {
+    dispatch(PropertyActions.fetchListing(listingId));
+  }, [listingId, dispatch]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(id);
     setisPublished(true);
     return dispatch(
       PropertyActions.updateListing({
+        ...listing,
         beds,
         baths,
         sf,
@@ -29,7 +35,21 @@ function EditPropertyForm() {
         availableOn,
         isPublished,
       })
-    );
+    )
+      .then(() => {
+        history.push(`/`);
+      })
+      .catch(async (res) => {
+        let data;
+        try {
+          data = await res.clone().json();
+        } catch {
+          data = await res.text();
+        }
+        if (data?.errors) setErrors(data.errors);
+        else if (data) setErrors([data]);
+        else setErrors([res.statusText]);
+      });
   };
 
   return (
@@ -38,18 +58,26 @@ function EditPropertyForm() {
         <div className="edit-property-main-content">
           <form className="edit-property-form" onSubmit={handleSubmit}>
             <div className="edit-property-header">
-              <h1>Details</h1>
+              <ul>
+                {errors.map((error) => (
+                  <li key={error}>{error}</li>
+                ))}
+              </ul>
+              <h1>{listing.propertyType} Details</h1>
               {/* <button>Save</button> */}
               <button type="submit">Publish</button>
             </div>
 
             <div className="edit-property-subheader">
               <div className="edit-property-subheader-left">
-                <h2>address here</h2>
+                <h2>
+                  {listing.address}, {listing.city}, {listing.state},{" "}
+                  {listing.zipCode}
+                </h2>
               </div>
               <div className="edit-property-subheader-right">
                 <button>view all properties</button>
-                <i class="fa-solid fa-angle-right"></i>
+                <i className="fa-solid fa-angle-right"></i>
               </div>
             </div>
 

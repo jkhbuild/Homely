@@ -1,5 +1,5 @@
 class Api::ListingsController < ApplicationController
-    wrap_parameters include: User.attribute_names + ['address'] + ['zipCode'] + ['city'] + ['state'] + ['hasMultipleUnits'] + ['propertyType'] + ['beds'] + ['baths'] + ['availableOn'] + ['rent'] + ['deposit'] + ['sf'] + ['unit'] + ['description'] + ['longitude'] + ['latitude'] + ['isPublished']
+    wrap_parameters include: Listing.attribute_names + ['address', 'zipCode', 'city', 'state', 'hasMultipleUnits', 'propertyType', 'beds', 'baths', 'availableOn', 'rent', 'deposit', 'sf', 'unit', 'description', 'longitude', 'latitude', 'isPublished']
     def index
         listings = Listing.all
         render json: listings
@@ -26,7 +26,7 @@ class Api::ListingsController < ApplicationController
             @listing.save
             render :show
         else
-            render json: { errors: @listing.errors.full_messages }, status: unprocessable_entity
+            render json: { errors: @listing.errors.full_messages }, status: :unprocessable_entity
         end
     end
 
@@ -34,6 +34,7 @@ class Api::ListingsController < ApplicationController
     private
     def listings_params
         params.require(:listing).permit(
+            :id,
             :address,
             :zip_code,
             :city,

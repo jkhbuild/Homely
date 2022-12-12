@@ -79,7 +79,7 @@ function AddPropertyForm() {
                   onChange={(e) => setHasMultipleUnits(e.target.value)}
                 ></input>
 
-                <label className="radio-label" for="single-radio">
+                <label className="radio-label" htmlFor="single-radio">
                   <i className="fa-solid fa-person-shelter"></i>
                   Single Unit
                 </label>
@@ -94,7 +94,7 @@ function AddPropertyForm() {
                   id="multi-radio"
                   onChange={(e) => setHasMultipleUnits(e.target.value)}
                 ></input>
-                <label className="radio-label" for="multi-radio">
+                <label className="radio-label" htmlFor="multi-radio">
                   <i className="fa-regular fa-building"></i>
                   Multiple Units
                 </label>

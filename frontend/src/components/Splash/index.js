@@ -5,13 +5,13 @@ import "./Splash.css";
 function Splash() {
   return (
     <section>
-      <div class="splash-container">
+      <div className="splash-container">
         <div className="splash-main-container-overlay"></div>
-        <div class="splash-main-container">
-          <div class="header-container">
+        <div className="splash-main-container">
+          <div className="header-container">
             <h1 className="search-bar-header1">Discover Your New Home</h1>
             <h2 className="search-bar-header2">
-              Helping appacademy graduates finding the perfect fit
+              Helping appacademy graduates find affordable homes
             </h2>
           </div>
           <div className="search-bar-container">
