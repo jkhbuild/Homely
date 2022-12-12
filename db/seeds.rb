@@ -26,15 +26,15 @@ ApplicationRecord.transaction do
   )
 
   # More users
-  10.times do 
-    User.create!({
-      email: Faker::Internet.unique.email,
-      password: 'passwordpassword',
-      first_name: 'first',
-      last_name: 'last',
-      is_professional: 'false'
-    }) 
-  end
+  # 10.times do 
+  #   User.create!({
+  #     email: Faker::Internet.unique.email,
+  #     password: 'passwordpassword',
+  #     first_name: 'first',
+  #     last_name: 'last',
+  #     is_professional: 'false'
+  #   }) 
+  # end
 
   puts "Done!"
 end
