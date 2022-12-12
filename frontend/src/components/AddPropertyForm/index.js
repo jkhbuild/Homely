@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import * as addPropertyActions from "../../store/listings";
+import * as PropertyActions from "../../store/listings";
 import { useHistory } from "react-router-dom";
 import "./AddPropertyForm.css";
 
@@ -21,7 +21,7 @@ function AddPropertyForm() {
     e.preventDefault();
     setErrors([]);
     return dispatch(
-      addPropertyActions.createListing({
+      PropertyActions.createListing({
         hasMultipleUnits,
         address,
         city,
@@ -65,7 +65,7 @@ function AddPropertyForm() {
           </div>
           <form className="add-property-form" onSubmit={handleSubmit}>
             <div className="units-radio-container">
-              <div className="add-prop-form-half-size">
+              <div className="single-unit-container">
                 <input
                   type="radio"
                   name="radio"
@@ -81,7 +81,7 @@ function AddPropertyForm() {
                 </label>
               </div>
 
-              <div className="add-prop-form-half-size">
+              <div className="multi-unit-container">
                 <input
                   type="radio"
                   name="radio"
@@ -96,7 +96,7 @@ function AddPropertyForm() {
                 </label>
               </div>
             </div>
-            <div className="add-prop-form-full-size">
+            <div className="address-container">
               <label className="add-prop-user-input">
                 Address
                 <input
@@ -108,7 +108,7 @@ function AddPropertyForm() {
               </label>
             </div>
             <div className="city-state-container">
-              <div className="add-prop-form-half-size">
+              <div className="city-container">
                 <label className="add-prop-user-input">
                   City
                   <input
@@ -119,12 +119,13 @@ function AddPropertyForm() {
                   ></input>
                 </label>
               </div>
-              <div className="add-prop-form-half-size">
+              <div className="state-container">
                 <label className="add-prop-user-input">
                   State
                   <input
                     className="city-state-input"
                     type="text"
+                    id="state-input"
                     value={state}
                     onChange={(e) => setState(e.target.value)}
                   ></input>
@@ -132,7 +133,7 @@ function AddPropertyForm() {
               </div>
             </div>
             <div className="zipcode-container">
-              <div className="add-prop-form-half-size">
+              <div className="zipcode-wrapper">
                 <label className="add-prop-user-input">
                   Zip code
                   <input
@@ -144,7 +145,7 @@ function AddPropertyForm() {
                 </label>
               </div>
             </div>
-            <div className="add-prop-form-full-size">
+            <div className="propertyType-container">
               <label className="add-prop-user-input">
                 Property Type
                 <select onChange={(e) => setPropertyType(e.target.value)}>
@@ -157,7 +158,7 @@ function AddPropertyForm() {
               </label>
             </div>
             <div className="beds-baths-container">
-              <div className="add-prop-form-half-size">
+              <div className="bedsbaths-select-container">
                 <label className="add-prop-user-input">
                   Beds
                   <select
@@ -174,7 +175,7 @@ function AddPropertyForm() {
                   </select>
                 </label>
               </div>
-              <div className="add-prop-form-half-size">
+              <div className="bedsbaths-select-container">
                 <label className="add-prop-user-input">
                   Baths
                   <select
@@ -197,7 +198,7 @@ function AddPropertyForm() {
                 </label>
               </div>
             </div>
-            <div className="add-prop-form-full-size">
+            <div className="add-property-button-container">
               <button className="add-property-button">Add My Property</button>
             </div>
             <div className="add-prop-form-full-size">

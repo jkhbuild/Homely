@@ -2,28 +2,31 @@
     width: calc(100% + 1rem);
     height: 100vh;
     display: block;
+    background-color: #fafafa;
 }
 
 /* check why this wont center with equal margains */
 .add-property-container {
-    background-color: rgb(249, 248, 255);
+    background-color: #fafafa;
     display: flex;
     justify-content: center;
     padding: 0rem 7rem 0rem 5.5rem;
-    height: 100%
+    height: 67rem;
+    border-bottom: 1px solid black;
+    margin-left: 6%;
+    margin-right: 6%;
 }
 
 .add-property-center {
     background-color: #fff;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 0 .5rem;
-    width: 60%;
-    height: 95%;
+    padding-top: 2%;
+    width: 60rem;
+    height: 60rem;
     box-shadow: 0 0 0.3125rem 0 rgb(0 0 0 / 20%);
     margin-top: 2rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 .add-property-center > * {
@@ -35,6 +38,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-left: 7%;
+    padding-right: 7%;
 }
 
 .top-form {
@@ -64,27 +69,26 @@
 
 }
 .units-radio-container {
-    width: 100%;
+    width: 65%;
     height: 20%;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     margin-bottom: 1rem;
 }
 
-.add-prop-form-half-size {
-    width: 25%;
-    height: 15%;
-    position: relative;
-    padding-left:.5rem;
-    padding-right: .5rem;
-    float: left;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
+.single-unit-container {
+    width: 45%;
+}
+
+.multi-unit-container {
+    width: 45%;
 }
 
 .units-radio {
     display:none;
+    border-color: #8f8c8c;
+
 }
 
 .units-radio:checked + .radio-label{
@@ -97,7 +101,7 @@
     position: relative;
     font-size: 1rem;
     height: 4rem;
-    width: 14rem;
+    width: 100%;
     border: 1px solid #4c4c4c;
     border-radius: .25rem;
     display: flex;
@@ -151,45 +155,61 @@
     width: 80%;
 }
 
+.add-prop-form-full-size input {
+    width: 100%;
+}
+
+.address-container{
+    width: 65%;
+    padding-bottom: 1%;
+}
+
 .city-state-container{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    width: 33%;
+    width: 65%;
     margin-top: .5rem;
     margin-bottom: .5rem;
+    padding-bottom: 1%;
 }
 
-.city-state-container .city-state-input{
-    width: 14.0rem;
+.city-container{
+    width: 45%;;
+}
+
+.state-container {
+    width: 45%;
+    margin-left: 10% 
 }
 
 .zipcode-container{
+    width: 65%;
+    padding-bottom: 2%;
     display: flex;
-    justify-content: flex-start;
-    width: 21.5rem;
-    margin-bottom: 1.4rem;
 }
 
+.zipcode-wrapper {
+    width: 45%;
+}
+
+
 .zipcode-container .zipcode-input {
-    width: 14rem;
+    width: 100%;
 }
 
 .beds-baths-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 50%;
+    width: 65%;
     margin-top: 1.2rem;
 }
 
-.add-prop-user-input .beds-baths-select {
-    width: 200%
+.beds-baths-container label {
+    width:100%;
 }
 
-.add-prop-user-input select {
-    transition: all .2s ease-in-out;
-    width: 100%;
+.beds-baths-container select {
     height: 2.5rem;
     box-sizing: border-box;
     color: #4c4c4c;
@@ -200,11 +220,51 @@
     margin-top: 0.25rem;
     border: 0.0625rem solid #bfbfbf;
     margin: 0;
+    width: 100%;
 }
 
+.bedsbaths-select-container {
+    width: 45%;
+}
+
+.propertyType-container {
+    width: 65%;
+}
+
+.propertyType-container select{
+    height: 2.5rem;
+    box-sizing: border-box;
+    color: #4c4c4c;
+    background-color: #fff;
+    padding: .4375rem .4375rem .375rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    margin-top: 0.25rem;
+    border: 0.0625rem solid #bfbfbf;
+    margin: 0;
+    width: 100%;
+}
+
+/* .add-prop-user-input select {
+    transition: all .2s ease-in-out;
+    width: 50%;
+    height: 2.5rem;
+    box-sizing: border-box;
+    color: #4c4c4c;
+    background-color: #fff;
+    padding: .4375rem .4375rem .375rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    margin-top: 0.25rem;
+    border: 0.0625rem solid #bfbfbf;
+    margin: 0;
+} */
+.add-property-button-container {
+    width: 65%
+}
 .add-property-button {
     margin-top: 15px;
-    width: 80%;
+    width: 100%;
     padding: 12px;
     border-radius: 0.25rem;
     background: #427B01;
@@ -223,5 +283,10 @@
     justify-content: center;
     font-size: .8rem;
     color: #4c4c4c;
+}
+
+.footer{
+    background-color: #fafafa;
+    height: 10rem;
 }
 
