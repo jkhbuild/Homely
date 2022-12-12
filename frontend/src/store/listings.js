@@ -48,8 +48,10 @@ export const createListing = (listing) => async (dispatch) => {
     let data = await res.json();
     dispatch(receiveListing(data.listing));
     // check if return needed
-    return res;
+    // return data.listing;
+    return data;
   }
+  return res;
 };
 
 export const updateListing = (listing) => async (dispatch) => {

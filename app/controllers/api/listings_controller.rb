@@ -1,5 +1,13 @@
 class Api::ListingsController < ApplicationController
     wrap_parameters include: User.attribute_names + ['address'] + ['zipCode'] + ['city'] + ['state'] + ['hasMultipleUnits'] + ['propertyType'] + ['beds'] + ['baths'] + ['availableOn'] + ['rent'] + ['deposit'] + ['sf'] + ['unit'] + ['description'] + ['longitude'] + ['latitude'] + ['isPublished']
+    def index
+        listings = Listing.all
+        render json: listings
+    end
+
+    def show
+        @listing = Listing.find_by(id: [params[:id]])
+    end
 
     def create
         @listing = Listing.new(listings_params)

@@ -16,11 +16,13 @@ function AddPropertyForm() {
   const [beds, setBeds] = useState("");
   const [baths, setBaths] = useState("");
   const [errors, setErrors] = useState([]);
-
+  // const listing = useSelector((state) =>
+  //   // state.listings[listingId] ? state.listings[listingId] : {}
+  // );
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    return dispatch(
+    dispatch(
       PropertyActions.createListing({
         hasMultipleUnits,
         address,
@@ -32,7 +34,9 @@ function AddPropertyForm() {
         baths,
       })
     )
-      .then(history.push(`/listings/:listingId`))
+      .then(({ listing }) => {
+        history.push(`/listings/${listing.id}`);
+      })
       .catch(async (res) => {
         let data;
         try {
