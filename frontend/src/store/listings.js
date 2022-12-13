@@ -26,9 +26,10 @@ export const getListings = (state) =>
 export const getListing = (listingId) => (state) =>
   // state.listings ? state.listings[listingId] : {};
   state.listings[listingId] ? state.listings[listingId] : {};
+
 // THUNK ACTION CREATORS
 // check later
-export const fetchListings = (listings) => async (dispatch) => {
+export const fetchListings = () => async (dispatch) => {
   let res = await csrfFetch(`/api/listings`);
 
   if (res.ok) {

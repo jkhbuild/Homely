@@ -1,8 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import * as propertyActions from "../../store/listings";
 import "./Splash.css";
 function SearchBar() {
+  const dispatch = useDispatch();
+  const history = useHistory();
+  // const listings = useSelector(PropertyActions.getListings());
+
+  useEffect(() => {
+    dispatch(propertyActions.fetchListings);
+  }, [dispatch]);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    console.log(5);
+  };
+
   return (
     <section>
       <div className="splash-container">
@@ -20,7 +34,11 @@ function SearchBar() {
               className="splash-search-bar"
               placeholder="Search by city, state, or zipcode"
             ></input>
-            <button type="submit" className="splash-search-button">
+            <button
+              type="submit"
+              className="splash-search-button"
+              onClick={handleClick}
+            >
               Submit
             </button>
           </div>
