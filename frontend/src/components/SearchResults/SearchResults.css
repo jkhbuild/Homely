@@ -1,0 +1,26 @@
+
+.filter-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    background-color: #f4f4f4;
+    height: 3.5rem;
+}
+
+.filter-container input {
+    line-height: 2rem;
+    width: 200px;
+    margin-left: 1rem;
+    border-radius: .25rem;
+    border: 0.0625rem solid #bfbfbf;
+}
+
+.filter-container select {
+    height: 2rem;
+    width: 200px;
+    margin-left: 1rem;
+    border-radius: .25rem;
+    width: 5rem;
+}
