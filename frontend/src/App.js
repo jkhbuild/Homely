@@ -19,6 +19,7 @@ function App() {
         <Route exact path="/listings/:listingId">
           <EditPropertyForm />
         </Route>
+        <Route exact path="/:query"></Route>
       </Switch>
     </>
   );
