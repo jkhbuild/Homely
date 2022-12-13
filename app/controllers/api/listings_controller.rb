@@ -4,7 +4,7 @@ class Api::ListingsController < ApplicationController
         # listings = Listing.all
         # render json: listings
 
-        @listing = Listing.all
+        @listings = Listing.all
         render :index
     end
 
