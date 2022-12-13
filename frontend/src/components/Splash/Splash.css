@@ -44,7 +44,7 @@
 
 .search-bar-container {
     display: flex;
-    width: 50%;
+    width: 55%;
     margin-top: 4%;
 }
 
@@ -52,13 +52,13 @@
     border-radius: .25rem;
     height: 3.3rem;
     width: 84%;
-    border-radius: 0.25rem
+    border-radius: 0.25rem;
+    padding-left: 1rem;
+    
 }
 
 .splash-search-bar::placeholder {
-    padding-left: 1rem;
     font-size: 1.2rem;
-    align-items: center;
 }
 
 .splash-search-button {

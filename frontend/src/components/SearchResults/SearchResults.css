@@ -10,11 +10,12 @@
 }
 
 .filter-container input {
-    line-height: 2rem;
+    line-height: 1.9rem;
     width: 200px;
     margin-left: 1rem;
     border-radius: .25rem;
     border: 0.0625rem solid #bfbfbf;
+    padding-left: .4rem;
 }
 
 .filter-container select {
@@ -23,4 +24,5 @@
     margin-left: 1rem;
     border-radius: .25rem;
     width: 5rem;
+    border: 0.0625rem solid #bfbfbf;
 }

@@ -7,12 +7,12 @@ function SearchBar() {
   const dispatch = useDispatch();
   const history = useHistory();
   const [searchInput, setSearchInput] = useState("");
-  const [filteredListings, setFilteredListings] = useState([]);
+
   const listings = useSelector(propertyActions.getListings);
 
-  useEffect(() => {
-    dispatch(propertyActions.fetchListings());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(propertyActions.fetchListings());
+  // }, [dispatch]);
 
   const handleClick = (e) => {
     e.preventDefault();
