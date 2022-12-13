@@ -8,7 +8,7 @@ const REMOVE_LISTING = "listings/REMOVE_LISTINGS";
 // ACTION CREATORS
 const receiveListings = (listings) => ({
   type: RECEIVE_LISTINGS,
-  payload: listings,
+  listings,
 });
 export const receiveListing = (listing) => ({
   type: RECEIVE_LISTING,
@@ -95,6 +95,8 @@ const listingsReducer = (state = {}, action) => {
       return nextState;
     }
     case RECEIVE_LISTINGS: {
+      // console.log(action.payload.listings);
+      // console.log(nextState);
       return { ...nextState, ...action.listings };
     }
     case REMOVE_LISTING: {

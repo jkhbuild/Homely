@@ -3,8 +3,9 @@ class Api::ListingsController < ApplicationController
     def index
         # listings = Listing.all
         # render json: listings
-
         @listings = Listing.all
+        # query = params[:search_query]
+        # @listings = @listings.where(city: query) if query
         render :index
     end
 
