@@ -6,15 +6,16 @@ import "./Splash.css";
 function SearchBar() {
   const dispatch = useDispatch();
   const history = useHistory();
-  // const listings = useSelector(PropertyActions.getListings());
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
-    dispatch(propertyActions.fetchListings);
+    dispatch(propertyActions.fetchListings());
   }, [dispatch]);
+  const listings = useSelector(propertyActions.getListings);
 
   const handleClick = (e) => {
     e.preventDefault();
-    console.log(5);
+    console.log(listings);
   };
 
   return (
@@ -33,6 +34,7 @@ function SearchBar() {
               type="text"
               className="splash-search-bar"
               placeholder="Search by city, state, or zipcode"
+              onChange={(e) => setQuery(e.target.value)}
             ></input>
             <button
               type="submit"

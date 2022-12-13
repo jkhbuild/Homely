@@ -21,7 +21,7 @@ export const removeListing = (listing) => ({
 
 // selectors
 export const getListings = (state) =>
-  state.listings ? Object.values(state.listings) : {};
+  state.listings ? Object.values(state.listings) : [];
 
 export const getListing = (listingId) => (state) =>
   // state.listings ? state.listings[listingId] : {};
