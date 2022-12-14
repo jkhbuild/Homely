@@ -1,9 +1,10 @@
 class Api::ListingsController < ApplicationController
     wrap_parameters include: Listing.attribute_names + ['address', 'zipCode', 'city', 'state', 'hasMultipleUnits', 'propertyType', 'beds', 'baths', 'availableOn', 'rent', 'deposit', 'sf', 'unit', 'description', 'longitude', 'latitude', 'isPublished']
     def index
-        # listings = Listing.all
-        # render json: listings
-        @listings = Listing.all
+        debugger
+        query = params[:query]
+        # @listings = Listing.all
+        @listings = Listing.where(city: query)
         # query = params[:search_query]
         # @listings = @listings.where(city: query) if query
         render :index

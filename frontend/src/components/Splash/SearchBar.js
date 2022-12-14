@@ -8,8 +8,6 @@ function SearchBar() {
   const history = useHistory();
   const [searchInput, setSearchInput] = useState("");
 
-  const listings = useSelector(propertyActions.getListings);
-
   // useEffect(() => {
   //   dispatch(propertyActions.fetchListings());
   // }, [dispatch]);
