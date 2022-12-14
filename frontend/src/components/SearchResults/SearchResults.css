@@ -1,4 +1,18 @@
+.search-results-main-content {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Roboto', sans-serif;
+    color: #4c4c4c;
+    background-color: #f4f4f4;
 
+}
+
+.map-container {
+    width: 60%;
+    height: 100vh;
+}
+
+/* FILTER CARD FORMATTING */
 .filter-container {
     display: flex;
     flex-direction: row;
@@ -7,11 +21,12 @@
     width: 100%;
     background-color: #f4f4f4;
     height: 3.5rem;
+    border-bottom: 1px solid #cecece
 }
 
 .filter-container input {
     line-height: 1.9rem;
-    width: 200px;
+    width: 250px;
     margin-left: 1rem;
     border-radius: .25rem;
     border: 0.0625rem solid #bfbfbf;
@@ -27,12 +42,108 @@
     border: 0.0625rem solid #bfbfbf;
 }
 
-.search-results-main-content {
-    display: flex;
-    flex-direction: row;
+
+/* LISTING CARD FORMATTING */
+
+.listing-card-container {
+    width: 40%;
 }
 
-.map-container {
-    width: 60%;
-    height: 100vh;
+.listing-card {
+    /* border: 1px solid #cecece; */
+    margin-bottom: 1rem;
+    box-shadow: 0 .0625rem .1875rem #cacaca;
+    background-color: #fff
+}
+
+.listing-card-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 2px solid #cecece;
+    height: 4rem;
+}
+
+.listing-card-header-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: .75rem;
+}
+
+.listing-card-address {
+    padding-top: .6rem;
+    font-size: 1.6rem;
+}
+
+.listing-card-csz {
+    font-size: .8rem;
+    padding-top: .6rem;
+    font-weight: 300;
+}
+
+.listing-card-header-right {
+    display: flex;
+    align-items: center;
+}
+
+.listing-card-favorite {
+    font-size: 2rem;
+    color: #427b01
+}
+
+.listing-card-body {
+    display: flex;
+    flex-direction: row;
+    padding: .75rem;
+    height: 100%;
+    align-items: center;
+}
+
+
+
+.listing-card-body-left {
+    width: 48%;
+    height: 12rem;
+}
+.listing-card-body-left img {
+    height: 100%;
+    width: 100%;
+}
+.listing-card-body-right{
+    padding-left: 1rem;
+    width: 52%;
+}
+.listing-card-rent {
+    font-size: 2rem;
+    padding-bottom: 1.8rem;
+}
+
+.listing-card-bb {
+    font-size: 1.5rem;
+    padding-bottom: .8rem;
+}
+
+.listing-card-pt {
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+.listing-card-beds {
+    font-size: 1.4rem;
+}
+.listing-card-body-right h4{
+    padding-bottom: 1rem;
+}
+
+.listing-card-button{
+    background-color: #427b01;
+    color: #fff;
+    border: 1px solid #427b01;
+    margin-left: 1%;
+    border-radius: 0.25rem;
+    height: 2rem;
+    width: 45%;
 }
