@@ -7,7 +7,7 @@ function FilterBar() {
     <div className="filter-container">
       <input type="text" placeholder="Location or Point of Interest"></input>
       <select className="beds-type-filter">
-        <option value="" selected disabled hidden>
+        <option value="" defaultValue disabled hidden>
           Beds
         </option>
         <option>studio</option>
@@ -19,7 +19,7 @@ function FilterBar() {
         <option>6.0</option>
       </select>
       <select className="baths-type-filter">
-        <option value="" selected disabled hidden>
+        <option value="" defaultValue hidden>
           Baths
         </option>
         <option>0.5</option>
@@ -36,7 +36,7 @@ function FilterBar() {
         <option>6.5</option>
       </select>
       <select className="property-type-filter">
-        <option value="" selected disabled hidden>
+        <option value="" defaultValue hidden>
           Type
         </option>
         <option>Apartment</option>
