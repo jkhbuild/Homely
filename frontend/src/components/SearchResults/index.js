@@ -1,4 +1,6 @@
 import React, { useEffect, useState, useMemo } from "react";
+// import { useLoadScript } from "@googlemaps/react-wrapper";
+// import { useLoadScript } from "@react-google-maps/api";
 import { useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import FilterBar from "./FilterBar";
@@ -32,6 +34,11 @@ function SearchResults() {
   //   }),
   //   [history]
   // );
+
+  // DELETE - TUTORIAL WONT LET ME LOAD.
+  // const { isLoaded } = useLoadScript({
+  //   googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY,
+  // });
 
   return (
     <>

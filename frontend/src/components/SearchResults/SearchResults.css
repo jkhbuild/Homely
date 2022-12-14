@@ -26,3 +26,8 @@
     width: 5rem;
     border: 0.0625rem solid #bfbfbf;
 }
+
+.map-container {
+    width: 60%;
+    height: 100vh;
+}

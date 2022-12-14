@@ -1,12 +1,22 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useMemo } from "react";
 import { Wrapper } from "@googlemaps/react-wrapper";
 import { useHistory } from "react-router-dom";
 
+// DELETE - TUTORIAL WONT LET ME LOAD.
+// function Map() {
+//   const center = useMemo(() => ({ lat: 40.754735, lng: -73.84145 }));
+//   return (
+//     <GoogleMap zoom={10} center={center} mapContainerClassName="map-container">
+//       {/* <Marker position={center} /> */}
+//     </GoogleMap>
+//   );
+// }
+
 function Map({
-  latitude,
-  longitutde,
-  setLatitutde,
-  setLongitude,
+  // latitude,
+  // longitutde,
+  // setLatitutde,
+  // setLongitude,
   highlightedListing,
   listings,
   mapOptions = {},
@@ -23,8 +33,8 @@ function Map({
       setMap(
         new window.__googleMapsCallback.maps.Map(mapRef.current, {
           center: {
-            lat: 37.773972,
-            lng: -122.431297,
+            lat: 40.754735,
+            lng: -73.84145,
           },
           zoom: 13,
           clickableIcons: false,
@@ -55,7 +65,10 @@ function Map({
 
         const marker = new window.google.maps.Marker({
           map,
-          position: new window.google.maps.LatLng(listing.lat, listing.lng),
+          position: new window.google.maps.LatLng(
+            listing.latitude,
+            listing.longitude
+          ),
           label: {
             text: `$${listing.price.toString()}`,
             fontWeight: "bold",
@@ -63,11 +76,11 @@ function Map({
           },
           icon: {
             path: `
-              M 1,0 
-              L 2,0 
+              M 1,0
+              L 2,0
               A 1 1 0 0 1 3,1
               A 1 1 0 0 1 2,2
-              L 1,2 
+              L 1,2
               A 1 1 0 0 1 0,1
               A 1 1 0 0 1 1,0
               z
