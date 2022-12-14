@@ -4,6 +4,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import FilterBar from "./FilterBar";
+import ListingCard from "./ListingCard";
 import Map from "./Map";
 import * as propertyActions from "../../store/listings";
 import "./SearchResults.css";
@@ -40,6 +41,16 @@ function SearchResults() {
   //   googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY,
   // });
 
+  // DELETE LATER - test button
+  // const handleOnClick = (e) => {
+  //   e.preventDefault();
+  //   console.log(listings);
+  //   listings.map((listing) => {
+  //     console.log(listing);
+  //     console.log(listing.address);
+  //   });
+  // };
+
   return (
     <>
       <div className="filter-container">
@@ -58,7 +69,14 @@ function SearchResults() {
             highlightedListing={highlightedListing}
           /> */}
         </div>
-        <div className="listing-cards-container"></div>
+        <div className="listing-card-container">
+          <ul>
+            {listings.map((listing) => (
+              <ListingCard listing={listing} />
+            ))}
+          </ul>
+          {/* <button onClick={handleOnClick}>test button</button> */}
+        </div>
       </div>
     </>
   );

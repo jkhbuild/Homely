@@ -27,6 +27,11 @@
     border: 0.0625rem solid #bfbfbf;
 }
 
+.search-results-main-content {
+    display: flex;
+    flex-direction: row;
+}
+
 .map-container {
     width: 60%;
     height: 100vh;
