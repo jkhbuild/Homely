@@ -7,7 +7,7 @@ function FilterBar() {
     <div className="filter-container">
       <input type="text" placeholder="Location or Point of Interest"></input>
       <select className="beds-type-filter">
-        <option value="" defaultValue disabled hidden>
+        <option value="" defaultValue hidden>
           Beds
         </option>
         <option>studio</option>

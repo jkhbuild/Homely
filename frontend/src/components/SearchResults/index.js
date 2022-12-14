@@ -15,15 +15,15 @@ function SearchResults() {
   const listings = useSelector(propertyActions.getListings);
   const [highlightedListing, setHighlightedListing] = useState(null);
   const [bounds, setBounds] = useState(null);
-  // const query = useParams();
-
-  // useEffect(() => {
-  //   dispatch(propertyActions.fetchSearchedListings(query));
-  // }, [query, dispatch]);
+  const { query } = useParams();
 
   useEffect(() => {
-    dispatch(propertyActions.fetchListings());
-  }, [dispatch]);
+    dispatch(propertyActions.fetchSearchedListings(query));
+  }, [query, dispatch]);
+
+  // useEffect(() => {
+  //   dispatch(propertyActions.fetchListings());
+  // }, [dispatch]);
 
   // const mapEventHandlers = useMemo(
   //   () => ({
@@ -58,7 +58,7 @@ function SearchResults() {
       </div>
       <div className="search-results-main-content">
         <div className="map-container">
-          {/* <Map
+          <Map
             listings={listings}
             // mapEventHandlers={mapEventHandlers}
             markerEventHandlers={{
@@ -67,7 +67,7 @@ function SearchResults() {
               mouseout: () => setHighlightedListing(null),
             }}
             highlightedListing={highlightedListing}
-          /> */}
+          />
         </div>
         <div className="listing-card-container">
           <ul>
