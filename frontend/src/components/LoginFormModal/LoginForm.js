@@ -146,7 +146,7 @@ function LoginForm({ onClose, showSignup }) {
               dispatch(
                 sessionActions.login({
                   email: "demo@user.io",
-                  password: "password",
+                  password: "passwordpassword",
                 })
               );
             }}

@@ -56,6 +56,10 @@
     background-color: #fff
 }
 
+.listing-card-header-clickable {
+    width: 100%;
+}
+
 .listing-card-header {
     display: flex;
     flex-direction: row;
@@ -69,12 +73,17 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding-left: .75rem;
+    padding-left: .45rem;
+}
+
+.listing-card-header-left button{
+    text-align: left;
+
 }
 
 .listing-card-address {
     padding-top: .6rem;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
 }
 
 .listing-card-csz {
@@ -114,10 +123,11 @@
 .listing-card-body-right{
     padding-left: 1rem;
     width: 52%;
+    height: 100%;
 }
 .listing-card-rent {
-    font-size: 2rem;
-    padding-bottom: 1.8rem;
+    font-size: 1.9rem;
+    padding-bottom: 1.6rem;
 }
 
 .listing-card-bb {
@@ -128,7 +138,7 @@
 .listing-card-pt {
     font-size: 1rem;
     font-weight: 300;
-    margin-bottom: 2rem;
+    margin-bottom: 1.8rem;
 }
 
 .listing-card-beds {
@@ -146,4 +156,9 @@
     border-radius: 0.25rem;
     height: 2rem;
     width: 45%;
+}
+
+.listing-card-button:hover {
+    background: #0b6839;
+    border-color: #0b6839;
 }

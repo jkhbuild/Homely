@@ -23,6 +23,9 @@ function App() {
         <Route exact path="/search/:query">
           <SearchResults />
         </Route>
+        <Route exact path="/listings/:listingId/show">
+          placeholder
+        </Route>
       </Switch>
     </>
   );
