@@ -3,6 +3,7 @@ class Api::ListingsController < ApplicationController
     def index
         query = params[:query]
         @listings = Listing.all
+        @listings = Listing.where(state: query) if query
         @listings = Listing.where(city: query) if query
         # query = params[:search_query]
         # @listings = @listings.where(city: query) if query

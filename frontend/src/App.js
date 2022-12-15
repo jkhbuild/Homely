@@ -5,6 +5,7 @@ import AddPropertyForm from "./components/AddPropertyForm";
 import EditPropertyForm from "./components/EditPropertyForm";
 import SearchResults from "./components/SearchResults";
 import Splash from "./components/Splash";
+import ShowListing from "./components/ShowListing";
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
           <SearchResults />
         </Route>
         <Route exact path="/listings/:listingId/show">
-          placeholder
+          <ShowListing />
         </Route>
       </Switch>
     </>

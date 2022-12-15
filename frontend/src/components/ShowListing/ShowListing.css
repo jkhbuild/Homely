@@ -1,0 +1,114 @@
+.showlisting-main-container {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    color: #4c4c4c;
+}
+
+.image-carousel-container {
+    height: 25em;
+    width: 100vw;
+}
+
+.showlisting-bottom {
+    display: flex;
+    flex-direction: row;
+}
+
+.showlisting-bottomleft {
+    padding-left: 2rem;
+    width: 85%;
+}
+
+.showlisting-navlinks {
+    display: flex;
+    flex-direction: row;
+}
+.showlisting-navlinks a {
+    text-decoration: none;
+}
+
+.showlisting-bottomright {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 0.0625rem solid #bfbfbf;
+    border-radius: .25rem;
+    margin-right: 4rem;
+    width: 40%;
+}
+
+.showlisting-bottomright a {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.2rem;
+    padding: 2px 8px;
+    color: white;
+    background-color: #427b01;
+    border-radius: .25rem;
+    width: 75%;
+}
+
+.showlisting-bottomright a i {
+    padding-right: .25rem;
+}
+
+.contact-card-header {
+    padding-bottom: 1rem;
+}
+
+.showlisting-main-header-container {
+    padding-top: 1rem;
+}
+
+.showlisting-main-header {
+    font-size: 2.5rem;
+    padding-top: .5rem;
+    padding-bottom: .4rem;
+}
+
+.showlisting-main-subheader {
+    font-size: 1rem;
+}
+
+.showlisting-info-table {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid #cecece;
+    width: 80%;
+    margin-top: 1rem;
+    padding: 1.5rem;
+}
+
+.showlisting-info-table div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 25%;
+    align-items: center;
+}
+
+.showlisting-info-table div h4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.showlisting-beds {
+    border-left: 1px solid #cecece;
+    border-right: 1px solid #cecece;
+}
+
+.showlisting-baths {
+    border-right: 1px solid #cecece;
+}
+.showlisting-info-table-header{
+    padding-bottom: .5rem;
+}
+
+.showlisting-info-table-data {
+    font-weight: bold;
+}

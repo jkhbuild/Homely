@@ -21,26 +21,6 @@ function SearchResults() {
     dispatch(propertyActions.fetchSearchedListings(query));
   }, [query, dispatch]);
 
-  // useEffect(() => {
-  //   dispatch(propertyActions.fetchListings());
-  // }, [dispatch]);
-
-  // const mapEventHandlers = useMemo(
-  //   () => ({
-  //     click: (event) => {
-  //       const search = new URLSearchParams(event.latLng.toJSON()).toString();
-  //       history.push({ pathname: "/listings/new", search });
-  //     },
-  //     idle: (map) => setBounds(map.getBounds().toUrlValue()),
-  //   }),
-  //   [history]
-  // );
-
-  // DELETE - TUTORIAL WONT LET ME LOAD.
-  // const { isLoaded } = useLoadScript({
-  //   googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY,
-  // });
-
   // DELETE LATER - test button
   // const handleOnClick = (e) => {
   //   e.preventDefault();

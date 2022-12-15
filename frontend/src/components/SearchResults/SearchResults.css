@@ -9,7 +9,11 @@
 
 .map-container {
     width: 60%;
-    height: 100vh;
+    height: 86vh;
+}
+
+.searchMap {
+    height:100%;
 }
 
 /* FILTER CARD FORMATTING */

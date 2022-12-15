@@ -17,7 +17,7 @@ function ListingCard({ listing }) {
             <div className="listing-card-header-left-subcontainer">
               <h2 className="listing-card-address">{listing.address}</h2>
               <h4 className="listing-card-csz">
-                {listing.city}, {listing.state} {listing.zip}
+                {listing.city}, {listing.state} {listing.zipCode}
               </h4>
             </div>
           </button>

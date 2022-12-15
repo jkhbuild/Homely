@@ -2,16 +2,6 @@ import React, { useEffect, useRef, useState, useMemo } from "react";
 import { Wrapper } from "@googlemaps/react-wrapper";
 import { useHistory } from "react-router-dom";
 
-// DELETE - TUTORIAL WONT LET ME LOAD.
-// function Map() {
-//   const center = useMemo(() => ({ lat: 40.754735, lng: -73.84145 }));
-//   return (
-//     <GoogleMap zoom={10} center={center} mapContainerClassName="map-container">
-//       {/* <Marker position={center} /> */}
-//     </GoogleMap>
-//   );
-// }
-
 function Map({
   // latitude,
   // longitutde,
@@ -31,7 +21,7 @@ function Map({
   useEffect(() => {
     if (!map) {
       setMap(
-        new window.__googleMapsCallback.maps.Map(mapRef.current, {
+        new window.google.maps.Map(mapRef.current, {
           center: {
             lat: 40.754735,
             lng: -73.84145,
@@ -70,7 +60,7 @@ function Map({
             listing.longitude
           ),
           label: {
-            text: `$${listing.price.toString()}`,
+            text: `${listing.rent.toString()}`,
             fontWeight: "bold",
             color: "black",
           },
