@@ -31,9 +31,10 @@ function ListingCard({ listing }) {
       <div className="listing-card-body">
         <div className="listing-card-body-left">
           <img
-            src={require("../../assets/listing-card-placeholder.jpg")}
-            alt=""
-          ></img>
+            className="listing-card-image"
+            src={listing.photosUrl[0]}
+            alt="logo"
+          />
         </div>
         <div className="listing-card-body-right">
           <h3 className="listing-card-rent">${listing.rent} </h3>

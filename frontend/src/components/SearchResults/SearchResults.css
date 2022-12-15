@@ -10,6 +10,7 @@
 .map-container {
     width: 60%;
     height: 86vh;
+    overflow: hidden;
 }
 
 .searchMap {
@@ -51,6 +52,13 @@
 
 .listing-card-container {
     width: 40%;
+    height: 86vh;
+    overflow: scroll;
+
+}
+.listing-card-list {
+    overflow: hidden;
+
 }
 
 .listing-card {

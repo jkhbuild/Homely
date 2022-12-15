@@ -5,20 +5,22 @@ import {
   Marker,
   InfoWindow,
 } from "@react-google-maps/api";
+import "./ListingsMap.css";
 const ListingsMap = ({ listings }) => {
   const [selected, setSelected] = useState({});
 
   const listingLocations = listings.map((listing) => {
     return {
+      id: listing.id,
       name: listing.address,
+      beds: listing.beds,
+      rent: listing.rent,
       location: {
         lat: listing.latitude,
         lng: listing.longitude,
       },
     };
   });
-
-  console.log(listingLocations);
 
   const mapStyles = {
     height: "86vh",
@@ -30,8 +32,8 @@ const ListingsMap = ({ listings }) => {
     lng: -73.84145,
   };
 
-  const onSelect = (item) => {
-    setSelected(item);
+  const onSelect = (listing) => {
+    setSelected(listing);
   };
 
   return (
@@ -40,20 +42,26 @@ const ListingsMap = ({ listings }) => {
         {listingLocations.map((listing) => {
           return (
             <Marker
+              className="listings-map-pin"
               key={listing.name}
               position={listing.location}
-              onClick={() => onselect(listing)}
+              onClick={() => onSelect(listing)}
             />
           );
         })}
         {selected.location && (
           <InfoWindow
+            className="listings-map-infowindow"
             position={selected.location}
             clickable={true}
             onCloseClick={() => setSelected({})}
           >
             <>
-              <p>{selected.name}</p>
+              <a href={`/listings/` + selected.id + "/show"}>{selected.name}</a>
+              <p>
+                {selected.beds} Beds
+                <br></br>${selected.rent}
+              </p>
             </>
           </InfoWindow>
         )}

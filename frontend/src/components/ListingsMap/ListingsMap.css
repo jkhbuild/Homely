@@ -1,0 +1,9 @@
+/* .listings-map-pin {
+    color: green;
+    background-color: green;
+} */
+
+.listings-map-infowindow p {
+    border-bottom: 1px blue solid;
+    color: yellow;
+}

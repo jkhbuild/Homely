@@ -1,22 +1,16 @@
 .splash-container {
     height: 100vh;
     font-family: 'Roboto', sans-serif;
+    justify-content: center;
+    align-items: center;
 }
 
-.splash-main-container-overlay {
-    display: flex;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0,0,0,.5);
-}
 .splash-main-container {
     display: flex;
     flex-direction: column;
     background-image: url("../../assets/searchbar.jpg");
     background-size: 100% 100%;
-    height: 60%;
+    height: 33rem;
     opacity: 1;
     justify-content: center;
     align-items: center;
@@ -71,4 +65,26 @@
     border: 1px solid #427b01;
     margin-left: 1%;
     border-radius: 0.25rem
+}
+
+.splash-search-button:hover {
+    background: #0b6839;
+    border-color: #0b6839;
+}
+
+.splash-listing-cards-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3.75rem;
+}
+
+.splash-listing-cards-header {
+    text-align: center;
+    font-size: 2.75rem;
+}
+
+.splash-listing-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }

@@ -153,6 +153,9 @@ function AddPropertyForm() {
               <label className="add-prop-user-input">
                 Property Type
                 <select onChange={(e) => setPropertyType(e.target.value)}>
+                  <option value="" defaultValue hidden>
+                    Select
+                  </option>
                   <option>Apartment</option>
                   <option>Single Family House</option>
                   <option>Condominum</option>
@@ -169,6 +172,9 @@ function AddPropertyForm() {
                     className="beds-select"
                     onChange={(e) => setBeds(e.target.value)}
                   >
+                    <option value="" defaultValue hidden>
+                      Select
+                    </option>
                     <option>studio</option>
                     <option>1.0</option>
                     <option>2.0</option>
@@ -186,6 +192,9 @@ function AddPropertyForm() {
                     className="baths-select"
                     onChange={(e) => setBaths(e.target.value)}
                   >
+                    <option value="" defaultValue hidden>
+                      Select
+                    </option>
                     <option>0.5</option>
                     <option>1.0</option>
                     <option>1.5</option>

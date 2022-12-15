@@ -119,6 +119,9 @@ function EditPropertyForm() {
                     className="x1-table-data"
                     onChange={(e) => setBeds(e.target.value)}
                   >
+                    <option value="" defaultValue hidden>
+                      Select
+                    </option>
                     <option>studio</option>
                     <option>1.0</option>
                     <option>2.0</option>
@@ -133,6 +136,9 @@ function EditPropertyForm() {
                     className="x1-table-data"
                     onChange={(e) => setBaths(e.target.value)}
                   >
+                    <option value="" defaultValue hidden>
+                      Select
+                    </option>
                     <option>0.5</option>
                     <option>1.0</option>
                     <option>1.5</option>
@@ -153,6 +159,7 @@ function EditPropertyForm() {
                     className="x1-table-data"
                     id="sf"
                     value={sf}
+                    placeholder="SF"
                     onChange={(e) => setSf(e.target.value)}
                   ></input>
                 </div>
@@ -162,6 +169,7 @@ function EditPropertyForm() {
                     className="x1-table-data"
                     id="rent"
                     value={rent}
+                    placeholder="$ / mo"
                     onChange={(e) => setRent(e.target.value)}
                   ></input>
                 </div>
@@ -171,6 +179,7 @@ function EditPropertyForm() {
                     className="x1-table-data"
                     id="deposit"
                     value={deposit}
+                    placeholder="$0"
                     onChange={(e) => setDeposit(e.target.value)}
                   ></input>
                 </div>
@@ -179,6 +188,7 @@ function EditPropertyForm() {
                     type="text"
                     className="x1-table-data"
                     id="leaseLength"
+                    placeholder="12 months"
                   ></input>
                 </div>
                 <div className="availableon-column">
