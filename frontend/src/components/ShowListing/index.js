@@ -23,8 +23,16 @@ function ShowListing() {
       <div className="showlisting-main-container">
         <div className="top-page">
           <div className="image-carousel-container">
-            <button class="carousel-prev"></button>
-            <button class="carousel-next"></button>
+            <button class="carousel-prev">
+              <i class="fa-solid fa-angle-left"></i>
+            </button>
+            <button class="carousel-next">
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+            <div className="carousel-slide1">
+              <div className="carousel-mainphoto"></div>
+            </div>
+            <div className="carousel-slide2">placeholder</div>
           </div>
         </div>
         <div className="showlisting-bottom">
@@ -75,26 +83,48 @@ function ShowListing() {
                   </h4>
                 </div>
               </div>
-              <div className="description">
-                <h1>About This Property</h1>
-                <p>{listing.description}</p>
+              <div className="showlisting-description">
+                <h1 className="showlisting-description-header">
+                  About This Property
+                </h1>
+                <p className="showlisting-description-data">
+                  {listing.description}
+                </p>
               </div>
             </div>
           </div>
           <div className="showlisting-bottomright">
             <h1 className="contact-card-header">Contact this site owner</h1>
-            <a href="https://github.com/jkhbuild">
-              <i class="fa-brands fa-github-alt"></i>
-              GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/jhpond-45569272/">
-              <i class="fa-brands fa-linkedin"></i>
-              Linkedin
-            </a>
+            <div className="contact-card-link-container">
+              <a
+                className="contact-card-github"
+                href="https://github.com/jkhbuild"
+              >
+                <i class="fa-brands fa-github-alt"></i>
+                GitHub
+              </a>
+            </div>
+            <div className="contact-card-link-container">
+              <a
+                className="contact-card-linkedin"
+                href="https://www.linkedin.com/in/jhpond-45569272/"
+              >
+                <i class="fa-brands fa-linkedin"></i>
+                Linkedin
+              </a>
+            </div>
+            <div className="contact-card-link-container">
+              <a
+                className="contact-card-readme"
+                href="https://github.com/jkhbuild/Homely/wiki"
+              >
+                <i class="fa-brands fa-readme"></i>
+                Homely Wiki
+              </a>
+            </div>
           </div>
         </div>
       </div>
-      <button onClick={handleClick}>test</button>
     </div>
   );
 }

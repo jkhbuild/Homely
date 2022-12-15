@@ -8,6 +8,17 @@
 .image-carousel-container {
     height: 25em;
     width: 100vw;
+    border: 1px black solid;
+}
+
+.carousel-slide1 {
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-slide2 {
+    height: 100%;
+    width: 100%;
 }
 
 .showlisting-bottom {
@@ -36,7 +47,20 @@
     border: 0.0625rem solid #bfbfbf;
     border-radius: .25rem;
     margin-right: 4rem;
+    margin-top: 1rem;
     width: 40%;
+    height: 15rem;
+}
+.contact-card-header {
+    font-size: 1.5rem;
+}
+
+.contact-card-link-container {
+    display: flex;
+    justify-content: center;
+    width: 75%;
+    margin-bottom: .8rem;
+    text-align: center
 }
 
 .showlisting-bottomright a {
@@ -44,12 +68,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    line-height: 1.2rem;
+    line-height: 2rem;
     padding: 2px 8px;
-    color: white;
+    color: #fff;
     background-color: #427b01;
     border-radius: .25rem;
-    width: 75%;
+    width: 100%;
+}
+.showlisting-bottomright a:hover {
+    background: #0b6839;
+    border-color: #0b6839;
+}
+
+.showlisting-bottomright .contact-card-readme:hover {
+    background: #e5ebe8e9;
+    border-color: #0b6839;
+}
+
+.contact-card-link-container .contact-card-readme{
+    background-color: white;
+    color: #427b01;
+    border: 1px solid #427b01;
 }
 
 .showlisting-bottomright a i {
@@ -111,4 +150,14 @@
 
 .showlisting-info-table-data {
     font-weight: bold;
+}
+
+.showlisting-description-header{
+    font-size: 2rem;
+    padding-top: 2.5rem;
+}
+
+.showlisting-description-data {
+    font-size: 1rem;
+    width: 80%;
 }
