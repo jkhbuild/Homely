@@ -5,7 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-ApplicationRecord.transaction do 
+# ApplicationRecord.transaction do 
+require 'open-uri'
   puts "Destroying tables..."
   # Unnecessary if using `rails db:seed:replant`
   User.destroy_all
@@ -14,6 +15,7 @@ ApplicationRecord.transaction do
   puts "Resetting primary keys..."
   # For easy testing, so that after seeding, the first `User` has `id` of 1
   ApplicationRecord.connection.reset_pk_sequence!('users')
+  ApplicationRecord.connection.reset_pk_sequence!('listings')
 
   puts "Creating users..."
   # Create one user with an easy to remember username, email, and password:
@@ -182,6 +184,18 @@ please contact Karina"
   #     is_professional: 'false'
   #   }) 
   # end
+  puts "Attaching Photos"
+  listing1.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo1.jpeg'), filename: 'photo1.jpeg')
+  listing1.save!
+  listing1.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo2.jpeg'), filename: 'photo2.jpeg')
+  listing2.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo3.jpeg'), filename: 'photo3.jpeg')
+  listing2.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo4.jpeg'), filename: 'photo4.jpeg')
+  listing3.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo5.jpeg'), filename: 'photo5.jpeg')
+  listing3.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo6.jpeg'), filename: 'photo6.jpeg')
+  listing4.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo7.jpeg'), filename: 'photo7.jpeg')
+  listing4.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo8.jpg'), filename: 'photo8.jpg')
+  listing5.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo9.jpeg'), filename: 'photo9.jpeg')
+  listing5.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo10.jpeg'), filename: 'photo10.jpeg')
 
   puts "Done!"
-end
+# end
