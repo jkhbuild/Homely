@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import FilterBar from "./FilterBar";
 import ListingCard from "./ListingCard";
 import Map from "./Map";
+import ListingsMap from "../ListingsMap/ListingsMap";
 import * as propertyActions from "../../store/listings";
 import "./SearchResults.css";
 
@@ -38,7 +39,7 @@ function SearchResults() {
       </div>
       <div className="search-results-main-content">
         <div className="map-container">
-          <Map
+          {/* <Map
             listings={listings}
             // mapEventHandlers={mapEventHandlers}
             markerEventHandlers={{
@@ -47,7 +48,8 @@ function SearchResults() {
               mouseout: () => setHighlightedListing(null),
             }}
             highlightedListing={highlightedListing}
-          />
+          /> */}
+          <ListingsMap listings={listings} />
         </div>
         <div className="listing-card-container">
           <ul>

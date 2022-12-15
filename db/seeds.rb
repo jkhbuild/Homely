@@ -9,6 +9,7 @@ ApplicationRecord.transaction do
   puts "Destroying tables..."
   # Unnecessary if using `rails db:seed:replant`
   User.destroy_all
+  Listing.destroy_all
 
   puts "Resetting primary keys..."
   # For easy testing, so that after seeding, the first `User` has `id` of 1
@@ -55,7 +56,28 @@ ApplicationRecord.transaction do
     deposit: 1800,
     sf: 700,
     is_published: true,
-    owner_id: 1
+    latitude: 40.71994934226182, 
+    longitude: -73.8526353734643,
+    owner_id: 1,
+    description: "In the center of Forest Hills, Safe, quiet and nice neighborhood, close to all. walking distance to Austin street
+
+10 mins walk to 71st ave Subway station.(E,F,V,G,R) and LIRR , express bus to Manhattan.
+
+One block away to Grocery, laundry.
+
+First floor walk-in of the private house. Has its own entrance.
+
+Hardwood floor.
+
+Spacious studio
+
+Big separate eat-in kitchen.
+
+New bathroom.
+
+Gas, heat and water included. Pay your own electricity.
+
+Non smokers only. no pets. Suitable for single professional/student or couple."
   )
 
   listing2 = Listing.create!(
@@ -71,8 +93,14 @@ ApplicationRecord.transaction do
     deposit: 2200,
     sf: 850,
     is_published: true,
-    owner_id: 1
+    latitude: 40.72983202509588, 
+    longitude: -73.85018293017085,
+    owner_id: 1,
+    description: "Rental by owner. Sunny, spacious newly renovated corner 1-bedroom apartment in Forest Hills. SE/SW exposure for all day sun. Large living room with space for dining area and home office. Renovated and windowed bathroom and kitchen with brand new vanity, sink & Stainless Steel appliances. Steps to supermarket, shops and restaurants. 3 blocks from subway and Queens Boulevard. Laundry, storage and garage in building.
+
+Co-op building, application fees apply, must meet income/credit requirements. No broker fee!"
   )
+
   listing3 = Listing.create!(
     address: "110-14 67th Dr",
     zip_code: 11375,
@@ -86,7 +114,10 @@ ApplicationRecord.transaction do
     deposit: 5500,
     sf: 850,
     is_published: true,
+    latitude: 40.72828400504672, 
+    longitude: -73.84404379318016,
     owner_id: 1,
+    description: "FOREST HILLS CORT MEYER 4 BEDROOMS 2.5 BATH HOME FOR RENT. CENTRALLY LOCATED CLOSE TO SHOPPING, BUSES, TRAINS TO MANHATTAN , AUSTIN SHOPS & HOUSE OF WORSHIPS. DISTRICT 28!!!"
   )
   listing4 = Listing.create!(
     address: "70-25 Yellowstone Blvd",
@@ -102,7 +133,10 @@ ApplicationRecord.transaction do
     sf: 850,
     unit: "7M",
     is_published: true,
-    owner_id: 1
+    latitude: 40.72236692073384, 
+    longitude: -73.84950805247979,
+    owner_id: 1,
+    description: "Welcome to this sun drenched beautifully renovated split 2-bedroom & 2 bath home with parquet floors throuout. The spacious eat-in-Kitchen has been renovated featuring Quartz countertops, stainless steel appliances, double windows and marble floors. Both bedrooms are master sized offering generous closet space,the master bedroom bath offers a stall shower, floor to celing tiles and a window.Gerard Towers offers a 24 Hour Doorman, a fitness center, seasonal heated pool, immediate valet parking, a kids playroom, storage & bike rooms. Just around the corner from Trendy Austin Street & Closet to express E & F trains, L.I.R.R, and The West Side Tennis Club!"
   )
   listing5 = Listing.create!(
     address: "664 Onderdonk Ave",
@@ -117,7 +151,25 @@ ApplicationRecord.transaction do
     deposit: 3500,
     sf: 1000,
     is_published: true,
-    owner_id: 1
+    latitude: 40.70418537620997, 
+    longitude: -73.907779997001,
+    owner_id: 1,
+    description: "GUARANTORS ACCEPTED!!!!
+
+Features include:
+- Central Air
+- Dishwasher
+- Microwave
+- Hardwood Floors
+- Private Back Patio
+- Video Intercom
+- Stainless Steel Appliances
+- Renovated Kitchen and Bathroom
+
+Conveniently located just 2 blocks from the Seneca M stop, and a close walk to the Myrtle-Wyckoff L/M station!
+
+For more info or to schedule a viewing,
+please contact Karina"
   )
 
   # More users
