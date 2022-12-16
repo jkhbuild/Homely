@@ -6,9 +6,21 @@
 }
 
 .image-carousel-container {
+
     height: 25em;
     width: 100vw;
-    border: 1px black solid;
+
+}
+.carousel-mainphoto {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.listing-show-image {
+    height: 100%;
+    width: auto;
 }
 
 .carousel-slide1 {
@@ -161,4 +173,5 @@
 .showlisting-description-data {
     font-size: 1rem;
     width: 80%;
+    line-height: 1.5rem;
 }

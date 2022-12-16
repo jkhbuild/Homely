@@ -9,6 +9,15 @@ function ListingCard({ listing }) {
     history.push(`/listings/${listing.id}/show`);
   };
 
+  const testClick = (e) => {
+    e.preventDefault();
+    console.log(listing);
+    console.log("test", listing.photosUrl[0]);
+  };
+  if (!listing) {
+    return null;
+  }
+
   return (
     <article className="listing-card">
       <div className="listing-card-header">
@@ -42,7 +51,9 @@ function ListingCard({ listing }) {
           <h4 className="listing-card-pt"> {listing.propertyType} for Rent </h4>
           {/* <p>{listing.beds} Beds</p>
           <p>{listing.propertyType} for Rent</p> */}
-          <button className="listing-card-button">Email</button>
+          <button className="listing-card-button" onClick={testClick}>
+            Email
+          </button>
         </div>
       </div>
     </article>

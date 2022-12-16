@@ -34,25 +34,14 @@ function SearchResults() {
       </div>
       <div className="search-results-main-content">
         <div className="map-container">
-          {/* <Map
-            listings={listings}
-            // mapEventHandlers={mapEventHandlers}
-            markerEventHandlers={{
-              click: (listing) => history.push(`/listing/${listing.id}`),
-              mouseover: (listing) => setHighlightedListing(listing.id),
-              mouseout: () => setHighlightedListing(null),
-            }}
-            highlightedListing={highlightedListing}
-          /> */}
           <ListingsMap listings={listings} />
         </div>
         <div className="listing-card-container">
           <ul className="listing-card-list">
             {listings.map((listing) => (
-              <ListingCard listing={listing} />
+              <ListingCard key={listing.id} listing={listing} />
             ))}
           </ul>
-          {/* <button onClick={handleOnClick}>test button</button> */}
         </div>
       </div>
     </>

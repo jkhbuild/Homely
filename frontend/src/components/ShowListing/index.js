@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as PropertyActions from "../../store/listings";
 import "./ShowListing.css";
 
 function ShowListing() {
   const dispatch = useDispatch();
-  const history = useHistory();
   const { listingId } = useParams();
   const listing = useSelector(PropertyActions.getListing(listingId));
 
@@ -14,25 +13,31 @@ function ShowListing() {
     dispatch(PropertyActions.fetchListing(listingId));
   }, [listingId, dispatch]);
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    console.log(listing);
-  };
+  // const handleClick = (e) => {
+  //   e.preventDefault();
+  //   console.log(listing);
+  // };
   return (
     <div>
       <div className="showlisting-main-container">
         <div className="top-page">
           <div className="image-carousel-container">
-            <button class="carousel-prev">
+            {/* <button class="carousel-prev" onClick={handleClick}>
               <i class="fa-solid fa-angle-left"></i>
             </button>
             <button class="carousel-next">
               <i class="fa-solid fa-angle-right"></i>
-            </button>
+            </button> */}
             <div className="carousel-slide1">
-              <div className="carousel-mainphoto"></div>
+              <div className="carousel-mainphoto">
+                <img
+                  className="listing-show-image"
+                  src={listing.photosUrl[0]}
+                  alt="logo"
+                />
+              </div>
             </div>
-            <div className="carousel-slide2">placeholder</div>
+            {/* <div className="carousel-slide2">placeholder</div> */}
           </div>
         </div>
         <div className="showlisting-bottom">

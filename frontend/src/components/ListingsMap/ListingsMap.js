@@ -15,6 +15,7 @@ const ListingsMap = ({ listings }) => {
       name: listing.address,
       beds: listing.beds,
       rent: listing.rent,
+      img: listing.photosUrl[0],
       location: {
         lat: listing.latitude,
         lng: listing.longitude,
@@ -28,8 +29,8 @@ const ListingsMap = ({ listings }) => {
   };
 
   const defaultCenter = {
-    lat: 40.754735,
-    lng: -73.84145,
+    lat: 40.72491,
+    lng: -73.8466,
   };
 
   const onSelect = (listing) => {
@@ -62,6 +63,13 @@ const ListingsMap = ({ listings }) => {
                 {selected.beds} Beds
                 <br></br>${selected.rent}
               </p>
+              <img
+                className="listing-card-image"
+                src={selected.img}
+                alt="logo"
+                width="500px"
+                height="600px"
+              />
             </>
           </InfoWindow>
         )}
