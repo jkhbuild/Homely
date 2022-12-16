@@ -1,5 +1,8 @@
 # Welcome to Homely
 
+
+[Click Here](https://homely.onrender.com)  for the live site.
+
 ## Introduction
 
 Homely is a clone of Apartments.com. Apartments.com is a tool for renters and property owners to view and display
