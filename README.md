@@ -1,24 +1,37 @@
-# README
+# Welcome to Homely
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Introduction
 
-Things you may want to cover:
+Homely is a clone of Apartments.com. Apartments.com is a tool for renters and property owners to view and display
+rental properties. A property owner/manager can list multiple properties, and renters could view, review, and favorite
+potential homes. As a former construction real estate professional, I wanted to build out a rental platform that
+mimiced the design of Apartments.com. The technologies used to build this project include:
 
-* Ruby version
+- Languages: Javascript, Ruby on Rails, HTML, and CSS.
+- Frontend: React-Redux
+- Database: PostgreSQL
+- Hosting: Render
+- Asset Storage: AWS S3
+- Misc: Google Maps API
 
-* System dependencies
+# MVPs
 
-* Configuration
+## User Profiles
 
-* Database creation
+A homely.com user is able to sign-in and sign-up, log-in and log-out.
 
-* Database initialization
+## Listings
 
-* How to run the test suite
+A homely.com user is able to list properties onto the site by filling out an initial form to add a property to their profile and a second form to edit and publish their listing.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Search
 
-* Deployment instructions
+A homely.com user is able to search for properties with a search parameter of city, state, or zip code.
 
-* ...
+## Favorites
+
+Coming Soon
+
+## Reviews
+
+Coming Soon
