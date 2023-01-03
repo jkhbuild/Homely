@@ -3,7 +3,21 @@
     background-color: green;
 } */
 
-.listings-map-infowindow p {
-    border-bottom: 1px blue solid;
-    color: yellow;
+.infowindow-url {
+    font-size: 1.1rem;
+    margin-left: -.35rem;
+}
+.infowindow-url:hover {
+    color: blue;
+    text-decoration: underline
+}
+
+.infowindow-image {
+    height: 10rem;
+    width: 16rem;
+}
+
+.gm-style-iw-c {
+    padding: 0;
+    margin: 0;
 }

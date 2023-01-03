@@ -1,4 +1,6 @@
 import { React, useState } from "react";
+import { useHistory } from "react-router-dom";
+import mapStyleSheet from "./MapStyles";
 import {
   GoogleMap,
   LoadScript,
@@ -8,7 +10,14 @@ import {
 import "./ListingsMap.css";
 
 const ListingsMap = ({ listings }) => {
+  const history = useHistory();
   const [selected, setSelected] = useState({});
+
+  const options = {
+    styles: mapStyleSheet,
+    disableDefaultUI: true,
+    clickableIcons: false,
+  };
 
   const listingLocations = listings.map((listing) => {
     if (listing.photosUrl) {
@@ -51,6 +60,13 @@ const ListingsMap = ({ listings }) => {
     setSelected(listing);
   };
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (selected !== {}) {
+      history.push(`/listings/` + selected.id + "/show");
+    }
+  };
+
   return (
     <>
       {listingLocations && listingLocations[0] && listingLocations[0].img && (
@@ -59,6 +75,7 @@ const ListingsMap = ({ listings }) => {
             mapContainerStyle={mapStyles}
             zoom={13}
             center={defaultCenter}
+            options={options}
           >
             {listingLocations.map((listing) => {
               return (
@@ -66,6 +83,16 @@ const ListingsMap = ({ listings }) => {
                   className="listings-map-pin"
                   key={listing.name}
                   position={listing.location}
+                  icon={{
+                    path: "M -2,0 0,-2 2,0 0,4 z",
+                    fillOpacity: 1,
+                    fillColor: " #427b01",
+                    strokeColor: "white",
+                    strokeWeight: 1,
+                    scale: 6,
+                    // labelOrigin: new window.google.maps.Point(1.5, 1),
+                    // anchor: new window.google.maps.Point(1.5, 1),
+                  }}
                   onClick={() => onSelect(listing)}
                 />
               );
@@ -77,22 +104,27 @@ const ListingsMap = ({ listings }) => {
                 clickable={true}
                 onCloseClick={() => setSelected({})}
               >
-                <>
-                  <a href={`/listings/` + selected.id + "/show"}>
+                <div>
+                  {/* <a href={`/listings/` + selected.id + "/show"}>
                     {selected.name}
-                  </a>
+                  </a> */}
+                  <button className="infowindow-url" onClick={handleClick}>
+                    {selected.name}
+                  </button>
                   <p>
                     {selected.beds} Beds
                     <br></br>${selected.rent}
                   </p>
-                  <img
-                    className="listing-card-image"
-                    src={selected.img}
-                    alt="logo"
-                    width="500px"
-                    height="600px"
-                  />
-                </>
+                  <button onClick={handleClick}>
+                    <img
+                      className="infowindow-image"
+                      src={selected.img}
+                      alt="logo"
+                      width="500px"
+                      height="600px"
+                    />
+                  </button>
+                </div>
               </InfoWindow>
             )}
           </GoogleMap>

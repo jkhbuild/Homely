@@ -20,9 +20,6 @@ function SplashListingCards({ listings }) {
   //   }
   // }
 
-  if (listings === []) {
-    return null;
-  }
   // console.log(listing);
   return (
     <>
