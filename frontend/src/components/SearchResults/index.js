@@ -34,13 +34,14 @@ function SearchResults() {
       </div>
       <div className="search-results-main-content">
         <div className="map-container">
-          <ListingsMap listings={listings} />
+          {listings && <ListingsMap listings={listings} />}
         </div>
         <div className="listing-card-container">
           <ul className="listing-card-list">
-            {listings.map((listing) => (
-              <ListingCard key={listing.id} listing={listing} />
-            ))}
+            {listings &&
+              listings.map((listing) => (
+                <ListingCard key={listing.id} listing={listing} />
+              ))}
           </ul>
         </div>
       </div>

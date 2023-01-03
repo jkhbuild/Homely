@@ -83,7 +83,7 @@ Non smokers only. no pets. Suitable for single professional/student or couple."
   )
 
   listing2 = Listing.create!(
-    address: "6545 Yellowstone Blvd Unit 3B",
+    address: "6545 Yellowstone Blvd",
     zip_code: 11375,
     city: "Forest Hills",
     state: "NY",
@@ -94,6 +94,7 @@ Non smokers only. no pets. Suitable for single professional/student or couple."
     rent: 2200,
     deposit: 2200,
     sf: 850,
+    unit: "3B",
     is_published: true,
     latitude: 40.72983202509588, 
     longitude: -73.85018293017085,
@@ -173,7 +174,78 @@ Conveniently located just 2 blocks from the Seneca M stop, and a close walk to t
 For more info or to schedule a viewing,
 please contact Karina"
   )
+  listing6 = Listing.create!(
+    address: "6120 Grand Central Pky",
+    zip_code: 11375,
+    city: "Forest Hills",
+    state: "NY",
+    has_multiple_units: true,
+    property_type: "Condominium",
+    beds: 2.0,
+    baths: 1.0,
+    rent: 2800,
+    deposit: 2800,
+    sf: 1100,
+    unit: "C1003",
+    is_published: true,
+    latitude: 40.73896714708223,
+    longitude: -73.846107112731,
+    owner_id: 1,
+    description: "12 Month Lease, $2,800 deposit, Available Now
+A must see 2 bedroom apartment for sale in Forest Hills NY. Astonishing lake views, along with serene park views from the balcony and bedrooms alike. The unit is updated and has gorgeous parquet floors. The building offers gas, electric, water, central a/c included in the monthly maintenance. In addition, the building offers a 24 hour doorman along with private security. A must see. The Fairview is a 24-hour doorman building in Forest Hills, New York. It is also a pet friendly building. The buildings amenities include a 24- hour doorman, swimming pool, central a/c and has gas, electric, water, heat & taxes included in the monthly rent. Also, the building is located approximately 52 minutes from Manhattan via public transportation. Above all, just across the street residents can play tennis, basketball, play volleyball and run track and field. In addition, your only minutes away from Citi field, home to the New York Mets baseball team and the US Open Billy Jean King tennis stadium. Hurry, this unit won’t last….
 
+* Prices and availability subject to change without notice.
+* Square footage definitions vary. Displayed square footage is approximate."
+  )
+  listing7 = Listing.create!(
+    address: "9022 70th Dr",
+    zip_code: 11375,
+    city: "Forest Hills",
+    state: "NY",
+    has_multiple_units: true,
+    property_type: "Apartment",
+    beds: 2.0,
+    baths: 1.0,
+    rent: 2300,
+    deposit: 2300,
+    sf: 900,
+    is_published: true,
+    latitude: 40.709442341121836,
+    longitude: -73.85195407045889,
+    owner_id: 1,
+    description: "12 Month Lease, $2,300 deposit, Available Now
+* Prices and availability subject to change without notice.
+* Square footage definitions vary. Displayed square footage is approximate.
+Come home to this great property in Forest Hills, NY. This apartment unit for rent can be found at 9022 70th Dr in Forest Hills. Stop searching and get to moving. Let us assist you! Contact us now to talk about this home!
+
+9022 70th Dr is an apartment community located in Queens County and the 11375 ZIP Code."
+    )
+
+    listing8 = Listing.create!(
+    address: "7318 Yellowstone Blvd Unit",
+    zip_code: 11375,
+    city: "Forest Hills",
+    state: "NY",
+    has_multiple_units: true,
+    property_type: "Apartment",
+    beds: 1.0,
+    baths: 1.0,
+    rent: 2300,
+    deposit: 2300,
+    sf: 900,
+    is_published: true,
+    latitude: 40.71724760848824, 
+    longitude: -73.85758316096278,
+    owner_id: 1,
+    description: "12 Month Lease, $2,300 deposit, Available Now
+Brand New Construction Building 1 Bedroom with + Built in Home Office/Nursery Large Living Area XL Kitchen King Size Bedrooms Master Bathroom Indoor Parking $150 extra Outdoor Parking $125 Extra Washer Dryer in Building Lease Date starts 9/1 Must have good Credit and Income
+
+* Prices and availability subject to change without notice.
+* Square footage definitions vary. Displayed square footage is approximate. Brand New Construction Building
+1 Bedroom with + Built in Home Office/Nursery. Large Living Area
+XL Kitchen. King Size Bedrooms. Master Bathroom. Indoor Parking $150 extra
+Outdoor Parking $125 Extra. Washer Dryer in Building. Lease Date starts 9/1"
+    )
   # More users
   # 10.times do 
   #   User.create!({
@@ -185,17 +257,25 @@ please contact Karina"
   #   }) 
   # end
   puts "Attaching Photos"
-  listing1.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo1.jpeg'), filename: 'photo1.jpeg')
-  listing1.save!
-  listing1.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo2.jpeg'), filename: 'photo2.jpeg')
-  listing2.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo3.jpeg'), filename: 'photo3.jpeg')
-  listing2.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo4.jpeg'), filename: 'photo4.jpeg')
+  listing1.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos2/photo11.jpg'), filename: 'photo11.jpg')
+  listing1.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos2/photo12.jpg'), filename: 'photo12.jpg')
+  listing1.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos2/photo13.jpg'), filename: 'photo13.jpg')
+  listing1.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos2/photo14.jpg'), filename: 'photo14.jpg')
+  listing1.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos2/photo21.jpg'), filename: 'photo21.jpg')
+  listing2.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos2/photo16.jpg'), filename: 'photo16.jpg')
+  listing2.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos2/photo17.jpg'), filename: 'photo17.jpg')
+  listing2.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos2/photo18.jpg'), filename: 'photo18.jpg')
+  listing2.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos2/photo19.jpg'), filename: 'photo19.jpg')
+  listing2.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos2/photo20.jpg'), filename: 'photo20.jpg')
   listing3.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo5.jpeg'), filename: 'photo5.jpeg')
   listing3.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo6.jpeg'), filename: 'photo6.jpeg')
   listing4.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo7.jpeg'), filename: 'photo7.jpeg')
   listing4.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo8.jpg'), filename: 'photo8.jpg')
   listing5.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo9.jpeg'), filename: 'photo9.jpeg')
   listing5.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo10.jpeg'), filename: 'photo10.jpeg')
-
+  listing6.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo1.jpeg'), filename: 'photo1.jpeg')
+  listing6.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo2.jpeg'), filename: 'photo2.jpeg')
+  listing7.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo3.jpeg'), filename: 'photo3.jpeg')
+  listing8.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo4.jpeg'), filename: 'photo4.jpeg')
   puts "Done!"
 # end
