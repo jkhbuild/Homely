@@ -1,6 +1,6 @@
-# README
-
 # Welcome to Homely
+
+[Click Here](https://homely.onrender.com) for the live site.
 
 ## Introduction
 
@@ -16,7 +16,8 @@ mimiced the design of Apartments.com. The technologies used to build this projec
 - Asset Storage: AWS S3
 - Misc: Google Maps API
 
-# MVPs
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
 ## User Profiles
 
