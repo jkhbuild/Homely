@@ -3,10 +3,11 @@ import csrfFetch from "./csrf.js";
 // ACTION TYPES
 const RECEIVE_LISTINGS = "listings/RECEIVE_LISTINGS";
 const RECEIVE_LISTING = "listings/RECEIVE_LISTING";
-const REMOVE_LISTING = "listings/REMOVE_LISTINGS";
+const REMOVE_LISTING = "listings/REMOVE_LISTING";
+const SEARCH_LISTINGS = "listings/SEARCH_LISTINGS";
 
 // ACTION CREATORS
-const receiveListings = (listings) => ({
+export const receiveListings = (listings) => ({
   type: RECEIVE_LISTINGS,
   listings,
 });
@@ -17,6 +18,10 @@ export const receiveListing = (listing) => ({
 export const removeListing = (listing) => ({
   type: REMOVE_LISTING,
   payload: listing,
+});
+export const searchListings = (listing) => ({
+  type: SEARCH_LISTINGS,
+  listing,
 });
 
 // selectors
@@ -34,7 +39,7 @@ export const fetchSearchedListings = (query) => async (dispatch) => {
   if (res.ok) {
     let data = await res.json();
     // dispatch(receiveListings(data.listings));
-    dispatch(receiveListings(data));
+    dispatch(searchListings(data));
     return data;
   }
 };
@@ -105,13 +110,14 @@ const listingsReducer = (state = {}, action) => {
       return nextState;
     }
     case RECEIVE_LISTINGS: {
-      // console.log(action.payload.listings);
-      // console.log(nextState);
       return { ...nextState, ...action.listings };
     }
     case REMOVE_LISTING: {
       delete nextState[action.listing.id];
       return nextState;
+    }
+    case SEARCH_LISTINGS: {
+      return { ...action.listing };
     }
     default:
       return state;
