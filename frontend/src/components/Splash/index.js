@@ -17,14 +17,14 @@ function Splash() {
   return (
     <div className="splash-container">
       <SearchBar />
-      {/* <div className="splash-listing-cards-container">
+      <div className="splash-listing-cards-container">
         <h1 className="splash-listing-cards-header">
           Explore Rentals in Queens, NY
         </h1>
         <div className="splash-listing-cards">
-          {listings && <SplashListingCards listings={listings} />}
+          <SplashListingCards listings={listings} />
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }

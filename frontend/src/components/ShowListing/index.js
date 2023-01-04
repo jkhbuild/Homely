@@ -30,11 +30,13 @@ function ShowListing() {
             </button> */}
             <div className="carousel-slide1">
               <div className="carousel-mainphoto">
-                <img
-                  className="listing-show-image"
-                  src={listing.photosUrl[0]}
-                  alt="logo"
-                />
+                {listing && listing.photosUrl && (
+                  <img
+                    className="listing-show-image"
+                    src={listing.photosUrl[0]}
+                    alt="logo"
+                  />
+                )}
               </div>
             </div>
             {/* <div className="carousel-slide2">placeholder</div> */}
@@ -105,7 +107,7 @@ function ShowListing() {
                 className="contact-card-github"
                 href="https://github.com/jkhbuild"
               >
-                <i class="fa-brands fa-github-alt"></i>
+                <i className="fa-brands fa-github-alt"></i>
                 GitHub
               </a>
             </div>
@@ -114,7 +116,7 @@ function ShowListing() {
                 className="contact-card-linkedin"
                 href="https://www.linkedin.com/in/jhpond-45569272/"
               >
-                <i class="fa-brands fa-linkedin"></i>
+                <i className="fa-brands fa-linkedin"></i>
                 Linkedin
               </a>
             </div>
@@ -123,7 +125,7 @@ function ShowListing() {
                 className="contact-card-readme"
                 href="https://github.com/jkhbuild/Homely/wiki"
               >
-                <i class="fa-brands fa-readme"></i>
+                <i className="fa-brands fa-readme"></i>
                 Homely Wiki
               </a>
             </div>

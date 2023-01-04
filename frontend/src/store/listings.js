@@ -19,9 +19,9 @@ export const removeListing = (listing) => ({
   type: REMOVE_LISTING,
   payload: listing,
 });
-export const searchListings = (listing) => ({
+export const searchListings = (listings) => ({
   type: SEARCH_LISTINGS,
-  listing,
+  listings,
 });
 
 // selectors
@@ -117,7 +117,7 @@ const listingsReducer = (state = {}, action) => {
       return nextState;
     }
     case SEARCH_LISTINGS: {
-      return { ...action.listing };
+      return { ...action.listings };
     }
     default:
       return state;

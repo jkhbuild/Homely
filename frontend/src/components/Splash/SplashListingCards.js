@@ -19,17 +19,19 @@ function SplashListingCards({ listings }) {
   //     }
   //   }
   // }
-
-  // console.log(listing);
+  console.log("test", listings);
   return (
     <>
-      <div className="listing-card-container">
-        <img src={listings[0].photosUrl[0]} alt="logo"></img>
-        <h4>{listings[0].address}</h4>
-        <p>
-          {listings[0].beds} | {listings[0].rent}
-        </p>
-      </div>
+      {listings && listings.photosUrl && (
+        <div className="listing-card-container">
+          <img src={listings[0].photosUrl[0]} alt="logo"></img>
+          <h4>{listings[0].address}</h4>
+          <p>
+            TESTTTTT
+            {listings[0].beds} | {listings[0].rent}
+          </p>
+        </div>
+      )}
     </>
   );
 }
