@@ -34,6 +34,10 @@ function ProfileButton({ user, showSignin }) {
     dispatch(sessionActions.logout());
   };
 
+  const handleMyAccountClick = (e) => {
+    history.push(`/users/${user.id}`);
+  };
+
   return (
     <div
       className="profile-button-container"
@@ -58,7 +62,13 @@ function ProfileButton({ user, showSignin }) {
         <div className="user-menu-dropdown">
           <ul className="dropdown">
             <li className="user-menu-dropdown-item" id="my-account">
-              <button className="user-menu-button"> My Account </button>
+              <button
+                className="user-menu-button"
+                onClick={handleMyAccountClick}
+              >
+                {" "}
+                My Account{" "}
+              </button>
             </li>
             <li className="user-menu-dropdown-item" id="logout">
               <button className="user-menu-button" onClick={logout}>

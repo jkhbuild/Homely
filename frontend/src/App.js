@@ -6,6 +6,7 @@ import EditPropertyForm from "./components/EditPropertyForm";
 import SearchResults from "./components/SearchResults";
 import Splash from "./components/Splash";
 import ShowListing from "./components/ShowListing";
+import UserShow from "./components/UserShow";
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
         </Route>
         <Route exact path="/add-property">
           <AddPropertyForm />
+        </Route>
+        <Route exact path="/users/:userid">
+          <UserShow />
         </Route>
         <Route exact path="/listings/:listingId">
           <EditPropertyForm />
