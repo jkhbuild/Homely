@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import SplashListingCards from "./SplashListingCards";
 import * as propertyActions from "../../store/listings";
@@ -9,10 +9,17 @@ import "./Splash.css";
 function Splash() {
   const dispatch = useDispatch();
   const listings = useSelector(propertyActions.getListings);
+  const history = useHistory();
 
   useEffect(() => {
     dispatch(propertyActions.fetchListings());
   }, [dispatch]);
+
+  const handleViewMoreClick = (e, listings) => {
+    e.preventDefault();
+    const randomNum = Math.floor(Math.random() * listings.length);
+    history.push(`/search/${listings[randomNum].city}`);
+  };
 
   return (
     <div className="splash-container">
@@ -22,6 +29,13 @@ function Splash() {
         <div className="splash-listing-cards">
           <SplashListingCards listings={listings} />
         </div>
+
+        <button
+          className="view-more-button"
+          onClick={(e) => handleViewMoreClick(e, listings)}
+        >
+          View More
+        </button>
       </div>
     </div>
   );
