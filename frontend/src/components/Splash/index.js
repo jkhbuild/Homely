@@ -18,9 +18,7 @@ function Splash() {
     <div className="splash-container">
       <SearchBar />
       <div className="splash-listing-cards-container">
-        <h1 className="splash-listing-cards-header">
-          Explore Rentals in Queens, NY
-        </h1>
+        <h1 className="splash-listing-cards-header">Explore Rentals</h1>
         <div className="splash-listing-cards">
           <SplashListingCards listings={listings} />
         </div>

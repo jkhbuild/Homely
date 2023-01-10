@@ -87,9 +87,41 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 1rem;
+    color: #7f7e7e
 }
 
-/* .listing-card-container {
-    width: 20%;
-    height: 25rem;
-} */
+.splash-listing-card-button {
+    width: 18%;
+    height: 20rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #cacaca;
+    padding: 0;
+    border-radius: 2%;
+}
+
+.splash-listing-card-button:hover {
+    transform: scale(1.05);
+    border: 1px solid #427b01
+}
+
+.splash-listing-card {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.splash-listing-card img {
+    height: 60%;
+    width: 100%;
+}
+
+.splash-listing-card h4 {
+    margin-top: 1rem;
+    font-size: 1rem;
+    text-align: center;
+}

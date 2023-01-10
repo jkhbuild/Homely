@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import FilterBar from "./FilterBar";
 import ListingCard from "./ListingCard";
@@ -9,7 +9,6 @@ import "./SearchResults.css";
 
 function SearchResults() {
   const dispatch = useDispatch();
-  const history = useHistory();
   const listings = useSelector(propertyActions.getListings);
   const { query } = useParams();
 
