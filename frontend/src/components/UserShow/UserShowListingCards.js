@@ -5,6 +5,12 @@ import * as propertyActions from "../../store/listings";
 
 function UserShowListingCards() {
   const history = useHistory();
+
+  return (
+    <>
+      <div></div>
+    </>
+  );
 }
 
 export default UserShowListingCards;
