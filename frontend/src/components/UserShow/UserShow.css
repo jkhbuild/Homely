@@ -1,4 +1,45 @@
+.user-show-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.user-show-sidebar{
+    height: 100vh;
+    width: 22%;
+    background-color:#f4f4f4;
+    color: #333;
+    border-right: 1px solid #ccc
+}
+
+
+.user-show-maincontent {
+    width: 85%;
+    overflow: scroll;
+}
 .user-show-toppage {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    font-family: 'Roboto', sans-serif;
+}
+
+.properties-header {
+    font-size: 2.2rem;
+    margin-left: 2rem;
+    margin-top: 2.2rem;
+    font-weight: 100;
+}
+
+.add-property-button {
+    height: 2.6rem;
+    font-size: 1rem;
+    width: 9rem;
+    background-color: #427b01;
+    color: #fff;
+    border: 1px solid #427b01;
+    margin-left: 1%;
+    border-radius: 0.25rem;
+    box-shadow: 0 6px 7px 0 rgb(0 0 0 / 4%);
+    margin-right: 2rem;
 }
