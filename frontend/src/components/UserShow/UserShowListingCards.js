@@ -8,7 +8,7 @@ function UserShowListingCards() {
 
   return (
     <>
-      <div></div>
+      <div className="user-show-listingcard"></div>
     </>
   );
 }
