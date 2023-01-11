@@ -24,6 +24,7 @@ function EditPropertyForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setisPublished(true);
+
     return dispatch(
       PropertyActions.updateListing({
         ...listing,

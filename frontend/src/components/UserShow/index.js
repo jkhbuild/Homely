@@ -12,7 +12,9 @@ function UserShow() {
       <div className="user-show-maincontent">
         <div className="user-show-toppage">
           <h4 className="properties-header">Properties</h4>
-          <button className="add-property-button">Add a Property</button>
+          <button className="user-show-add-property-button">
+            Add a Property
+          </button>
         </div>
       </div>
     </div>

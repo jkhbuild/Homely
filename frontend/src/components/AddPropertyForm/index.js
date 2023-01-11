@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import * as PropertyActions from "../../store/listings";
 import { useHistory } from "react-router-dom";
+import Geocode from "react-geocode";
 import "./AddPropertyForm.css";
 
 function AddPropertyForm() {
@@ -15,13 +16,33 @@ function AddPropertyForm() {
   const [propertyType, setPropertyType] = useState("");
   const [beds, setBeds] = useState("");
   const [baths, setBaths] = useState("");
+  const [longitude, setLongitude] = useState("");
+  const [latitude, setLatitude] = useState("");
   const [errors, setErrors] = useState([]);
   // const listing = useSelector((state) =>
   //   // state.listings[listingId] ? state.listings[listingId] : {}
   // );
+  Geocode.setApiKey(process.env.REACT_APP_GEOCODING_API_KEY);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
+
+    Geocode.setRegion("us");
+
+    Geocode.fromAddress(address).then(
+      (response) => {
+        const { lat, lng } = response.results[0].geometry.location;
+        setLongitude(lng);
+        setLatitude(lat);
+        console.log(latitude);
+        console.log(longitude);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
     dispatch(
       PropertyActions.createListing({
         hasMultipleUnits,
@@ -30,6 +51,8 @@ function AddPropertyForm() {
         state,
         zipCode,
         propertyType,
+        longitude,
+        latitude,
         beds,
         baths,
       })
