@@ -26,6 +26,7 @@ function EditPropertyForm() {
     accessKeyId: "homely-dev",
     secretAccessKey: process.env.REACT_APP_AWS_KEY,
   };
+
   // if (!listing.photosUrl) {
   //   listing.photos.attach((('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo4.jpeg'), filename: 'photo4.jpeg'))
   // }

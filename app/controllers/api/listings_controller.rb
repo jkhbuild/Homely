@@ -1,14 +1,16 @@
+require 'open-uri'
+
 class Api::ListingsController < ApplicationController
     wrap_parameters include: Listing.attribute_names + ['address', 'zipCode', 'city', 'state', 'hasMultipleUnits', 'propertyType', 'beds', 'baths', 'availableOn', 'rent', 'deposit', 'sf', 'unit', 'description', 'longitude', 'latitude', 'isPublished']
     def index
         query = params[:query].downcase if params[:query]
         @listings = Listing.all
-        if query
+        # if query
             # debugger
-            @listings = Listing.where("lower(state) LIKE (?)", query)
-            .or(Listing.where("lower(city) LIKE (?)", query))
-            .or(Listing.where(zip_code: query))
-        end
+            # @listings = Listing.where("lower(state) LIKE (?)", query)
+            # .or(Listing.where("lower(city) LIKE (?)", query))
+            # .or(Listing.where(zip_code: query))
+        # end
 
         render :index
     end
@@ -20,6 +22,7 @@ class Api::ListingsController < ApplicationController
     def create
         @listing = Listing.new(listings_params)
         @listing.owner_id = current_user.id
+        @listing.photos.attach(io: URI.open('https://homely-dev.s3.amazonaws.com/Default/defaultimage.jpeg'), filename: 'defaultimage.jpeg')
 
         if @listing.save
             render :show

@@ -10,21 +10,13 @@ import "./SearchResults.css";
 function SearchResults() {
   const dispatch = useDispatch();
   const listings = useSelector(propertyActions.getListings);
+  console.log(listings);
+  console.log("hello");
   const { query } = useParams();
 
   useEffect(() => {
     dispatch(propertyActions.fetchSearchedListings(query));
   }, [query, dispatch]);
-
-  // DELETE LATER - test button
-  // const handleOnClick = (e) => {
-  //   e.preventDefault();
-  //   console.log(listings);
-  //   listings.map((listing) => {
-  //     console.log(listing);
-  //     console.log(listing.address);
-  //   });
-  // };
 
   return (
     <>
