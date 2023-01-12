@@ -25,6 +25,9 @@ function App() {
         <Route exact path="/listings/:listingId">
           <EditPropertyForm />
         </Route>
+        <Route exact path="/search">
+          <SearchResults />
+        </Route>
         <Route exact path="/search/:query">
           <SearchResults />
         </Route>
