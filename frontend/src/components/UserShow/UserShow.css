@@ -22,12 +22,14 @@
     flex-direction: row;
     justify-content: space-between;
     font-family: 'Roboto', sans-serif;
+    align-items: center;
+    padding-top: 2rem;
+    
 }
 
 .properties-header {
     font-size: 2.2rem;
     margin-left: 2rem;
-    margin-top: 2.2rem;
     font-weight: 100;
 }
 

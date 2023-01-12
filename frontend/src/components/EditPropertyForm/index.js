@@ -17,6 +17,11 @@ function EditPropertyForm() {
   const [errors, setErrors] = useState([]);
   const { listingId } = useParams();
   const listing = useSelector(PropertyActions.getListing(listingId));
+
+  // if (!listing.photosUrl) {
+  //   listing.photos.attach((('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo4.jpeg'), filename: 'photo4.jpeg'))
+  // }
+
   useEffect(() => {
     dispatch(PropertyActions.fetchListing(listingId));
   }, [listingId, dispatch]);

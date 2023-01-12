@@ -35,8 +35,6 @@ function AddPropertyForm() {
         const { lat, lng } = response.results[0].geometry.location;
         setLongitude(lng);
         setLatitude(lat);
-        console.log(latitude);
-        console.log(longitude);
       },
       (error) => {
         console.log(error);
