@@ -10,8 +10,6 @@ import "./SearchResults.css";
 function SearchResults() {
   const dispatch = useDispatch();
   const listings = useSelector(propertyActions.getListings);
-  console.log(listings);
-  console.log("hello");
   const { query } = useParams();
 
   useEffect(() => {

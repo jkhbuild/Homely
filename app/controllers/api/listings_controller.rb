@@ -5,13 +5,11 @@ class Api::ListingsController < ApplicationController
     def index
         query = params[:query].downcase if params[:query]
         @listings = Listing.all
-        # if query
-            # debugger
-            # @listings = Listing.where("lower(state) LIKE (?)", query)
-            # .or(Listing.where("lower(city) LIKE (?)", query))
-            # .or(Listing.where(zip_code: query))
-        # end
-
+        if query
+            @listings = Listing.where("lower(state) LIKE (?)", query)
+            .or(Listing.where("lower(city) LIKE (?)", query))
+            .or(Listing.where(zip_code: query))
+        end
         render :index
     end
 

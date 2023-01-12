@@ -14,8 +14,14 @@ function SearchBar() {
 
   const handleClick = (e) => {
     e.preventDefault();
-    // if (searchInput !== "") history.push(`/search/${searchInput}`);
-    history.push(`/search/${searchInput}`);
+    console.log("test", searchInput);
+    console.log("test2", !searchInput);
+    console.log("test3", !!searchInput);
+    if (!searchInput) {
+      history.push(`/search/`);
+    } else {
+      history.push(`/search/${searchInput}`);
+    }
   };
 
   return (
