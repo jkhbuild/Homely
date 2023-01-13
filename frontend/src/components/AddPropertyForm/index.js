@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import * as PropertyActions from "../../store/listings";
 import { useHistory } from "react-router-dom";
@@ -16,30 +16,38 @@ function AddPropertyForm() {
   const [propertyType, setPropertyType] = useState("");
   const [beds, setBeds] = useState("");
   const [baths, setBaths] = useState("");
+  const [coordinates, setCoordinates] = useState(null);
   const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");
   const [errors, setErrors] = useState([]);
   // const listing = useSelector((state) =>
   //   // state.listings[listingId] ? state.listings[listingId] : {}
   // );
+
   Geocode.setApiKey(process.env.REACT_APP_GEOCODING_API_KEY);
+  Geocode.setRegion("us");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
 
-    Geocode.setRegion("us");
+    // const findLatLng = () => {
+    //   Geocode.fromAddress(address).then(
+    //     (response) => {
+    //       setCoordinates(response.results[0].geometry.location);
+    //     },
+    //     (error) => {
+    //       console.log(error);
+    //     }
+    //   );
+    // };
 
-    Geocode.fromAddress(address).then(
-      (response) => {
-        const { lat, lng } = response.results[0].geometry.location;
-        setLongitude(lng);
-        setLatitude(lat);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    // useEffect(() => {
+    //   findLatLng();
+    // }, [address]);
+
+    // console.log("test", longitude);
+    // console.log(latitude);
 
     dispatch(
       PropertyActions.createListing({

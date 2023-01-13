@@ -112,9 +112,9 @@ function EditPropertyForm() {
                 apiKey={process.env.REACT_APP_STATIC_MAPS_API_KEY}
                 latitude={listing.latitude}
                 longitude={listing.longitude}
-                style={{ width: 1100, height: 300 }}
-                size={{ width: 1100, height: 300 }}
+                size={{ width: 1100, height: 150 }}
                 zoom={16}
+                iconUrl="https://icons8.com/icon/dPzhTqM4Ay0T/map-marker.png"
               />
             </div>
 
