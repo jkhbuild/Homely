@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
+import GoogleStaticMap from "react-google-static";
 import * as PropertyActions from "../../store/listings";
 import "./EditPropertyForm.css";
 import S3FileUpload from "react-s3";
@@ -83,11 +84,11 @@ function EditPropertyForm() {
         <div className="edit-property-main-content">
           <form className="edit-property-form" onSubmit={handleSubmit}>
             <div className="edit-property-header">
-              <ul>
+              {/* <ul>
                 {errors.map((error) => (
                   <li key={error}>{error}</li>
                 ))}
-              </ul>
+              </ul> */}
               <h1>{listing.propertyType} Details</h1>
               {/* <button>Save</button> */}
               <button type="submit">Publish</button>
@@ -107,11 +108,14 @@ function EditPropertyForm() {
             </div>
 
             <div className="edit-property-google-maps">
-              <img
-                className="placeholderimg"
-                src={require("../../assets/editformplaceholder.png")}
-                alt="logo"
-              ></img>
+              <GoogleStaticMap
+                apiKey={process.env.REACT_APP_STATIC_MAPS_API_KEY}
+                latitude={listing.latitude}
+                longitude={listing.longitude}
+                style={{ width: 1100, height: 300 }}
+                size={{ width: 1100, height: 300 }}
+                zoom={16}
+              />
             </div>
 
             <div className="edit-property-table">
