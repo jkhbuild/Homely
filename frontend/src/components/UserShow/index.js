@@ -21,7 +21,10 @@ function UserShow() {
   return (
     <div className="user-show-container">
       <div className="user-show-sidebar">
-        <h4> Properties & Listings </h4>
+        <h4 className="user-show-sidebar-header">
+          <i class="fa-regular fa-building"></i>
+          Properties & Listings
+        </h4>
         <li>
           <Link className="user-show-sidebar-li">Properties</Link>
         </li>

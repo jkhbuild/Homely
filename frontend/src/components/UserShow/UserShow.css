@@ -11,7 +11,35 @@
     width: 22%;
     background-color:#f4f4f4;
     color: #333;
-    border-right: 1px solid #ccc
+    border-right: 1px solid #ccc;
+    font-family: 'Roboto', sans-serif;
+}
+
+.user-show-sidebar-header{
+    font-size: 1.5rem;
+    margin-top: .75rem;
+    padding-left: 1rem;
+}
+
+.user-show-sidebar-header i {
+    font-size: 1.25rem;
+    margin-right: .5rem;
+}
+
+.user-show-sidebar li {
+    list-style-type: none;
+    border-left: 3px solid #74b71b;
+    padding: 7px 7px;
+    color: #427b01;
+}
+
+.user-show-sidebar li a {
+    text-decoration: none;
+    color: #427b01;
+}
+
+.user-show-sidebar li a:visited {
+    text-decoration: none;
 }
 
 .user-show-maincontent {
