@@ -3,12 +3,17 @@ require 'open-uri'
 class Api::ListingsController < ApplicationController
     wrap_parameters include: Listing.attribute_names + ['address', 'zipCode', 'city', 'state', 'hasMultipleUnits', 'propertyType', 'beds', 'baths', 'availableOn', 'rent', 'deposit', 'sf', 'unit', 'description', 'longitude', 'latitude', 'isPublished']
     def index
-        query = params[:query].downcase if params[:query]
-        @listings = Listing.all
-        if query
-            @listings = Listing.where("lower(state) LIKE (?)", query)
-            .or(Listing.where("lower(city) LIKE (?)", query))
-            .or(Listing.where(zip_code: query))
+        user_id = params[:user_id]
+        if user_id
+            @listings = Listing.where(owner_id: user_id)
+        else
+            query = params[:query].downcase if params[:query]
+            @listings = Listing.all
+            if query
+                @listings = Listing.where("lower(state) LIKE (?)", query)
+                .or(Listing.where("lower(city) LIKE (?)", query))
+                .or(Listing.where(zip_code: query))
+            end
         end
         render :index
     end

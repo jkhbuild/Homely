@@ -33,7 +33,14 @@ export const getListing = (listingId) => (state) =>
   state.listings[listingId] ? state.listings[listingId] : {};
 
 // THUNK ACTION CREATORS
-// check later
+export const fetchUserListings = (ownerId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/users/${ownerId}/listings`);
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(searchListings(data));
+    return data;
+  }
+};
 export const fetchSearchedListings = (query) => async (dispatch) => {
   let res = await csrfFetch(`/api/listings?query=${query}`);
   if (res.ok) {

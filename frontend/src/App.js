@@ -19,7 +19,7 @@ function App() {
         <Route exact path="/add-property">
           <AddPropertyForm />
         </Route>
-        <Route exact path="/users/:userid">
+        <Route exact path="/users/:userId">
           <UserShow />
         </Route>
         <Route exact path="/listings/:listingId">
