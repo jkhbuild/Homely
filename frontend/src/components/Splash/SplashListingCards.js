@@ -1,7 +1,5 @@
-import React, { useEffect, useState, useMemo } from "react";
-import { useHistory, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import * as propertyActions from "../../store/listings";
+import React from "react";
+import { useHistory } from "react-router-dom";
 
 function SplashListingCards({ listings }) {
   // const dispatch = useDispatch;

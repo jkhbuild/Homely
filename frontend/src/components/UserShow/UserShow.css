@@ -12,7 +12,6 @@
     border-right: 1px solid #ccc
 }
 
-
 .user-show-maincontent {
     width: 85%;
     overflow: scroll;
@@ -44,4 +43,19 @@
     border-radius: 0.25rem;
     box-shadow: 0 6px 7px 0 rgb(0 0 0 / 4%);
     margin-right: 2rem;
+}
+
+.user-show-listing-cards {
+    padding: 1rem;
+}
+
+.user-show-listing-card-button {
+    height: 15rem;
+    border: 1px solid #cecece;
+    border-radius: 2.5%;
+}
+
+.user-show-listing-card {
+    height: 100%;
+    width:100%;
 }

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import * as PropertyActions from "../../store/listings";
+import UserShowListingCard from "./UserShowListingCard";
 import "./UserShow.css";
 
 function UserShow() {
@@ -13,8 +14,6 @@ function UserShow() {
     history.push(`/add-property`);
   };
   const { userId } = useParams();
-  console.log("test1", userId);
-  console.log("test2", usersListings);
   useEffect(() => {
     dispatch(PropertyActions.fetchUserListings(userId));
   }, [userId, dispatch]);
@@ -34,6 +33,12 @@ function UserShow() {
             Add a Property
           </button>
         </div>
+        <ul className="user-show-listing-cards">
+          {usersListings &&
+            usersListings.map((listing) => (
+              <UserShowListingCard key={listing.id} listing={listing} />
+            ))}
+        </ul>
       </div>
     </div>
   );
