@@ -16,7 +16,6 @@ function AddPropertyForm() {
   const [propertyType, setPropertyType] = useState("");
   const [beds, setBeds] = useState("");
   const [baths, setBaths] = useState("");
-  const [coordinates, setCoordinates] = useState(null);
   const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");
   const [errors, setErrors] = useState([]);
@@ -24,30 +23,29 @@ function AddPropertyForm() {
   //   // state.listings[listingId] ? state.listings[listingId] : {}
   // );
 
-  Geocode.setApiKey(process.env.REACT_APP_GEOCODING_API_KEY);
-  Geocode.setRegion("us");
+  const findLatLng = () => {
+    Geocode.setApiKey(process.env.REACT_APP_GEOCODING_API_KEY);
+    Geocode.setRegion("us");
+    Geocode.fromAddress(address).then(
+      (response) => {
+        const { lat, lng } = response.results[0].geometry.location;
+        setLatitude(lat);
+        setLongitude(lng);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  };
+
+  useEffect(() => {
+    findLatLng();
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-
-    // const findLatLng = () => {
-    //   Geocode.fromAddress(address).then(
-    //     (response) => {
-    //       setCoordinates(response.results[0].geometry.location);
-    //     },
-    //     (error) => {
-    //       console.log(error);
-    //     }
-    //   );
-    // };
-
-    // useEffect(() => {
-    //   findLatLng();
-    // }, [address]);
-
-    // console.log("test", longitude);
-    // console.log(latitude);
+    findLatLng();
 
     dispatch(
       PropertyActions.createListing({
