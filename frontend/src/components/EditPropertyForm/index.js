@@ -113,7 +113,8 @@ function EditPropertyForm() {
                 latitude={listing.latitude}
                 longitude={listing.longitude}
                 size={{ width: 1100, height: 150 }}
-                zoom={16}
+                scale={2}
+                zoom={15}
                 iconUrl="https://icons8.com/icon/dPzhTqM4Ay0T/map-marker.png"
               />
             </div>
