@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import * as PropertyActions from "../../store/listings";
 import UserShowListingCard from "./UserShowListingCard";
 import "./UserShow.css";
@@ -21,7 +21,13 @@ function UserShow() {
   return (
     <div className="user-show-container">
       <div className="user-show-sidebar">
-        <p> test</p>
+        <h4> Properties & Listings </h4>
+        <li>
+          <Link className="user-show-sidebar-li">Properties</Link>
+        </li>
+        <li>
+          <Link className="user-show-sidebar-li">Favorites</Link>
+        </li>
       </div>
       <div className="user-show-maincontent">
         <div className="user-show-toppage">
