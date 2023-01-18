@@ -7,6 +7,7 @@ import SearchResults from "./components/SearchResults";
 import Splash from "./components/Splash";
 import ShowListing from "./components/ShowListing";
 import UserShow from "./components/UserShow";
+import Favorites from "./components/Favorites";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <Route exact path="/users/:userId">
           <UserShow />
+        </Route>
+        <Route exact path="/users/:userId/favorites">
+          <Favorites />
         </Route>
         <Route exact path="/listings/:listingId">
           <EditPropertyForm />

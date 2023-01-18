@@ -4,6 +4,7 @@ import { Link, useHistory, useParams } from "react-router-dom";
 import * as PropertyActions from "../../store/listings";
 import UserShowListingCard from "./UserShowListingCard";
 import "./UserShow.css";
+import UserShowSidebar from "./UserShowSidebar";
 
 function UserShow() {
   const dispatch = useDispatch();
@@ -21,7 +22,8 @@ function UserShow() {
   return (
     <div className="user-show-container">
       <div className="user-show-sidebar">
-        <h4 className="user-show-sidebar-header">
+        <UserShowSidebar />
+        {/* <h4 className="user-show-sidebar-header">
           <i class="fa-regular fa-building"></i>
           Properties & Listings
         </h4>
@@ -30,7 +32,7 @@ function UserShow() {
         </li>
         <li>
           <Link className="user-show-sidebar-li">Favorites</Link>
-        </li>
+        </li> */}
       </div>
       <div className="user-show-maincontent">
         <div className="user-show-toppage">
