@@ -48,6 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_18_031211) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["listing_id"], name: "index_likes_on_listing_id"
+    t.index ["user_id", "listing_id"], name: "index_likes_on_user_id_and_listing_id", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
