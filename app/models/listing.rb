@@ -33,5 +33,8 @@ class Listing < ApplicationRecord
     foreign_key: :owner_id,
     class_name: :User
 
+    has_many :likes,
+    dependent: :destroy
+
     has_many_attached :photos
 end
