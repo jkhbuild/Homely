@@ -1,8 +1,10 @@
 class Api::LikesController < ApplicationController
+    before_action :require_logged_in
     wrap_parameters include: Like.attribute_names + ['userId', 'listingId']
     
     def create
-        @like = current_user.likes.new(like_params)
+        @like = Like.new(likes_params)
+        @like.user_id = current_user.id
 
         if @like.save
             render index
@@ -19,8 +21,16 @@ class Api::LikesController < ApplicationController
     end
 
     def index
-        @likes = Like.where(user_id: params[:user_id])
-        render :index
+        # @likes = Like.where(user_id: params[:user_id])
+        # render :index
+        @current_user = current_user
+        @users_likes = Like.where(user_id: @current_user.id)
+
+        if @users_likes
+            render :index
+        else
+            render json: {errors: ['user has no likes']}, status: 404
+        end
     end
 
     def destroy
@@ -37,6 +47,6 @@ class Api::LikesController < ApplicationController
     end
 
     def likes_params
-        params.require(:like).permit(:user_id, :listing_id)
+        params.require(:like).permit(:listing_id)
     end
 end

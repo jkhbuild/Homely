@@ -7,6 +7,7 @@ function ListingCard({ listing }) {
   const history = useHistory();
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([]);
+  const [listingId, setListingId] = useState("");
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -16,8 +17,13 @@ function ListingCard({ listing }) {
   const handleLike = (e) => {
     e.preventDefault();
     setErrors([]);
+    setListingId(listing.id);
 
-    dispatch(LikeActions.createLike({})).catch(async (res) => {
+    dispatch(
+      LikeActions.createLike({
+        listingId,
+      })
+    ).catch(async (res) => {
       let data;
       try {
         data = await res.clone().json();
