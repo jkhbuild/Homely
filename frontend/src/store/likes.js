@@ -22,6 +22,14 @@ export const removeLike = (like) => ({
 export const getLikes = (userId) => (state) =>
   state.likes[userId] ? state.likes[userId] : {};
 
+export const fetchLikes = (userId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/users/${userId}/likes`);
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(receiveLikes(data));
+    return data;
+  }
+};
 export const createLike = (like) => async (dispatch) => {
   let res = await csrfFetch("/api/likes", {
     method: "POST",
