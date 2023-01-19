@@ -34,8 +34,12 @@ class Api::LikesController < ApplicationController
     end
 
     def destroy
-        like = current_user.likes.find(params[:id])
-        like.destroy
+        @like = Like.find_by(user_id: current_user.id, listing_id: params[:id])
+        if @like
+            @like.destroy
+        else
+            render json: {errors: ['listing not liked']}, status :unprocessable_entity
+        end
         # like = Like.find_by(id: params[:id])
         # like.delete
     end
