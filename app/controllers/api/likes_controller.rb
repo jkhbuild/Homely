@@ -33,6 +33,10 @@ class LikesController < ApplicationController
 
     private
 
+    def already_liked?
+        Like.where(user_id: current_user.id, listing_id: params[:listing_id]).exists?
+    end
+
     def likes_params
         params.require(:like).permit(:user_id, :listing_id)
     end
