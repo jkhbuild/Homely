@@ -5,9 +5,7 @@ class Api::LikesController < ApplicationController
     def create
         @like = Like.new(likes_params)
         @like.user_id = current_user.id
-
         if @like.save
-            render index
         else
             render json: { errors: @like.errors.full_messages }, status: :unprocessable_entity
         end
@@ -38,7 +36,7 @@ class Api::LikesController < ApplicationController
         if @like
             @like.destroy
         else
-            render json: {errors: ['listing not liked']}, status :unprocessable_entity
+            render json: {errors: ['listing not liked']}, status: :unprocessable_entity
         end
         # like = Like.find_by(id: params[:id])
         # like.delete
@@ -47,7 +45,7 @@ class Api::LikesController < ApplicationController
     private
 
     def already_liked?
-        Like.where(user_id: current_user.id, listing_id: params[:listing_id]).exists?
+        Like.where(user_id: current_user.id, listing_id: params[:listing_id])
     end
 
     def likes_params

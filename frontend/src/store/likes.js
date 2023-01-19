@@ -14,13 +14,13 @@ export const receiveLike = (like) => ({
   like,
 });
 
-export const removeLike = (like) => ({
+export const removeLike = (listingId) => ({
   type: REMOVE_LIKE,
-  like,
+  listingId,
 });
 
-export const getLikes = (userId) => (state) =>
-  state.likes[userId] ? state.likes[userId] : {};
+export const getLikes = (state) =>
+  state.likes ? Object.values(state.likes) : [];
 
 export const fetchLikes = (userId) => async (dispatch) => {
   const res = await csrfFetch(`/api/users/${userId}/likes`);
@@ -34,11 +34,12 @@ export const fetchLikes = (userId) => async (dispatch) => {
 export const createLike = (like) => async (dispatch) => {
   let res = await csrfFetch("/api/likes", {
     method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(like),
   });
   if (res.ok) {
     let data = await res.json();
-    dispatch(receiveLike(data.like));
+    dispatch(receiveLike(data));
   }
 };
 
