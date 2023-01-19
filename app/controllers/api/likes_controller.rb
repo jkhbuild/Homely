@@ -1,14 +1,13 @@
-class LikesController < ApplicationController
+class Api::LikesController < ApplicationController
     wrap_parameters include: Like.attribute_names + ['userId', 'listingId']
     
     def create
-
         @like = current_user.likes.new(like_params)
 
         if @like.save
             render index
         else
-            render json {error: 'like could not be created'}
+            render json: { errors: @like.errors.full_messages }, status: :unprocessable_entity
         end
         # like = Like.new(like_params)
         # if like.save
@@ -25,8 +24,8 @@ class LikesController < ApplicationController
     end
 
     def destroy
-        @like = current_user.likes.find(params[:id]
-        @like.destroy
+        like = current_user.likes.find(params[:id])
+        like.destroy
         # like = Like.find_by(id: params[:id])
         # like.delete
     end

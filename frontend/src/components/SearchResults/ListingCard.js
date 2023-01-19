@@ -1,12 +1,33 @@
 import React, { useEffect, useRef, useState, useMemo } from "react";
 import { useHistory, useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import * as LikeActions from "../../store/likes";
 
 function ListingCard({ listing }) {
   const history = useHistory();
+  const dispatch = useDispatch();
+  const [errors, setErrors] = useState([]);
 
   const handleClick = (e) => {
     e.preventDefault();
     history.push(`/listings/${listing.id}/show`);
+  };
+
+  const handleLike = (e) => {
+    e.preventDefault();
+    setErrors([]);
+
+    dispatch(LikeActions.createLike({})).catch(async (res) => {
+      let data;
+      try {
+        data = await res.clone().json();
+      } catch {
+        data = await res.text();
+      }
+      if (data?.errors) setErrors(data.errors);
+      else if (data) setErrors([data]);
+      else setErrors([res.statusText]);
+    });
   };
 
   if (!listing) {
@@ -29,7 +50,7 @@ function ListingCard({ listing }) {
               </button>
             </div>
             <div className="listing-card-header-right">
-              <button className="listing-card-favorite">
+              <button className="listing-card-favorite" onClick={handleLike}>
                 <i className="fa-regular fa-heart"></i>
               </button>
             </div>
