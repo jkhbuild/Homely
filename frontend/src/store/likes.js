@@ -30,6 +30,7 @@ export const fetchLikes = (userId) => async (dispatch) => {
     return data;
   }
 };
+
 export const createLike = (like) => async (dispatch) => {
   let res = await csrfFetch("/api/likes", {
     method: "POST",
@@ -50,3 +51,24 @@ export const deleteLike = (likeId) => async (dispatch) => {
     return likeId;
   }
 };
+
+const likeReducer = (state = {}, action) => {
+  const nextState = { ...state };
+  switch (action.type) {
+    case RECEIVE_LIKE: {
+      nextState[action.id] = action.like;
+      return nextState;
+    }
+    case RECEIVE_LIKES: {
+      return { ...nextState, ...action.likes };
+    }
+    case REMOVE_LIKE: {
+      delete nextState[action.like.id];
+      return nextState;
+    }
+    default:
+      return state;
+  }
+};
+
+export default likeReducer;
