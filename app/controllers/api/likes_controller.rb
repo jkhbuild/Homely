@@ -24,9 +24,9 @@ class Api::LikesController < ApplicationController
         # @likes = Like.where(user_id: params[:user_id])
         # render :index
         @current_user = current_user
-        @users_likes = Like.where(user_id: @current_user.id)
+        @likes = Like.where(user_id: @current_user.id)
 
-        if @users_likes
+        if @likes
             render :index
         else
             render json: {errors: ['user has no likes']}, status: 404
