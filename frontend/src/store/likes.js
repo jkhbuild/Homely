@@ -34,7 +34,7 @@ export const fetchLikes = (userId) => async (dispatch) => {
 export const createLike = (like) => async (dispatch) => {
   let res = await csrfFetch("/api/likes", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    // headers: { "Content-Type": "application/json" },
     body: JSON.stringify(like),
   });
   if (res.ok) {
@@ -57,7 +57,7 @@ const likeReducer = (state = {}, action) => {
   const nextState = { ...state };
   switch (action.type) {
     case RECEIVE_LIKE: {
-      nextState[action.id] = action.like;
+      nextState[action.like.like.id] = action.like.like;
       return nextState;
     }
     case RECEIVE_LIKES: {

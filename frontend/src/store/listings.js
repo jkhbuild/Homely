@@ -94,7 +94,7 @@ export const updateListing = (listing) => async (dispatch) => {
 
   if (res.ok) {
     let data = await res.json();
-    dispatch(receiveListing(data.listing));
+    dispatch(receiveListing(data));
   }
 };
 
@@ -114,6 +114,7 @@ const listingsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_LISTING: {
       nextState[action.payload.id] = action.payload;
+      debugger;
       return nextState;
     }
     case RECEIVE_LISTINGS: {

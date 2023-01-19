@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, useMemo } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as LikeActions from "../../store/likes";
 
 function ListingCard({ listing }) {
@@ -8,6 +8,7 @@ function ListingCard({ listing }) {
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([]);
   const [listingId, setListingId] = useState("");
+  const sessionUserId = useSelector((state) => state.session.user.id);
 
   const handleClick = (e) => {
     e.preventDefault();
