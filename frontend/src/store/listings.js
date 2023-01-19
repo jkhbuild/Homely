@@ -114,7 +114,6 @@ const listingsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_LISTING: {
       nextState[action.payload.id] = action.payload;
-      debugger;
       return nextState;
     }
     case RECEIVE_LISTINGS: {

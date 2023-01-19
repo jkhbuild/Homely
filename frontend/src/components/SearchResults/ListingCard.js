@@ -10,6 +10,10 @@ function ListingCard({ listing }) {
   const [listingId, setListingId] = useState("");
   const sessionUserId = useSelector((state) => state.session.user.id);
 
+  useEffect(() => {
+    dispatch(LikeActions.fetchLikes(sessionUserId));
+  }, [sessionUserId, dispatch]);
+
   const handleClick = (e) => {
     e.preventDefault();
     history.push(`/listings/${listing.id}/show`);
@@ -36,10 +40,6 @@ function ListingCard({ listing }) {
       else setErrors([res.statusText]);
     });
   };
-
-  if (!listing) {
-    return null;
-  }
 
   return (
     <>

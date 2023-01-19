@@ -22,6 +22,12 @@ export const removeLike = (listingId) => ({
 export const getLikes = (state) =>
   state.likes ? Object.values(state.likes) : [];
 
+// export const getUsersLikes = (userId) => (state) => {
+//   if (state.likes) {
+
+//   }
+// }
+
 export const fetchLikes = (userId) => async (dispatch) => {
   const res = await csrfFetch(`/api/users/${userId}/likes`);
   if (res.ok) {
