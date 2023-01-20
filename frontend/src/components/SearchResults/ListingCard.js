@@ -19,10 +19,9 @@ function ListingCard({ listing }) {
     history.push(`/listings/${listing.id}/show`);
   };
 
-  const handleLike = (e) => {
+  const handleLike = (e, listingId) => {
     e.preventDefault();
     setErrors([]);
-    setListingId(listing.id);
 
     dispatch(
       LikeActions.createLike({
@@ -57,7 +56,10 @@ function ListingCard({ listing }) {
               </button>
             </div>
             <div className="listing-card-header-right">
-              <button className="listing-card-favorite" onClick={handleLike}>
+              <button
+                className="listing-card-favorite"
+                onClick={(e) => handleLike(e, listing.id)}
+              >
                 <i className="fa-regular fa-heart"></i>
               </button>
             </div>
