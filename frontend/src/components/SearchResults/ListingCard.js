@@ -9,6 +9,7 @@ function ListingCard({ listing }) {
   const [errors, setErrors] = useState([]);
   const [listingId, setListingId] = useState("");
   const sessionUserId = useSelector((state) => state.session.user.id);
+  const usersLikes = useSelector((state) => Object.values(state.likes));
 
   useEffect(() => {
     dispatch(LikeActions.fetchLikes(sessionUserId));
