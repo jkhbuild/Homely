@@ -66,6 +66,7 @@ const ListingsMap = ({ listings }) => {
       history.push(`/listings/` + selected.id + "/show");
     }
   };
+  console.log("listing", listingLocations);
 
   return (
     <>
@@ -74,7 +75,10 @@ const ListingsMap = ({ listings }) => {
           <GoogleMap
             mapContainerStyle={mapStyles}
             zoom={13}
-            center={defaultCenter}
+            center={{
+              lat: listingLocations[0].location.lat,
+              lng: listingLocations[0].location.lng,
+            }}
             options={options}
           >
             {listingLocations.map((listing) => {
