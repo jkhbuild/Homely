@@ -32,7 +32,8 @@ class Api::LikesController < ApplicationController
     end
 
     def destroy
-        @like = Like.find_by(user_id: current_user.id, listing_id: params[:id])
+        # @like = Like.find_by(user_id: current_user.id, listing_id: params[:id])
+         @like = Like.find(params[:id])
         if @like
             @like.destroy
         else
@@ -44,11 +45,11 @@ class Api::LikesController < ApplicationController
 
     private
 
-    def already_liked?
-        Like.where(user_id: current_user.id, listing_id: params[:listing_id])
-    end
+    # def already_liked?
+    #     Like.where(user_id: current_user.id, listing_id: params[:listing_id])
+    # end
 
     def likes_params
-        params.require(:like).permit(:listing_id)
+        params.require(:like).permit(:id, :listing_id)
     end
 end

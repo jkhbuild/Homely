@@ -7,9 +7,8 @@ function ListingCard({ listing }) {
   const history = useHistory();
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([]);
-  const [listingId, setListingId] = useState("");
   const sessionUserId = useSelector((state) => state.session.user.id);
-  const usersLikes = useSelector((state) => Object.values(state.likes));
+  const usersLikes = useSelector(LikeActions.getLikes);
 
   useEffect(() => {
     dispatch(LikeActions.fetchLikes(sessionUserId));
@@ -24,21 +23,39 @@ function ListingCard({ listing }) {
     e.preventDefault();
     setErrors([]);
 
-    dispatch(
-      LikeActions.createLike({
-        listingId,
-      })
-    ).catch(async (res) => {
-      let data;
-      try {
-        data = await res.clone().json();
-      } catch {
-        data = await res.text();
-      }
-      if (data?.errors) setErrors(data.errors);
-      else if (data) setErrors([data]);
-      else setErrors([res.statusText]);
-    });
+    const listingLike = usersLikes.filter(
+      (like) => (like.listingId = listingId)
+    );
+
+    if (listingLike.length === 0) {
+      dispatch(
+        LikeActions.createLike({
+          listingId,
+        })
+      ).catch(async (res) => {
+        let data;
+        try {
+          data = await res.clone().json();
+        } catch {
+          data = await res.text();
+        }
+        if (data?.errors) setErrors(data.errors);
+        else if (data) setErrors([data]);
+        else setErrors([res.statusText]);
+      });
+    } else {
+      dispatch(LikeActions.deleteLike(listingLike[0].id)).catch(async (res) => {
+        let data;
+        try {
+          data = await res.clone().json();
+        } catch {
+          data = await res.text();
+        }
+        if (data?.errors) setErrors(data.errors);
+        else if (data) setErrors([data]);
+        else setErrors([res.statusText]);
+      });
+    }
   };
 
   return (

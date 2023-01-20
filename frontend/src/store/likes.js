@@ -14,19 +14,26 @@ export const receiveLike = (like) => ({
   like,
 });
 
-export const removeLike = (listingId) => ({
+export const removeLike = (likeId) => ({
   type: REMOVE_LIKE,
-  listingId,
+  likeId,
 });
 
 export const getLikes = (state) =>
   state.likes ? Object.values(state.likes) : [];
 
 // export const getUsersLikes = (userId) => (state) => {
+//   let usersLikes = ["help"];
+//   let likesArr = Object.values(state.likes);
 //   if (state.likes) {
-
+//     for (let i = 0; i < likesArr.length; i++) {
+//       if (likesArr[i].userId === userId) {
+//         usersLikes.push(likesArr[i]);
+//       }
+//     }
 //   }
-// }
+//   return usersLikes;
+// };
 
 export const fetchLikes = (userId) => async (dispatch) => {
   const res = await csrfFetch(`/api/users/${userId}/likes`);
@@ -50,7 +57,7 @@ export const createLike = (like) => async (dispatch) => {
 };
 
 export const deleteLike = (likeId) => async (dispatch) => {
-  let res = await csrfFetch(`/api/like/${likeId}`, {
+  let res = await csrfFetch(`/api/likes/${likeId}`, {
     method: "DELETE",
   });
   if (res.ok) {
@@ -70,7 +77,8 @@ const likeReducer = (state = {}, action) => {
       return { ...nextState, ...action.likes };
     }
     case REMOVE_LIKE: {
-      delete nextState[action.like.id];
+      debugger;
+      delete nextState[action.likeId];
       return nextState;
     }
     default:
