@@ -23,9 +23,7 @@ function ListingCard({ listing }) {
     e.preventDefault();
     setErrors([]);
 
-    const listingLike = usersLikes.filter(
-      (like) => (like.listingId = listingId)
-    );
+    let listingLike = usersLikes.filter((like) => like.listingId === listingId);
 
     if (listingLike.length === 0) {
       dispatch(

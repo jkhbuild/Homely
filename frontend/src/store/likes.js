@@ -77,7 +77,6 @@ const likeReducer = (state = {}, action) => {
       return { ...nextState, ...action.likes };
     }
     case REMOVE_LIKE: {
-      debugger;
       delete nextState[action.likeId];
       return nextState;
     }
