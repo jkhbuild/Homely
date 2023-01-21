@@ -66,7 +66,6 @@ const ListingsMap = ({ listings }) => {
       history.push(`/listings/` + selected.id + "/show");
     }
   };
-  console.log("listing", listingLocations);
 
   return (
     <>
