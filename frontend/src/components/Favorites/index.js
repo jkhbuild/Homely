@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, useParams } from "react-router-dom";
 import UserShowSidebar from "../UserShow/UserShowSidebar";
+import "./Favorites.css";
 
 function Favorites() {
   const dispatch = useDispatch();
@@ -9,20 +10,14 @@ function Favorites() {
 
   return (
     <>
-      <div className="user-show-sidebar">
-        <UserShowSidebar />
-        {/* <h4 className="user-show-sidebar-header">
-          <i class="fa-regular fa-building"></i>
-          Properties & Listings
-        </h4>
-        <li>
-          <Link className="user-show-sidebar-li">Properties</Link>
-        </li>
-        <li>
-          <Link className="user-show-sidebar-li">Favorites</Link>
-        </li> */}
+      <div className="favorites-container">
+        <div className="user-show-sidebar">
+          <UserShowSidebar />
+        </div>
+        <div className="favorites-main-content-wrapper">
+          <h4 className="favorites-header">Favorites</h4>
+        </div>
       </div>
-      <div>test</div>
     </>
   );
 }
