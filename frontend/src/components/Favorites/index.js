@@ -22,7 +22,9 @@ function Favorites() {
           <UserShowSidebar />
         </div>
         <div className="favorites-main-content-wrapper">
-          <h4 className="favorites-header">My Favorites</h4>
+          <h4 className="favorites-header">
+            My Favorites ({usersLikes.length})
+          </h4>
         </div>
       </div>
     </>
