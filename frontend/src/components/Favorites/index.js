@@ -2,13 +2,18 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, useParams } from "react-router-dom";
 import UserShowSidebar from "../UserShow/UserShowSidebar";
+import * as LikeActions from "../../store/likes";
 import "./Favorites.css";
 
 function Favorites() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const { userId } = useParams();
-  console.log(userId);
+  const sessionUserId = useSelector((state) => state.session.user.id);
+  const usersLikes = useSelector(LikeActions.getLikes);
+
+  useEffect(() => {
+    dispatch(LikeActions.fetchLikes(sessionUserId));
+  }, [sessionUserId, dispatch]);
 
   return (
     <>

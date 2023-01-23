@@ -23,12 +23,12 @@ function UserShowSidebar() {
   return (
     <>
       <h4 className="user-show-sidebar-header">
-        <i class="fa-regular fa-building"></i>
+        <i className="fa-regular fa-building"></i>
         Properties & Listings
       </h4>
       {SidebarData.map((item, index) => {
         return (
-          <li>
+          <li key={index}>
             <Link to={item.path}>
               <span>{item.title}</span>
             </Link>
