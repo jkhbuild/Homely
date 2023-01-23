@@ -6,8 +6,12 @@ import * as PropertyActions from "../../store/listings";
 
 function FavoritesListingCard({ listingId }) {
   // const history = useHistory();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const listing = useSelector(PropertyActions.getListing(listingId));
+
+  useEffect(() => {
+    dispatch(PropertyActions.fetchListings());
+  }, [dispatch]);
 
   // const handleFavoritesListingClick = (e) => {
   //   e.preventDefault();
@@ -26,25 +30,27 @@ function FavoritesListingCard({ listingId }) {
   // };
 
   return (
-    <div className="favorites-listing-card-container">
-      <div className="favorites-listing-card">
-        <button className="remove-favorite-button"></button>
-        <div className="favorites-photo-container">
-          {listing.photosUrl && (
-            <img
-              className="favorites-photo"
-              src={listing.photosUrl[0]}
-              alt="pic"
-            ></img>
-          )}
+    <>
+      {listing && listing.state && listing.photosUrl && (
+        <div className="favorites-listing-card-container">
+          <div className="favorites-listing-card">
+            <button className="remove-favorite-button"></button>
+            <div className="favorites-photo-container">
+              <img
+                className="favorites-photo"
+                src={listing.photosUrl[0]}
+                alt="pic"
+              ></img>
+            </div>
+            <h4 className="favorites-listing-card-address">
+              {listing.address}, {listing.city}, {listing.state.toUpperCase()}{" "}
+              {listing.zipCode}
+            </h4>
+            <div className="favorites-listing-card-units"></div>
+          </div>
         </div>
-        <h4 className="favorites-listing-card-address">
-          {listing.address}, {listing.city}, {listing.state.toUpperCase()}{" "}
-          {listing.zipCode}
-        </h4>
-        <div className="favorites-listing-card-units"></div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }
 

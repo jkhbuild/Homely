@@ -26,10 +26,15 @@ function Favorites() {
           <h4 className="favorites-header">
             My Favorites ({usersLikes.length})
           </h4>
-          {usersLikes &&
-            usersLikes.map((like) => (
-              <FavoritesListingCard key={like.id} listingId={like.listingId} />
-            ))}
+          <div className="favorites-listing-card-container">
+            {usersLikes &&
+              usersLikes.map((like) => (
+                <FavoritesListingCard
+                  key={like.id}
+                  listingId={like.listingId}
+                />
+              ))}
+          </div>
         </div>
       </div>
     </>
