@@ -29,12 +29,20 @@ function FavoritesListingCard({ listingId }) {
     <div className="favorites-listing-card-container">
       <div className="favorites-listing-card">
         <button className="remove-favorite-button"></button>
-        <div className="favorites-static-map-container"></div>
+        <div className="favorites-photo-container">
+          {listing.photosUrl && (
+            <img
+              className="favorites-photo"
+              src={listing.photosUrl[0]}
+              alt="pic"
+            ></img>
+          )}
+        </div>
         <h4 className="favorites-listing-card-address">
           {listing.address}, {listing.city}, {listing.state.toUpperCase()}{" "}
           {listing.zipCode}
         </h4>
-        \<div className="favorites-listing-card-units"></div>
+        <div className="favorites-listing-card-units"></div>
       </div>
     </div>
   );
