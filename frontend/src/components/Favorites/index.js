@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, useParams } from "react-router-dom";
 import UserShowSidebar from "../UserShow/UserShowSidebar";
+import FavoritesListingCard from "./FavoritesListingCard.js";
 import * as LikeActions from "../../store/likes";
 import "./Favorites.css";
 
@@ -25,6 +26,10 @@ function Favorites() {
           <h4 className="favorites-header">
             My Favorites ({usersLikes.length})
           </h4>
+          {usersLikes &&
+            usersLikes.map((like) => (
+              <FavoritesListingCard key={like.id} listingId={like.listingId} />
+            ))}
         </div>
       </div>
     </>

@@ -10,8 +10,8 @@ class Api::ListingsController < ApplicationController
             query = params[:query].downcase if params[:query]
             @listings = Listing.all
             if query
-                @listings = Listing.where("lower(state) LIKE (?)", query)
-                .or(Listing.where("lower(city) LIKE (?)", query))
+                @listings = Listing.where("lower(state) LIKE (?)", query )
+                .or(Listing.where("lower(city) LIKE (?)", query ))
                 .or(Listing.where(zip_code: query))
             end
         end

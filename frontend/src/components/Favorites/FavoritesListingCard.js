@@ -2,10 +2,12 @@ import React, { useEffect, useState, useMemo } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as LikeActions from "../../store/likes";
+import * as PropertyActions from "../../store/listings";
 
-function FavoritesListingCard() {
-  const history = useHistory();
-  const dispatch = useDispatch();
+function FavoritesListingCard({ listingId }) {
+  // const history = useHistory();
+  // const dispatch = useDispatch();
+  const listing = useSelector(PropertyActions.getListing(listingId));
 
   // const handleFavoritesListingClick = (e) => {
   //   e.preventDefault();
