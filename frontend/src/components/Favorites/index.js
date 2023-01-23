@@ -7,6 +7,8 @@ import "./Favorites.css";
 function Favorites() {
   const dispatch = useDispatch();
   const history = useHistory();
+  const { userId } = useParams();
+  console.log(userId);
 
   return (
     <>
@@ -15,7 +17,7 @@ function Favorites() {
           <UserShowSidebar />
         </div>
         <div className="favorites-main-content-wrapper">
-          <h4 className="favorites-header">Favorites</h4>
+          <h4 className="favorites-header">My Favorites</h4>
         </div>
       </div>
     </>
