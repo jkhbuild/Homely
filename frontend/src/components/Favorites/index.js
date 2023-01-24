@@ -32,6 +32,7 @@ function Favorites() {
                 <FavoritesListingCard
                   key={like.id}
                   listingId={like.listingId}
+                  likeId={like.id}
                 />
               ))}
           </div>

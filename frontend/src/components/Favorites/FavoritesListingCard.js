@@ -4,37 +4,43 @@ import { useDispatch, useSelector } from "react-redux";
 import * as LikeActions from "../../store/likes";
 import * as PropertyActions from "../../store/listings";
 
-function FavoritesListingCard({ listingId }) {
+function FavoritesListingCard({ listingId, likeId }) {
   // const history = useHistory();
   const dispatch = useDispatch();
   const listing = useSelector(PropertyActions.getListing(listingId));
+  const [errors, setErrors] = useState([]);
 
   useEffect(() => {
     dispatch(PropertyActions.fetchListings());
   }, [dispatch]);
 
-  // const handleFavoritesListingClick = (e) => {
-  //   e.preventDefault();
+  const handleDeleteFavorite = (e) => {
+    e.preventDefault();
 
-  //   dispatch(LikeActions.deleteLike(listingLike[0].id)).catch(async (res) => {
-  //     let data;
-  //     try {
-  //       data = await res.clone().json();
-  //     } catch {
-  //       data = await res.text();
-  //     }
-  //     if (data?.errors) setErrors(data.errors);
-  //     else if (data) setErrors([data]);
-  //     else setErrors([res.statusText]);
-  //   });
-  // };
+    dispatch(LikeActions.deleteLike(likeId)).catch(async (res) => {
+      let data;
+      try {
+        data = await res.clone().json();
+      } catch {
+        data = await res.text();
+      }
+      if (data?.errors) setErrors(data.errors);
+      else if (data) setErrors([data]);
+      else setErrors([res.statusText]);
+    });
+  };
 
   return (
     <>
-      {listing && listing.state && listing.photosUrl && (
+      {listing && listing.photosUrl && (
         <div className="favorites-listing-card">
-          <button className="remove-favorite-button"></button>
           <div className="favorites-photo-container">
+            <button
+              className="remove-favorite-button"
+              onClick={handleDeleteFavorite}
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
             <Link to={`/listings/${listing.id}/show`}>
               <img
                 className="favorites-photo"
@@ -43,11 +49,19 @@ function FavoritesListingCard({ listingId }) {
               ></img>
             </Link>
           </div>
-          <h4 className="favorites-listing-card-address">
-            {listing.address}, {listing.city}, {listing.state.toUpperCase()}{" "}
-            {listing.zipCode}
-          </h4>
-          <div className="favorites-listing-card-units"></div>
+          <Link to={`/listings/${listing.id}/show`}>
+            <h4 className="favorites-listing-card-address">
+              {listing.address}
+            </h4>
+          </Link>
+
+          <p>
+            {listing.rent} | {listing.bed} Beds
+          </p>
+          <button className="favorites-listing-card-contact">
+            <i class="fa-regular fa-envelope"></i>
+            Contact Property
+          </button>
         </div>
       )}
     </>

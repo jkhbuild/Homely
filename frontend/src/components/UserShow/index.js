@@ -23,16 +23,6 @@ function UserShow() {
     <div className="user-show-container">
       <div className="user-show-sidebar">
         <UserShowSidebar />
-        {/* <h4 className="user-show-sidebar-header">
-          <i class="fa-regular fa-building"></i>
-          Properties & Listings
-        </h4>
-        <li>
-          <Link className="user-show-sidebar-li">Properties</Link>
-        </li>
-        <li>
-          <Link className="user-show-sidebar-li">Favorites</Link>
-        </li> */}
       </div>
       <div className="user-show-maincontent">
         <div className="user-show-toppage">
