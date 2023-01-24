@@ -26,15 +26,17 @@ function UserShowSidebar() {
         <i className="fa-regular fa-building"></i>
         Properties & Listings
       </h4>
-      {SidebarData.map((item, index) => {
-        return (
-          <li key={index}>
-            <Link to={item.path}>
-              <span>{item.title}</span>
-            </Link>
-          </li>
-        );
-      })}
+      <li className="user-show-sidebar-list">
+        {SidebarData.map((item, index) => {
+          return (
+            <ul className="user-show-sidebar-list-item" key={index}>
+              <Link to={item.path}>
+                <span className="user-show-sidebar-title">{item.title}</span>
+              </Link>
+            </ul>
+          );
+        })}
+      </li>
     </>
   );
 }
