@@ -19,6 +19,10 @@ function ListingCard({ listing }) {
     history.push(`/listings/${listing.id}/show`);
   };
 
+  const handleEmail = () => {
+    window.location.href = "mailto:jkh.build@gmail.com";
+  };
+
   const handleLike = (e, listingId) => {
     e.preventDefault();
     setErrors([]);
@@ -97,7 +101,9 @@ function ListingCard({ listing }) {
               </h4>
               {/* <p>{listing.beds} Beds</p>
           <p>{listing.propertyType} for Rent</p> */}
-              <button className="listing-card-button">Email</button>
+              <button className="listing-card-button" onClick={handleEmail}>
+                Email
+              </button>
             </div>
           </div>
         </article>

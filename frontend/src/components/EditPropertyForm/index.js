@@ -232,9 +232,9 @@ function EditPropertyForm() {
                 </div>
               </div>
             </div>
-            <div className="listing-photo-upload">
+            {/* <div className="listing-photo-upload">
               <input type="file" onChange={upload} />
-            </div>
+            </div> */}
           </form>
         </div>
       </div>

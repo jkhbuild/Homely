@@ -26,11 +26,12 @@ function SplashListingCards({ listings }) {
   return (
     <>
       {listings[0] &&
-        listings[0].photosUrl &&
+        listings[0].photosUrl[0] &&
         randomCities.map((listing) => {
           return (
             <button
               className="splash-listing-card-button"
+              key={listing.id}
               onClick={(e) => handleListingCardClick(e, listing)}
             >
               <div className="splash-listing-card">
