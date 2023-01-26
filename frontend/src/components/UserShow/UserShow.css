@@ -33,7 +33,6 @@
 
 .user-show-sidebar ul {
     list-style-type: none;
-    border-left: 3px solid #74b71b;
     padding: 7px 7px;
     color: #427b01;
 }
@@ -49,6 +48,7 @@
 
 .user-show-sidebar-list-item:hover {
     background-color: #fafafa;
+    border-left: 3px solid #74b71b;
 }
 
 .user-show-sidebar-title {

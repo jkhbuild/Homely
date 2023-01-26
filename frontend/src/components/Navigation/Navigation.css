@@ -54,8 +54,6 @@ button {
 
 .menu {
     width: 15rem;
-    position: relative;
-    display: inline-block;
 }
 
 .open-menu-wrapper {

@@ -60,6 +60,19 @@ function Navigation() {
     history.push("/add-property");
   };
 
+  const handleLinkedIn = () => {
+    window.location.href = "https://www.linkedin.com/in/jhpond-45569272/";
+  };
+  const handleWellfound = () => {
+    window.location.href = "https://angel.co/u/justin-hwang-6";
+  };
+  const handlePersonal = () => {
+    window.location.href = "https://darling-mousse-6b92b4.netlify.app/";
+  };
+  const handleGithub = () => {
+    window.location.href = "https://github.com/jkhbuild";
+  };
+
   return (
     <div className="header" id="nav-bar-header">
       <ul id="header-container">
@@ -73,19 +86,24 @@ function Navigation() {
               <div className="open-menu-wrapper">
                 <ul className="main-menu-list">
                   <li>
-                    <button className="menu-content">Renter Tools</button>
+                    <button className="menu-content" onClick={handleLinkedIn}>
+                      Linkedin
+                    </button>
                   </li>
                   <li>
-                    <button className="menu-content">Apartments</button>
+                    <button className="menu-content" onClick={handleWellfound}>
+                      Wellfound
+                    </button>
                   </li>
                   <li>
-                    <button className="menu-content">Homes For Rent</button>
+                    <button className="menu-content" onClick={handlePersonal}>
+                      Personal Site
+                    </button>
                   </li>
                   <li>
-                    <button className="menu-content">Condos For Rent</button>
-                  </li>
-                  <li>
-                    <button className="menu-content">Townhomes For Rent</button>
+                    <button className="menu-content" onClick={handleGithub}>
+                      Github
+                    </button>
                   </li>
                 </ul>
               </div>

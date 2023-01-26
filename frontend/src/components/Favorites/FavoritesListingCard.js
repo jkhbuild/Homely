@@ -59,8 +59,7 @@ function FavoritesListingCard({ listingId, likeId }) {
             {listing.rent} | {listing.bed} Beds
           </p>
           <button className="favorites-listing-card-contact">
-            <i class="fa-regular fa-envelope"></i>
-            Contact Property
+            <i class="fa-regular fa-envelope"></i> Contact Property
           </button>
         </div>
       )}
