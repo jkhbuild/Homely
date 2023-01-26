@@ -3,10 +3,30 @@ import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function FilterBar() {
+  const history = useHistory();
+  const [searchInput, setSearchInput] = useState("");
+
+  const handleEnter = (e) => {
+    console.log(e);
+    if (e.key === "Enter") history.push(`/search/${searchInput}`);
+  };
+
+  // searchBar.addEventListener("keypress", e) {
+  //   if (e.key === "Enter") {
+  //     history.push(`/search/${searchInput}`)
+  //   }
+  // }
+
   return (
     <div className="filter-container">
-      <input type="text" placeholder="Location or Point of Interest"></input>
-      <select className="beds-type-filter">
+      <input
+        type="text"
+        id="filter-search-bar"
+        placeholder="Location or Point of Interest"
+        onChange={(e) => setSearchInput(e.target.value)}
+        onKeyUp={(e) => handleEnter(e)}
+      ></input>
+      {/* <select className="beds-type-filter">
         <option value="" defaultValue hidden>
           Beds
         </option>
@@ -44,7 +64,7 @@ function FilterBar() {
         <option>Condominum</option>
         <option>Townhouse</option>
         <option>Mobile Home/Manufactured Home</option>
-      </select>
+      </select> */}
     </div>
   );
 }
