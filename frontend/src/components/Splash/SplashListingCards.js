@@ -25,8 +25,9 @@ function SplashListingCards({ listings }) {
 
   return (
     <>
-      {listings[0] &&
-        listings[0].photosUrl[0] &&
+      {listings &&
+        listings[0] &&
+        listings[0].photosUrl &&
         randomCities.map((listing) => {
           return (
             <button
@@ -35,7 +36,9 @@ function SplashListingCards({ listings }) {
               onClick={(e) => handleListingCardClick(e, listing)}
             >
               <div className="splash-listing-card">
-                <img src={listing.photosUrl[0]} alt="logo"></img>
+                {listing.photosUrl && listing.photosUrl[0] && (
+                  <img src={listing.photosUrl[0]} alt="logo"></img>
+                )}
                 <h4>
                   {listing.address}
                   <br></br>

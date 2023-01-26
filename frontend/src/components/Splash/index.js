@@ -27,7 +27,7 @@ function Splash() {
       <div className="splash-listing-cards-container">
         <h1 className="splash-listing-cards-header">Explore Rentals</h1>
         <div className="splash-listing-cards">
-          <SplashListingCards listings={listings} />
+          {listings && <SplashListingCards listings={listings} />}
         </div>
 
         <button

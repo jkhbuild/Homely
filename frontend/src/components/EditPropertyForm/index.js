@@ -4,7 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import GoogleStaticMap from "react-google-static";
 import * as PropertyActions from "../../store/listings";
 import "./EditPropertyForm.css";
-import S3FileUpload from "react-s3";
+// import S3FileUpload from "react-s3";
 
 function EditPropertyForm() {
   const dispatch = useDispatch();
@@ -36,15 +36,15 @@ function EditPropertyForm() {
     dispatch(PropertyActions.fetchListing(listingId));
   }, [listingId, dispatch]);
 
-  const upload = (e) => {
-    S3FileUpload.uploadFile(e.target.files[0], config)
-      .then((data) => {
-        console.log(data.location);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  // const upload = (e) => {
+  //   S3FileUpload.uploadFile(e.target.files[0], config)
+  //     .then((data) => {
+  //       console.log(data.location);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -61,21 +61,20 @@ function EditPropertyForm() {
         availableOn,
         isPublished,
       })
-    )
-      .then(() => {
-        history.push(`/`);
-      })
-      .catch(async (res) => {
-        let data;
-        try {
-          data = await res.clone().json();
-        } catch {
-          data = await res.text();
-        }
-        if (data?.errors) setErrors(data.errors);
-        else if (data) setErrors([data]);
-        else setErrors([res.statusText]);
-      });
+    ).then(() => {
+      history.push(`/`);
+    });
+    // .catch(async (res) => {
+    //   let data;
+    //   try {
+    //     data = await res.clone().json();
+    //   } catch {
+    //     data = await res.text();
+    //   }
+    //   if (data?.errors) setErrors(data.errors);
+    //   else if (data) setErrors([data]);
+    //   else setErrors([res.statusText]);
+    // });
   };
 
   return (
