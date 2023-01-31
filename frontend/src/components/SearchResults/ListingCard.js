@@ -8,12 +8,12 @@ function ListingCard({ listing }) {
   const history = useHistory();
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([]);
-  const sessionUserId = useSelector((state) => state.session.user.id);
-  const usersLikes = useSelector(LikeActions.getLikes);
+  const sessionUser = useSelector((state) => state.session.user);
+  // const usersLikes = useSelector(LikeActions.getLikes);
 
-  useEffect(() => {
-    dispatch(LikeActions.fetchLikes(sessionUserId));
-  }, [sessionUserId, dispatch]);
+  // useEffect(() => {
+  //   dispatch(LikeActions.fetchLikes(sessionUserId));
+  // }, [sessionUserId, dispatch]);
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -24,42 +24,47 @@ function ListingCard({ listing }) {
     window.location.href = "mailto:jkh.build@gmail.com";
   };
 
-  const handleLike = (e, listingId) => {
-    e.preventDefault();
-    setErrors([]);
+  let likeButtonShow;
+  if (sessionUser) {
+    likeButtonShow = <LikeButton listing={listing} sessionUser={sessionUser} />;
+  }
 
-    let listingLike = usersLikes.filter((like) => like.listingId === listingId);
+  // const handleLike = (e, listingId) => {
+  //   e.preventDefault();
+  //   setErrors([]);
 
-    if (listingLike.length === 0) {
-      dispatch(
-        LikeActions.createLike({
-          listingId,
-        })
-      ).catch(async (res) => {
-        let data;
-        try {
-          data = await res.clone().json();
-        } catch {
-          data = await res.text();
-        }
-        if (data?.errors) setErrors(data.errors);
-        else if (data) setErrors([data]);
-        else setErrors([res.statusText]);
-      });
-    } else {
-      dispatch(LikeActions.deleteLike(listingLike[0].id)).catch(async (res) => {
-        let data;
-        try {
-          data = await res.clone().json();
-        } catch {
-          data = await res.text();
-        }
-        if (data?.errors) setErrors(data.errors);
-        else if (data) setErrors([data]);
-        else setErrors([res.statusText]);
-      });
-    }
-  };
+  //   let listingLike = usersLikes.filter((like) => like.listingId === listingId);
+
+  //   if (listingLike.length === 0) {
+  //     dispatch(
+  //       LikeActions.createLike({
+  //         listingId,
+  //       })
+  //     ).catch(async (res) => {
+  //       let data;
+  //       try {
+  //         data = await res.clone().json();
+  //       } catch {
+  //         data = await res.text();
+  //       }
+  //       if (data?.errors) setErrors(data.errors);
+  //       else if (data) setErrors([data]);
+  //       else setErrors([res.statusText]);
+  //     });
+  //   } else {
+  //     dispatch(LikeActions.deleteLike(listingLike[0].id)).catch(async (res) => {
+  //       let data;
+  //       try {
+  //         data = await res.clone().json();
+  //       } catch {
+  //         data = await res.text();
+  //       }
+  //       if (data?.errors) setErrors(data.errors);
+  //       else if (data) setErrors([data]);
+  //       else setErrors([res.statusText]);
+  //     });
+  //   }
+  // };
 
   return (
     <>
@@ -77,12 +82,13 @@ function ListingCard({ listing }) {
               </button>
             </div>
             <div className="listing-card-header-right">
-              <button
+              <div>{likeButtonShow}</div>
+              {/* <button
                 className="listing-card-favorite"
                 onClick={(e) => handleLike(e, listing.id)}
               >
                 <i className="fa-regular fa-heart"></i>
-              </button>
+              </button> */}
             </div>
           </div>
           <div className="listing-card-body">
