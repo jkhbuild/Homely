@@ -9,11 +9,6 @@ function ListingCard({ listing }) {
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([]);
   const sessionUser = useSelector((state) => state.session.user);
-  // const usersLikes = useSelector(LikeActions.getLikes);
-
-  // useEffect(() => {
-  //   dispatch(LikeActions.fetchLikes(sessionUserId));
-  // }, [sessionUserId, dispatch]);
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -28,43 +23,6 @@ function ListingCard({ listing }) {
   if (sessionUser) {
     likeButtonShow = <LikeButton listing={listing} sessionUser={sessionUser} />;
   }
-
-  // const handleLike = (e, listingId) => {
-  //   e.preventDefault();
-  //   setErrors([]);
-
-  //   let listingLike = usersLikes.filter((like) => like.listingId === listingId);
-
-  //   if (listingLike.length === 0) {
-  //     dispatch(
-  //       LikeActions.createLike({
-  //         listingId,
-  //       })
-  //     ).catch(async (res) => {
-  //       let data;
-  //       try {
-  //         data = await res.clone().json();
-  //       } catch {
-  //         data = await res.text();
-  //       }
-  //       if (data?.errors) setErrors(data.errors);
-  //       else if (data) setErrors([data]);
-  //       else setErrors([res.statusText]);
-  //     });
-  //   } else {
-  //     dispatch(LikeActions.deleteLike(listingLike[0].id)).catch(async (res) => {
-  //       let data;
-  //       try {
-  //         data = await res.clone().json();
-  //       } catch {
-  //         data = await res.text();
-  //       }
-  //       if (data?.errors) setErrors(data.errors);
-  //       else if (data) setErrors([data]);
-  //       else setErrors([res.statusText]);
-  //     });
-  //   }
-  // };
 
   return (
     <>
@@ -83,12 +41,6 @@ function ListingCard({ listing }) {
             </div>
             <div className="listing-card-header-right">
               <div>{likeButtonShow}</div>
-              {/* <button
-                className="listing-card-favorite"
-                onClick={(e) => handleLike(e, listing.id)}
-              >
-                <i className="fa-regular fa-heart"></i>
-              </button> */}
             </div>
           </div>
           <div className="listing-card-body">
