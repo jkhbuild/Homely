@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState, useMemo } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as LikeActions from "../../store/likes";
+import LikeButton from "./LikeButton";
 
 function ListingCard({ listing }) {
   const history = useHistory();
