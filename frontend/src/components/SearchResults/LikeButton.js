@@ -23,6 +23,13 @@ function LikeButton({ listing, sessionUser }) {
     }
   };
 
+  let likeButtons;
+  if (isLiked(listing.id)) {
+    likeButtons = <i className="fa-regular fa-heart"></i>;
+  } else {
+    likeButtons = <i class="fa-solid fa-heart"></i>;
+  }
+
   const handleLike = (e, listingId) => {
     e.preventDefault();
     setErrors([]);
@@ -66,7 +73,7 @@ function LikeButton({ listing, sessionUser }) {
         className="listing-card-favorite"
         onClick={(e) => handleLike(e, listing.id)}
       >
-        <i className="fa-regular fa-heart"></i>
+        {likeButtons}
       </button>
     </>
   );
