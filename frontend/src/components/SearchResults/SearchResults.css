@@ -115,6 +115,10 @@
     color: #427b01
 }
 
+.listing-card-favorite i {
+    fill: #427b01;
+}
+
 .listing-card-body {
     display: flex;
     flex-direction: row;

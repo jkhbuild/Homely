@@ -14,9 +14,13 @@ function LikeButton({ listing, sessionUser }) {
     dispatch(LikeActions.fetchLikes(sessionUserId));
   }, [sessionUserId, dispatch]);
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    history.push(`/listings/${listing.id}/show`);
+  const isLiked = (listingId) => {
+    let listingLike = usersLikes.filter((like) => like.listingId === listingId);
+    if (listingLike.length === 0) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   const handleLike = (e, listingId) => {
@@ -25,7 +29,7 @@ function LikeButton({ listing, sessionUser }) {
 
     let listingLike = usersLikes.filter((like) => like.listingId === listingId);
 
-    if (listingLike.length === 0) {
+    if (isLiked(listingId)) {
       dispatch(
         LikeActions.createLike({
           listingId,
