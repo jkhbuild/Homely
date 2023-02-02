@@ -93,8 +93,6 @@ const ListingsMap = ({ listings }) => {
                     strokeColor: "white",
                     strokeWeight: 1,
                     scale: 6,
-                    // labelOrigin: new window.google.maps.Point(1.5, 1),
-                    // anchor: new window.google.maps.Point(1.5, 1),
                   }}
                   onClick={() => onSelect(listing)}
                 />
@@ -108,9 +106,6 @@ const ListingsMap = ({ listings }) => {
                 onCloseClick={() => setSelected({})}
               >
                 <div>
-                  {/* <a href={`/listings/` + selected.id + "/show"}>
-                    {selected.name}
-                  </a> */}
                   <button className="infowindow-url" onClick={handleClick}>
                     {selected.name}
                   </button>
