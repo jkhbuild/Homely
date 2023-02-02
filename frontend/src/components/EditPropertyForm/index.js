@@ -20,31 +20,9 @@ function EditPropertyForm() {
   const { listingId } = useParams();
   const listing = useSelector(PropertyActions.getListing(listingId));
 
-  const config = {
-    bucketName: "homely-dev",
-    dirName: "Uploads",
-    region: "us-east-1",
-    accessKeyId: "homely-dev",
-    secretAccessKey: process.env.REACT_APP_AWS_KEY,
-  };
-
-  // if (!listing.photosUrl) {
-  //   listing.photos.attach((('https://homely-dev.s3.amazonaws.com/Stock+Photos/photo4.jpeg'), filename: 'photo4.jpeg'))
-  // }
-
   useEffect(() => {
     dispatch(PropertyActions.fetchListing(listingId));
   }, [listingId, dispatch]);
-
-  // const upload = (e) => {
-  //   S3FileUpload.uploadFile(e.target.files[0], config)
-  //     .then((data) => {
-  //       console.log(data.location);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
