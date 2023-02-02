@@ -58,8 +58,6 @@ function ListingCard({ listing }) {
                 {" "}
                 {listing.propertyType} for Rent{" "}
               </h4>
-              {/* <p>{listing.beds} Beds</p>
-          <p>{listing.propertyType} for Rent</p> */}
               <button className="listing-card-button" onClick={handleEmail}>
                 Email
               </button>
