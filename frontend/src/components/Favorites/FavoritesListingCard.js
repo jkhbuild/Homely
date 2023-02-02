@@ -5,7 +5,6 @@ import * as LikeActions from "../../store/likes";
 import * as PropertyActions from "../../store/listings";
 
 function FavoritesListingCard({ listingId, likeId }) {
-  // const history = useHistory();
   const dispatch = useDispatch();
   const listing = useSelector(PropertyActions.getListing(listingId));
   const [errors, setErrors] = useState([]);
