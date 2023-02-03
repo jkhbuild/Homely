@@ -3,8 +3,6 @@ import { Modal } from "../../context/Modal";
 import SignUpForm from "./SignUpForm";
 
 function SignUpFormModal({ showSignin, showSignup, signupModal }) {
-  const [showModal, setShowModal] = useState(false);
-
   return (
     <>
       <button className="auth-buttons" onClick={() => showSignup(true)}>
