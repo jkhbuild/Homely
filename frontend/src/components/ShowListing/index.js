@@ -13,10 +13,6 @@ function ShowListing() {
     dispatch(PropertyActions.fetchListing(listingId));
   }, [listingId, dispatch]);
 
-  // const handleClick = (e) => {
-  //   e.preventDefault();
-  //   console.log(listing);
-  // };
   return (
     <div>
       <div className="showlisting-main-container">
