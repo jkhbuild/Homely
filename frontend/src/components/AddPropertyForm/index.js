@@ -19,9 +19,7 @@ function AddPropertyForm() {
   const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");
   const [errors, setErrors] = useState([]);
-  // const listing = useSelector((state) =>
-  //   // state.listings[listingId] ? state.listings[listingId] : {}
-  // );
+
 
   const findLatLng = () => {
     Geocode.setApiKey(process.env.REACT_APP_GEOCODING_API_KEY);
