@@ -9,10 +9,6 @@ function SearchBar() {
   const history = useHistory();
   const [searchInput, setSearchInput] = useState("");
 
-  // useEffect(() => {
-  //   dispatch(propertyActions.fetchListings());
-  // }, [dispatch]);
-
   const handleClick = (e) => {
     e.preventDefault();
     console.log("test", searchInput);
@@ -27,7 +23,6 @@ function SearchBar() {
 
   return (
     <section>
-      {/* <div className="splash-container"> */}
       <div className="splash-main-container">
         <div className="header-container">
           <h1 className="search-bar-header1">Discover Your New Home</h1>
@@ -51,7 +46,6 @@ function SearchBar() {
           </button>
         </div>
       </div>
-      {/* </div> */}
     </section>
   );
 }
