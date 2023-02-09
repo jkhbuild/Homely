@@ -2,11 +2,6 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 function SplashListingCards({ listings }) {
-  // const dispatch = useDispatch;
-  // useEffect(() => {
-  //   dispatch(propertyActions.fetchListing(listingId));
-  // }, [dispatch]);
-  // const listing = useSelector(propertyActions.getListing(listingId));
   const history = useHistory();
   const randomCities = [];
   if (listings && listings.length > 1) {
