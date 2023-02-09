@@ -1,8 +1,6 @@
-import React, { useEffect, useState, useMemo } from "react";
-import { useHistory, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useHistory } from "react-router-dom";
 import GoogleStaticMap from "react-google-static";
-import * as propertyActions from "../../store/listings";
 
 function UserShowListingCard({ listing }) {
   const history = useHistory();
