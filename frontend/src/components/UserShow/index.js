@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import * as PropertyActions from "../../store/listings";
 import UserShowListingCard from "./UserShowListingCard";
 import "./UserShow.css";
