@@ -21,5 +21,8 @@
   "homepage": "https://github.com/jkhbuild/Homely#readme",
   "engines": {
     "node": "16.x"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.2"
   }
 }
